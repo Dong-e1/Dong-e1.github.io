@@ -50,7 +50,7 @@
 <h4 id="2-1-1-分支细分"><a href="#2-1-1-分支细分" class="headerlink" title="2.1.1 分支细分"></a>2.1.1 分支细分</h4><ol>
 <li><p>主分支（master）：第一次向 git 仓库中提交更新记录时自动产生的一个分支。</p>
 </li>
-<li><p>、开发分支（develop）：作为开发的分支，基于 master 分支创建。</p>
+<li><p>开发分支（develop）：作为开发的分支，基于 master 分支创建。</p>
 </li>
 <li><p>功能分支（feature）：作为开发具体功能的分支，基于开发分支创建</p>
 </li>
