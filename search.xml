@@ -1,6 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Front-matter设置</title>
+    <url>/2021/05/21/Front-matter/</url>
+    <content><![CDATA[<h2 id="Page-Front-matter"><a href="#Page-Front-matter" class="headerlink" title="Page Front-matter"></a>Page Front-matter</h2><figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">date:</span><br><span class="line">updated:</span><br><span class="line">type:</span><br><span class="line">comments:</span><br><span class="line">description:</span><br><span class="line">keywords:</span><br><span class="line">top<span class="emphasis">_img:</span></span><br><span class="line"><span class="emphasis">mathjax:</span></span><br><span class="line"><span class="emphasis">katex:</span></span><br><span class="line"><span class="emphasis">aside:</span></span><br><span class="line"><span class="emphasis">aplayer:</span></span><br><span class="line"><span class="emphasis">highlight_</span>shrink:</span><br><span class="line">---</span><br></pre></td></tr></tbody></table></figure>
+<table>
+<thead>
+<tr>
+<th>写法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>【必需】页面标题</td>
+</tr>
+<tr>
+<td>date</td>
+<td>【必需】页面创建日期</td>
+</tr>
+<tr>
+<td>type</td>
+<td>【必需】标签、分类和友情链接三个页面需要配置</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>【可选】页面更新日期</td>
+</tr>
+<tr>
+<td>description</td>
+<td>【可选】页面描述</td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>【可选】页面关键字</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>【可选】显示页面评论模块(默认 true)</td>
+</tr>
+<tr>
+<td>top_img</td>
+<td>【可选】页面顶部图片</td>
+</tr>
+<tr>
+<td>mathjax</td>
+<td>【可选】显示mathjax(当设置mathjax的per_page: false时，才需要配置，默认 false)</td>
+</tr>
+<tr>
+<td>katex</td>
+<td>【可选】显示katex(当设置katex的per_page: false时，才需要配置，默认 false)</td>
+</tr>
+<tr>
+<td>aside</td>
+<td>【可选】显示侧边栏 (默认 true)</td>
+</tr>
+<tr>
+<td>aplayer</td>
+<td>【可选】在需要的页面加载aplayer的js和css,请参考文章下面的<code>音乐</code> 配置</td>
+</tr>
+<tr>
+<td>highlight_shrink</td>
+<td>【可选】配置代码框是否展开(true/false)(默认为设置中highlight_shrink的配置)</td>
+</tr>
+</tbody></table>
+<h2 id="Post-Front-matter"><a href="#Post-Front-matter" class="headerlink" title="Post Front-matter"></a>Post Front-matter</h2><figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">date:</span><br><span class="line">updated:</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">keywords:</span><br><span class="line">description:</span><br><span class="line">top<span class="emphasis">_img:</span></span><br><span class="line"><span class="emphasis">comments:</span></span><br><span class="line"><span class="emphasis">cover:</span></span><br><span class="line"><span class="emphasis">toc:</span></span><br><span class="line"><span class="emphasis">toc_</span>number:</span><br><span class="line">copyright:</span><br><span class="line">copyright<span class="emphasis">_author:</span></span><br><span class="line"><span class="emphasis">copyright_</span>author<span class="emphasis">_href:</span></span><br><span class="line"><span class="emphasis">copyright_</span>url:</span><br><span class="line">copyright<span class="emphasis">_info:</span></span><br><span class="line"><span class="emphasis">mathjax:</span></span><br><span class="line"><span class="emphasis">katex:</span></span><br><span class="line"><span class="emphasis">aplayer:</span></span><br><span class="line"><span class="emphasis">highlight_</span>shrink:</span><br><span class="line"><span class="section">aside:</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></tbody></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>写法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>【必需】文章标题</td>
+</tr>
+<tr>
+<td>date</td>
+<td>【必需】文章创建日期</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>【可选】文章更新日期</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>【可选】文章标籤</td>
+</tr>
+<tr>
+<td>categories</td>
+<td>【可选】文章分类</td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>【可选】文章关键字</td>
+</tr>
+<tr>
+<td>description</td>
+<td>【可选】文章描述</td>
+</tr>
+<tr>
+<td>top_img</td>
+<td>【可选】文章顶部图片</td>
+</tr>
+<tr>
+<td>cover</td>
+<td>【可选】文章缩略图(如果没有设置top_img,文章页顶部将显示缩略图，可设为false/图片地址/留空)</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>【可选】显示文章评论模块(默认 true)</td>
+</tr>
+<tr>
+<td>toc</td>
+<td>【可选】显示文章TOC(默认为设置中toc的enable配置)</td>
+</tr>
+<tr>
+<td>toc_number</td>
+<td>【可选】显示toc_number(默认为设置中toc的number配置)</td>
+</tr>
+<tr>
+<td>copyright</td>
+<td>【可选】显示文章版权模块(默认为设置中post_copyright的enable配置)</td>
+</tr>
+<tr>
+<td>copyright_author</td>
+<td>【可选】文章版权模块的文章作者</td>
+</tr>
+<tr>
+<td>copyright_author_href</td>
+<td>【可选】文章版权模块的文章作者链接</td>
+</tr>
+<tr>
+<td>copyright_url</td>
+<td>【可选】文章版权模块的文章连结链接</td>
+</tr>
+<tr>
+<td>copyright_info</td>
+<td>【可选】文章版权模块的版权声明文字</td>
+</tr>
+<tr>
+<td>mathjax</td>
+<td>【可选】显示mathjax(当设置mathjax的per_page: false时，才需要配置，默认 false)</td>
+</tr>
+<tr>
+<td>katex</td>
+<td>【可选】显示katex(当设置katex的per_page: false时，才需要配置，默认 false)</td>
+</tr>
+<tr>
+<td>aplayer</td>
+<td>【可选】在需要的页面加载aplayer的js和css,请参考文章下面的音乐 配置</td>
+</tr>
+<tr>
+<td>highlight_shrink</td>
+<td>【可选】配置代码框是否展开(true/false)(默认为设置中highlight_shrink的配置)</td>
+</tr>
+<tr>
+<td>aside</td>
+<td>【可选】显示侧边栏 (默认 true)</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>markdown</category>
+      </categories>
+      <tags>
+        <tag>butterfly</tag>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git基础用法</title>
     <url>/2021/05/20/Git/</url>
     <content><![CDATA[<h1 id="一-关于Git"><a href="#一-关于Git" class="headerlink" title="一.关于Git"></a>一.关于Git</h1><h2 id="1-Git基础"><a href="#1-Git基础" class="headerlink" title="1. Git基础"></a>1. Git基础</h2><h3 id="1-4-Git-基本工作流程"><a href="#1-4-Git-基本工作流程" class="headerlink" title="1.4 Git 基本工作流程"></a>1.4 Git 基本工作流程</h3><table>
@@ -120,6 +291,147 @@
       </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown基本语法</title>
+    <url>/2021/05/21/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<div class="note info no-icon flat"><p><strong>Markdown</strong>是一种<strong>纯文本格式的轻量级标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式</strong>。这是一种14年前由作家和程序员<mark class="hl-label blue">John</mark>  <mark class="hl-label blue">Gruber</mark> 创建的文本编辑语言，Markdown的核心是Web发布所需的HTML代码的简写。当前许多网站都广泛使用Markdown来撰写帮助文档或者发布消息再或者发布博客，比如：<mark class="hl-label red">Github</mark> 、<mark class="hl-label red">CSDN博客</mark> 、<mark class="hl-label red">简书</mark> 、<mark class="hl-label red">Hexo</mark> 等。</p>
+</div>
+
+<hr>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>只要在文字前面加#，即可把这段文字设置为标题。<strong>一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。</strong></p>
+<div class="note warning no-icon flat"><p>注：<strong>标准语法一般在#后跟个空格再写文字</strong>，虽然现在某些markdown编辑器不用空格也可以，但是最好还是按照标准语法来。比如Typora编辑器中不空格就不会生成标题的样式。</p>
+</div>
+
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section"># 这是一级标题</span></span><br><span class="line"><span class="section">## 这是二级标题</span></span><br><span class="line"><span class="section">### 这是三级标题</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="字体样式"><a href="#字体样式" class="headerlink" title="字体样式"></a>字体样式</h2><p>在写具体内容的时候，可能需要对某些内容显示不一样的样式，以用于特别标注。那么Markdown支持以下四种样式：</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="strong">**加粗效果**</span></span><br><span class="line"><span class="emphasis">*斜体效果*</span></span><br><span class="line"><span class="strong">**<span class="emphasis">*斜体加粗效果<span class="strong">**<span class="emphasis">*</span></span></span></span></span><br><span class="line"><span class="emphasis"><span class="strong"><span class="emphasis"><span class="strong">~~删除效果~~</span></span></span></span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<ul>
+<li>加粗          <strong>要加粗的文字左右分别用两个*号即可</strong>            =&gt;               <strong>加粗效果</strong></li>
+<li>斜体          <strong>要倾斜的文字左右分别用一个*号即可</strong>             =&gt;               <em>斜体效果</em></li>
+<li>斜体加粗  <strong>要倾斜和加粗的文字左右分别用三个*号即可</strong>   =&gt;              <em><strong>斜体加粗效果</strong></em></li>
+<li>删除线      <strong>要加删除线的文字左右分别用两个~号即可</strong>       =&gt;             <del>删除效果</del></li>
+</ul>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在需要设为引用的文字前面加上&gt;即可，引用也支持嵌套，如下：</p>
+<ul>
+<li>&gt;  对应的是一级引用</li>
+<li>&gt;&gt; 对应的是二级引用</li>
+<li>以此类推</li>
+</ul>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="quote">&gt; 一级引用</span></span><br><span class="line">&gt;&gt; 二级引用</span><br><span class="line">&gt;&gt;&gt; 三级引用</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<blockquote>
+<p>一级引用</p>
+<blockquote>
+<p>二级引用</p>
+<blockquote>
+<p>三级引用</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>一行连用三个或者**三个以上的星号*，减号-，或者下划线_**，就可以表示分割线。</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section"><span class="strong">**<span class="emphasis">*</span></span></span></span><br><span class="line"><span class="emphasis"><span class="strong"><span class="section">---</span></span></span></span><br><span class="line"><span class="emphasis"><span class="strong"><span class="section"><span class="strong">__<span class="emphasis">_</span></span></span></span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>在Markdown中插入图片的语法如下</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">图片链接 "optional title"</span>)</span><br><span class="line"></span><br><span class="line">Alt text：图片的Alt标签，用来描述图片的关键词，可以不写。最初的本意是当图片因为某种原因不能被显示时而出现的替代文字，后来又被用于SEO，可以方便搜索引擎根据Alt text里面的关键词搜索到图片。</span><br><span class="line">图片链接：可以是图片的本地地址或者是网址。</span><br><span class="line">"optional title"：鼠标悬置于图片上会出现的标题文字，可以不写。</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="超链接形式"><a href="#超链接形式" class="headerlink" title="超链接形式"></a>超链接形式</h3><p>只需要在基础语法的括号中填入图片的网络链接即可，现在已经有很多免费/收费图床和方便传图的小工具可选。</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">![](https://www.baidu.com/img/bd<span class="emphasis">_logo1.png?where=super)</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="本地图片"><a href="#本地图片" class="headerlink" title="本地图片"></a>本地图片</h3><p>只需要在基础语法的括号中填入图片的位置路径即可，支持绝对路径和相对路径。</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">![<span class="string">avatar</span>](<span class="link">/home/picture/1.png</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="把图片存入markdown文件"><a href="#把图片存入markdown文件" class="headerlink" title="把图片存入markdown文件"></a>把图片存入markdown文件</h3><p>用base64转码工具把图片转成一段字符串，然后把字符串填到基础格式中链接的那个位置。</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">基础用法：</span><br><span class="line">![<span class="string">avatar</span>](<span class="link">data:image/png;base64,iVBORw0......</span>)</span><br><span class="line">这个时候会发现插入的这一长串字符串会把整个文章分割开，非常影响编写文章时的体验。如果能够把大段的base64字符串放在文章末尾，然后在文章中通过一个id来调用，文章就不会被分割的这么乱了。</span><br><span class="line"></span><br><span class="line">高级用法</span><br><span class="line">比如：</span><br><span class="line">![<span class="string">avatar</span>][<span class="symbol">base64str</span>]</span><br><span class="line">[<span class="symbol">base64str</span>]:<span class="link">data:image/png;base64,iVBORw0..... </span></span><br></pre></td></tr></tbody></table></figure>
+
+<div class="note danger no-icon flat"><p>这种方法我没试过，也不推荐。</p>
+</div>
+
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>Markdown还支持超链接，语法格式如下：</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">[<span class="string">超链接名</span>](<span class="link">超链接地址 "超链接title"</span>)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">[<span class="string">东阿的博客</span>](<span class="link">dong-e1.github.io</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><a href="dong-e1.github.io">东阿的博客</a></p>
+<p>上面语法中[]中的内容为超链接名，那么[]其实可以不用文字，可以换成一张图片，如下</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">![<span class="string">[东阿的博客</span>](<span class="link">dong-e1.github.io</span>)](<span class="link">/img/Dong_e.jpeg</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="/img/Dong_e.jpeg" alt="[东阿的博客](dong-e1.github.io)"></p>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>Markdown最让人喜欢的一点就是支持代码高亮，并且支持数几十种语言的高亮，语法格式很简单，如下</p>
+<ul>
+<li><p>`代码内容`</p>
+<p>适用场景是比如你需要在一段文字中加入一小行代码,那么在两个之间`插入代码即可。</p>
+</li>
+<li><p>```语言名</p>
+<p>具体代码</p>
+<p>```</p>
+<p>适用场景是单独的贴上一整段代码，那么在三个`之间插入代码即可。</p>
+</li>
+</ul>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>在阐述分点的时候使用列表的形式会更加直观，Markdown支持有序和无序两种列表形式</p>
+<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>在需要作为列表条目的文字前面加上数字和点，<strong>并且点和后面的内容要有一个空格即可</strong>，如<code>1. 列表条目</code></p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 嘿！这个博客不错!</span><br><span class="line"><span class="bullet">2.</span> 嘿！这个博客不错!</span><br><span class="line"><span class="bullet">3.</span> 嘿！这个博客不错!</span><br></pre></td></tr></tbody></table></figure>
+
+<ol>
+<li> 嘿！这个博客不错!</li>
+<li> 嘿！这个博客不错!</li>
+<li> 嘿！这个博客不错!</li>
+</ol>
+<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>在需要作为列表条目的文字前面加上-+*这些符号中的任何一种，<strong>并且内容和符号之间要有一个空格</strong>，如<code>- 列表条目</code></p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 嘿！这个博客不错!</span><br><span class="line"><span class="bullet">+</span> 嘿！这个博客不错!</span><br><span class="line"><span class="bullet">*</span> 嘿！这个博客不错!</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>嘿！这个博客不错!</li>
+</ul>
+<ul>
+<li>嘿！这个博客不错!</li>
+</ul>
+<ul>
+<li>嘿！这个博客不错!</li>
+</ul>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>Markdown还支持插入表格，语法如下</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">|表头|表头|表头|</span><br><span class="line">|-|:-:|-:|</span><br><span class="line">|内容|内容|内容|</span><br><span class="line">|内容|内容|内容|</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容,同时也是表格居中居左居右的定义：</span><br><span class="line">-符号有一个就行，多个也可以，只有-符号的话默认是居左</span><br><span class="line">-符号两边加：表示文字居中</span><br><span class="line">-符号右边加：表示文字居右</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">| 博客 | 好感度 | 点赞数 | 好评数 |</span><br><span class="line">| - | :-: | -: |:-|</span><br><span class="line">| 东阿 | 99+ | 99+ | 99+ |</span><br><span class="line">| 东阿 | 99+ | 99+ | 99+ |</span><br></pre></td></tr></tbody></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>博客</th>
+<th align="center">好感度</th>
+<th align="right">点赞数</th>
+<th align="left">好评数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>东阿</td>
+<td align="center">99+</td>
+<td align="right">99+</td>
+<td align="left">99+</td>
+</tr>
+<tr>
+<td>东阿</td>
+<td align="center">99+</td>
+<td align="right">99+</td>
+<td align="left">99+</td>
+</tr>
+</tbody></table>
+<h2 id="数学公式插入"><a href="#数学公式插入" class="headerlink" title="数学公式插入"></a>数学公式插入</h2>]]></content>
+      <categories>
+        <category>markdown</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
