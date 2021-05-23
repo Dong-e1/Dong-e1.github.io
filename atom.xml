@@ -40,7 +40,7 @@
     <link href="http://dong-e1.github.io/2021/05/21/NodeJs%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
     <id>http://dong-e1.github.io/2021/05/21/NodeJs%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</id>
     <published>2021-05-21T02:30:20.000Z</published>
-    <updated>2021-05-23T04:14:48.743Z</updated>
+    <updated>2021-05-23T06:11:47.635Z</updated>
     
     
     <summary type="html">关于node的安装配置</summary>
@@ -53,6 +53,27 @@
     <category term="node" scheme="http://dong-e1.github.io/tags/node/"/>
     
     <category term="软件安装" scheme="http://dong-e1.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于标签外挂的使用</title>
+    <link href="http://dong-e1.github.io/2021/05/21/%E5%85%B3%E4%BA%8E%E6%A0%87%E7%AD%BE%E5%A4%96%E6%8C%82%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://dong-e1.github.io/2021/05/21/%E5%85%B3%E4%BA%8E%E6%A0%87%E7%AD%BE%E5%A4%96%E6%8C%82%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <published>2021-05-21T05:30:20.000Z</published>
+    <updated>2021-05-23T08:21:30.452Z</updated>
+    
+    
+    <summary type="html">适用于butterfly主题的一些标签用法，可以美化自己的文章</summary>
+    
+    
+    
+    <category term="markdown" scheme="http://dong-e1.github.io/categories/markdown/"/>
+    
+    
+    <category term="butterfly" scheme="http://dong-e1.github.io/tags/butterfly/"/>
+    
+    <category term="markdown" scheme="http://dong-e1.github.io/tags/markdown/"/>
     
   </entry>
   

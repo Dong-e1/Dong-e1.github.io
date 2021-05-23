@@ -1,231 +1,156 @@
-<?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>Git基础用法</title>
-    <url>/2021/05/20/Git/</url>
-    <content><![CDATA[<h1 id="一-关于Git"><a href="#一-关于Git" class="headerlink" title="一.关于Git"></a>一.关于Git</h1><h2 id="1-Git基础"><a href="#1-Git基础" class="headerlink" title="1. Git基础"></a>1. Git基础</h2><h3 id="1-4-Git-基本工作流程"><a href="#1-4-Git-基本工作流程" class="headerlink" title="1.4 Git 基本工作流程"></a>1.4 Git 基本工作流程</h3><table>
-<thead>
-<tr>
-<th>git仓库</th>
-<th>暂存区</th>
-<th>工作目录</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>用于存放提交记录</td>
-<td>临时存放被修改文件</td>
-<td>被Git管理的项目目录</td>
-</tr>
-</tbody></table>
-<h3 id="1-5-Git-的使用"><a href="#1-5-Git-的使用" class="headerlink" title="1.5 Git 的使用"></a>1.5 Git 的使用</h3><h4 id="1-5-1-Git-使用前配置"><a href="#1-5-1-Git-使用前配置" class="headerlink" title="1.5.1 Git 使用前配置"></a>1.5.1 Git 使用前配置</h4><p>在使用 git 前，需要告诉 git 你是谁，在向 git 仓库中提交时需要用到。</p>
-<ol>
-<li>配置提交人姓名：<code>git config --global user.name 提交人姓名</code></li>
-<li>配置提交人姓名：<code>git config --global user.email 提交人邮箱</code> </li>
-<li>查看git配置信息：<code>git config --list</code>   </li>
-</ol>
-<p><strong>注意</strong></p>
-<ol>
-<li><p>如果要对配置信息进行修改，重复上述命令即可。</p>
-</li>
-<li><p>配置只需要执行一次。</p>
-</li>
-</ol>
-<h4 id="1-5-2-提交步骤"><a href="#1-5-2-提交步骤" class="headerlink" title="1.5.2 提交步骤"></a>1.5.2 提交步骤</h4><ol>
-<li><code>git init</code> 初始化git仓库</li>
-<li><code>git status</code> 查看文件状态</li>
-<li><code>git add 文件列表</code> 追踪文件</li>
-<li><code>git commit -m 提交信息</code>  向仓库中提交代码</li>
-<li><code>git log</code> 查看提交记录</li>
-</ol>
-<h4 id="1-5-3-撤销"><a href="#1-5-3-撤销" class="headerlink" title="1.5.3 撤销"></a>1.5.3 撤销</h4><ul>
-<li><p>用暂存区中的文件覆盖工作目录中的文件： <code>git checkout 文件</code></p>
-</li>
-<li><p>将文件从暂存区中删除： <code>git rm --cached 文件</code></p>
-</li>
-<li><p>将 git 仓库中指定的更新记录恢复出来，并且覆盖暂存区和工作目录：<code>git rest --hard commitID</code> </p>
-</li>
-</ul>
-<h2 id="2-Git进阶"><a href="#2-Git进阶" class="headerlink" title="2. Git进阶"></a>2. Git进阶</h2><h3 id="2-1-分支"><a href="#2-1-分支" class="headerlink" title="2.1 分支"></a>2.1 分支</h3><p>为了便于理解，大家暂时可以认为分支就是当前工作目录中代码的一份副本。</p>
-<p>使用分支，可以让我们从开发主线上分离出来，以免影响开发主线。</p>
-<h4 id="2-1-1-分支细分"><a href="#2-1-1-分支细分" class="headerlink" title="2.1.1 分支细分"></a>2.1.1 分支细分</h4><ol>
-<li><p>主分支（master）：第一次向 git 仓库中提交更新记录时自动产生的一个分支。</p>
-</li>
-<li><p>开发分支（develop）：作为开发的分支，基于 master 分支创建。</p>
-</li>
-<li><p>功能分支（feature）：作为开发具体功能的分支，基于开发分支创建</p>
-</li>
-</ol>
-<p><strong>功能分支 -&gt; 开发分支 -&gt; 主分支</strong></p>
-<h4 id="2-1-2-分支命令"><a href="#2-1-2-分支命令" class="headerlink" title="2.1.2 分支命令"></a>2.1.2 分支命令</h4><ul>
-<li><p><code>git branch</code> 查看分支</p>
-</li>
-<li><p><code>git branch 分支名称</code> 创建分支</p>
-</li>
-<li><p><code>git checkout 分支名称</code> 切换分支</p>
-</li>
-<li><p><code>git merge 来源分支</code> 合并分支</p>
-</li>
-<li><p><code>git branch -d 分支名称</code> 删除分支（分支被合并后才允许删除）（-D 强制删除）</p>
-</li>
-</ul>
-<h3 id="2-2-暂时保存更改"><a href="#2-2-暂时保存更改" class="headerlink" title="2.2 暂时保存更改"></a>2.2 暂时保存更改</h3><p>在git中，可以暂时提取分支上所有的改动并存储，让开发人员得到一个干净的工作副本，临时转向其他工作。</p>
-<p>使用场景：分支临时切换</p>
-<ul>
-<li>存储临时改动：<code>git stash</code></li>
-<li>恢复改动：<code>git stash pop</code></li>
-</ul>
-<h2 id="3-Github"><a href="#3-Github" class="headerlink" title="3. Github"></a>3. Github</h2><p>在版本控制系统中，大约90%的操作都是在本地仓库中进行的：暂存，提交，查看状态或者历史记录等等。除此之外，如果仅仅只有你一个人在这个项目里工作，你永远没有机会需要设置一个远程仓库。</p>
-<p>只有当你需要和你的开发团队共享数据时，设置一个远程仓库才有意义。你可以把它想象成一个 “文件管理服务器”，利用这个服务器可以与开发团队的其他成员进行数据交换。</p>
-<h3 id="3-2-多人协作开发流程"><a href="#3-2-多人协作开发流程" class="headerlink" title="3.2 多人协作开发流程"></a>3.2 多人协作开发流程</h3><ul>
-<li>A在自己的计算机中创建本地仓库</li>
-<li>A在github中创建远程仓库</li>
-<li>A将本地仓库推送到远程仓库</li>
-<li>B克隆远程仓库到本地进行开发</li>
-<li>B将本地仓库中开发的内容推送到远程仓库</li>
-<li>A将远程仓库中的最新内容拉去到本地</li>
-</ul>
-<h3 id="3-3-创建仓库"><a href="#3-3-创建仓库" class="headerlink" title="3.3 创建仓库"></a>3.3 创建仓库</h3><ol>
-<li><p>git push 远程仓库地址 分支名称</p>
-</li>
-<li><p>git push 远程仓库地址别名 分支名称</p>
-</li>
-<li><p>git push -u 远程仓库地址别名 分支名称</p>
-<p> -u 记住推送地址及分支，下次推送只需要输入git push即可</p>
-</li>
-<li><p>git remote add 远程仓库地址别名 远程仓库地址</p>
-</li>
-</ol>
-<h3 id="3-4-拉取操作"><a href="#3-4-拉取操作" class="headerlink" title="3.4 拉取操作"></a>3.4 拉取操作</h3><h4 id="3-4-1-克隆仓库"><a href="#3-4-1-克隆仓库" class="headerlink" title="3.4.1 克隆仓库"></a>3.4.1 克隆仓库</h4><p>克隆远端数据仓库到本地：<code>git clone 仓库地址</code></p>
-<h4 id="3-4-2-拉取远程仓库中最新的版本"><a href="#3-4-2-拉取远程仓库中最新的版本" class="headerlink" title="3.4.2 拉取远程仓库中最新的版本"></a>3.4.2 拉取远程仓库中最新的版本</h4><p>拉取远程仓库中最新的版本：<code>git pull 远程仓库地址 分支名称</code></p>
-<h3 id="3-5-解决冲突"><a href="#3-5-解决冲突" class="headerlink" title="3.5 解决冲突"></a>3.5 解决冲突</h3><p>在多人同时开发一个项目时，如果两个人修改了同一个文件的同一个地方，就会发生冲突。冲突需要人为解决。</p>
-<h3 id="3-6-跨团队协作"><a href="#3-6-跨团队协作" class="headerlink" title="3.6 跨团队协作"></a>3.6 跨团队协作</h3><ol>
-<li>程序员 C fork仓库</li>
-<li>程序员 C 将仓库克隆在本地进行修改</li>
-<li>程序员 C 将仓库推送到远程</li>
-<li>程序员 C 发起pull reqest</li>
-<li>原仓库作者审核</li>
-<li>原仓库作者合并代码</li>
-</ol>
-<h3 id="3-7-ssh免登陆"><a href="#3-7-ssh免登陆" class="headerlink" title="3.7 ssh免登陆"></a>3.7 ssh免登陆</h3><p>https协议仓库地址：<a href="https://github.com/itcast-frontEnd/git-demo.git">https://github.com/itcast-frontEnd/git-demo.git</a></p>
-<p>生成秘钥：<code>ssh-keygen</code></p>
-<p>秘钥存储目录：C:\Users\用户\.ssh</p>
-<p>公钥名称：id_rsa.pub</p>
-<p>私钥名称：id_rsa</p>
-<h3 id="3-8-GIT忽略清单"><a href="#3-8-GIT忽略清单" class="headerlink" title="3.8 GIT忽略清单"></a>3.8 GIT忽略清单</h3><p>将不需要被git管理的文件名字添加到此文件中，在执行git命令的时候，git就会忽略这些文件。</p>
-<p>git忽略清单文件名称：**.gitignore**</p>
-<p>将工作目录中的文件全部添加到暂存区：<code>git add .</code></p>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NodeJs的安装配置</title>
-    <url>/2021/05/21/NodeJs%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h2 id="1-软件下载"><a href="#1-软件下载" class="headerlink" title="1.软件下载"></a>1.软件下载</h2><p><strong><mark class="hl-label red">[下载官网地址]：</mark> </strong><a class="btn-beautify button--animated larger" href="https://nodejs.org/en/download/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a></p>
-<div class="note primary flat"><p>下载首选文件后缀为.msi文件的安装包</p>
-</div>
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>关于标签外挂的使用 | 东阿的博客</title><meta name="keywords" content="butterfly,markdown,主题"><meta name="author" content="东阿"><meta name="copyright" content="东阿"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="适用于butterfly主题的一些标签用法，可以美化自己的文章">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于标签外挂的使用">
+<meta property="og:url" content="http://dong-e1.github.io/2021/05/21/%E5%85%B3%E4%BA%8E%E6%A0%87%E7%AD%BE%E5%A4%96%E6%8C%82%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="东阿的博客">
+<meta property="og:description" content="适用于butterfly主题的一些标签用法，可以美化自己的文章">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Dong-e1/cdn@latest/img/custom/1.1.jpg">
+<meta property="article:published_time" content="2021-05-21T05:30:20.000Z">
+<meta property="article:modified_time" content="2021-05-23T08:21:30.452Z">
+<meta property="article:author" content="东阿">
+<meta property="article:tag" content="butterfly">
+<meta property="article:tag" content="markdown">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Dong-e1/cdn@latest/img/custom/1.1.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="http://dong-e1.github.io/2021/05/21/%E5%85%B3%E4%BA%8E%E6%A0%87%E7%AD%BE%E5%A4%96%E6%8C%82%E7%9A%84%E4%BD%BF%E7%94%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":100},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '关于标签外挂的使用',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-05-23 16:21:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-<h2 id="2-软件介绍"><a href="#2-软件介绍" class="headerlink" title="2.软件介绍"></a>2.软件介绍</h2><p><strong><mark class="hl-label blue">Node.js</mark> </strong> 是一个基于Chrome V8引擎的JavaScript运行环境，让JavaScript运行在服务端的开发平台，使JavaScript成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言。Node 使用事件驱动，非阻塞I/O 模型而得以轻量和高效，非常适合在分布式设备上运行数据密集型的实时应用。</p>
-<h2 id="3-软件安装"><a href="#3-软件安装" class="headerlink" title="3.软件安装"></a>3.软件安装</h2><div class="note flat"><p>1.点击下载的.msi文件进行安装</p>
-</div>
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-<img src="\img\md\node安装配置\安装.png" alt="I accept the" style="zoom: 67%;">
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-<div class="note flat"><p>2.一直点击Next，遇到【I accept the…】则勾选继续Next，遇到【Change…】则更改安装路径，不建议C盘</p>
-</div>
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-<img src="\img\md\node安装配置\I accept the.png" alt="I accept the" style="zoom: 67%;">
-
-<img src="\img\md\node安装配置\Change.png" alt="Change" style="zoom:67%;">
-
-<div class="note flat"><p>3.一直Next，然后点击Install进行安装。</p>
-</div>
-
-<h2 id="4-软件检测"><a href="#4-软件检测" class="headerlink" title="4.软件检测"></a>4.软件检测</h2><p>在键盘按下【win+R】键，输入cmd，然后回车，打开cmd窗口</p>
-<img src="\img\md\node安装配置\cmd.webp" alt="cmd" style="zoom: 67%;">
-
-<p>按下图分别输入<code>node -v</code>和<code>npm -v</code>进行检测，出现版本号则说明安装成功</p>
-<img src="\img\md\node安装配置\检测.png" alt="I accept the" style="zoom: 100%;">
-
-<h2 id="5-Node配置"><a href="#5-Node配置" class="headerlink" title="5.Node配置"></a>5.Node配置</h2><div class="note warning no-icon flat"><p>说明：这里的环境配置主要配置的是npm安装的全局模块所在的路径，以及缓存cache的路径，之所以要配置，是因为以后在执行类似：npm install express [-g] （后面的可选参数-g，g代表global全局安装的意思）的安装语句时，默认会将安装的模块安装到【C:\Users\用户名\AppData\Roaming\npm】路径中，占C盘空间。所以要更改路径。</p>
-</div>
-
-<h3 id="缓存路径更改"><a href="#缓存路径更改" class="headerlink" title="缓存路径更改"></a>缓存路径更改</h3><ul>
-<li>1.在node安装路径下创建node_cache和node_global两个文件夹</li>
-</ul>
-<img src="\img\md\node安装配置\创建文件夹.png" alt="创建文件夹" style="zoom:80%;">
-
-<ul>
-<li>2.创建完两个空文件夹之后，打开cmd命令窗口，输入</li>
-</ul>
-<div class="note danger no-icon flat"><p>“”中的路径是你创建文件夹的路径，记住更改</p>
-</div>
-
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">npm config set prefix "D:\Develop\nodejs\node_global"</span><br><span class="line">npm config set cache "D:\Develop\nodejs\node_cache"</span><br></pre></td></tr></tbody></table></figure>
-
-<p>这样此后所安装的模块都会安装到改路径下。</p>
-<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><ul>
-<li><p>1.node_path环境变量:</p>
-<p>打开系统属性-高级-环境变量，在系统变量中新建</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>变量名</th>
-<th>变量值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>NODE_PATH</td>
-<td>D:\Develop\nodejs\node_global\node_modules（路径自己更改）</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>2.编辑用户变量中 <code>path</code></p>
-<p>将默认的 <code>C</code> 盘下 <code>APPData/Roaming\npm</code> 修改为 <code>D:\Develop\nodejs\node_global</code></p>
-</li>
-<li><p>3.使用淘宝NPM镜像</p>
-</li>
-</ul>
-<div class="note info no-icon flat"><p>由于国内网络环境限制问题，使用 <code>npm</code> 安装包时，会遇到时间长，甚至安装失败的问题，建议使用淘宝镜像，具体方法参见<a href="https://npm.taobao.org/">官网</a></p>
-</div>
-
-<p>可使用官方推荐的 <em>cnpm</em> 命令行工具代替默认的 <code>npm</code>:</p>
-<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
-<div class="note danger no-icon flat"><p>注意：有时使用 cnpm 安装的路径可能回存在问题，例如在使用react-native开发应用时会出现问题。此时可以使用nrm切换淘宝源：</p>
-</div>
-
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">npx nrm use taobao</span><br><span class="line">  </span><br><span class="line">// 以下方式切换回官方源</span><br><span class="line">npx nrm use npm</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li><p>4.测试</p>
-<p>最后安装个module测试下，我们就安装最常用的express模块，打开cmd窗口，<br>输入如下命令进行模块的全局安装：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">npm install express -g     <span class="comment"># -g是全局安装的意思</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>​  查看安装路径是否有文件。</p>
-<img src="\img\md\node安装配置\测试.png" alt="I accept the" style="zoom: 67%;">
-
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-        <tag>软件安装</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于标签外挂的使用</title>
-    <url>/2021/05/21/%E5%85%B3%E4%BA%8E%E6%A0%87%E7%AD%BE%E5%A4%96%E6%8C%82%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<div class="note primary no-icon flat"><p>这篇文章引用文章来自于</p>
-<p>作者: Jerry<br>原链接: <a href="https://butterfly.js.org/posts/4aa8abbe/">https://butterfly.js.org/posts/4aa8abbe/</a></p>
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="东阿的博客" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/Dong_e.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/Dong-e1/cdn@latest/img/custom/1.1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">东阿的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">关于标签外挂的使用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-05-21T05:30:20.000Z" title="发表于 2021-05-21 13:30:20">2021-05-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-05-23T08:21:30.452Z" title="更新于 2021-05-23 16:21:30">2021-05-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/markdown/">markdown</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="关于标签外挂的使用"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="note primary no-icon flat"><p>这篇文章引用文章来自于</p>
+<p>作者: Jerry<br>原链接: <a target="_blank" rel="noopener" href="https://butterfly.js.org/posts/4aa8abbe/">https://butterfly.js.org/posts/4aa8abbe/</a></p>
 </div>
 
 <div class="note info flat"><p>这个标签外挂只适合Hexo主题Butterfly，并不是标准的Markdown格式。</p>
@@ -496,14 +421,14 @@
 <figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">{% hideToggle 本文借鉴原作者 %}</span><br><span class="line"></span><br><span class="line">作者: Jerry</span><br><span class="line">原链接: https://butterfly.js.org/posts/4aa8abbe/</span><br><span class="line"></span><br><span class="line">{% endhideToggle %}</span><br></pre></td></tr></tbody></table></figure>
 
 <div class="hide-toggle"><div class="hide-button toggle-title" style=""><i class="fas fa-caret-right fa-fw"></i><span>本文借鉴原作者</span></div>
-    <div class="hide-content"><p>作者: Jerry<br>原链接: <a href="https://butterfly.js.org/posts/4aa8abbe/">https://butterfly.js.org/posts/4aa8abbe/</a></p>
+    <div class="hide-content"><p>作者: Jerry<br>原链接: <a target="_blank" rel="noopener" href="https://butterfly.js.org/posts/4aa8abbe/">https://butterfly.js.org/posts/4aa8abbe/</a></p>
 </div></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 
 <h2 id="mermaid"><a href="#mermaid" class="headerlink" title="mermaid"></a>mermaid</h2><div class="note danger no-icon flat"><p>mermaid标签不允许嵌套于一些隐藏属性的标签外挂，例如: tag-hide内的标签外挂和tabs标签外挂，这会导致mermaid图示无法正常显示，使用时请留意。</p>
 <p><strong>请不要压缩html代码，不然会导致mermaid显示异常</strong></p>
 </div>
 
-<p>使用mermaid标签可以绘制Flowchart（流程图）、Sequence diagram（时序图 ）、Class Diagram（类别图）、State Diagram（状态图）、Gantt（甘特图）和Pie Chart（圆形图），具体可以查看<a href="https://mermaid-js.github.io/mermaid/#/">mermaid文档</a></p>
+<p>使用mermaid标签可以绘制Flowchart（流程图）、Sequence diagram（时序图 ）、Class Diagram（类别图）、State Diagram（状态图）、Gantt（甘特图）和Pie Chart（圆形图），具体可以查看<a target="_blank" rel="noopener" href="https://mermaid-js.github.io/mermaid/#/">mermaid文档</a></p>
 <p>修改 <code>主题配置文件</code></p>
 <figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">mermaid:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># built-in themes: default/forest/dark/neutral</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">default</span></span><br></pre></td></tr></tbody></table></figure>
 
@@ -527,13 +452,13 @@
 <figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn-center"</span>&gt;</span></span></span><br><span class="line">{% btn 'https://butterfly.js.org/',Butterfly,far fa-hand-point-right,outline larger %}</span><br><span class="line">{% btn 'https://butterfly.js.org/',Butterfly,far fa-hand-point-right,outline blue larger %}</span><br><span class="line">{% btn 'https://butterfly.js.org/',Butterfly,far fa-hand-point-right,outline pink larger %}</span><br><span class="line">{% btn 'https://butterfly.js.org/',Butterfly,far fa-hand-point-right,outline red larger %}</span><br><span class="line">{% btn 'https://butterfly.js.org/',Butterfly,far fa-hand-point-right,outline purple larger %}</span><br><span class="line">{% btn 'https://butterfly.js.org/',Butterfly,far fa-hand-point-right,outline orange larger %}</span><br><span class="line">{% btn 'https://butterfly.js.org/',Butterfly,far fa-hand-point-right,outline green larger %}</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></tbody></table></figure>
 
 <div class="btn-center">
-<a class="btn-beautify button--animated outline larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated outline blue larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated outline pink larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated outline red larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated outline purple larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated outline orange larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
-<a class="btn-beautify button--animated outline green larger" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify button--animated outline larger" target="_blank" rel="noopener" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify button--animated outline blue larger" target="_blank" rel="noopener" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify button--animated outline pink larger" target="_blank" rel="noopener" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify button--animated outline red larger" target="_blank" rel="noopener" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify button--animated outline purple larger" target="_blank" rel="noopener" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify button--animated outline orange larger" target="_blank" rel="noopener" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
+<a class="btn-beautify button--animated outline green larger" target="_blank" rel="noopener" href="https://butterfly.js.org/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a>
 </div>
 
 <h2 id="inlineImg"><a href="#inlineImg" class="headerlink" title="inlineImg"></a>inlineImg</h2><p>主题中的图片都是默认以<code>块级元素</code>显示，如果你想以<code>内联元素</code>显示，可以使用这个标签外挂。</p>
@@ -567,13 +492,50 @@
 <figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">臣亮言：{% label 先帝 %}创业未半，而{% label 中道崩殂 blue %}。今天下三分，{% label 益州疲敝 pink %}，此诚{% label 危急存亡之秋 red %}也！然侍衞之臣，不懈于内；{% label 忠志之士 purple %}，忘身于外者，盖追先帝之殊遇，欲报之于陛下也。诚宜开张圣听，以光先帝遗德，恢弘志士之气；不宜妄自菲薄，引喻失义，以塞忠谏之路也。</span><br><span class="line">宫中、府中，俱为一体；陟罚臧否，不宜异同。若有{% label 作奸 orange %}、{% label 犯科 green %}，及为忠善者，宜付有司，论其刑赏，以昭陛下平明之治；不宜偏私，使内外异法也。</span><br></pre></td></tr></tbody></table></figure>
 
 <p>臣亮言：<mark class="hl-label default">先帝</mark> 创业未半，而<mark class="hl-label blue">中道崩殂</mark> 。今天下三分，<mark class="hl-label pink">益州疲敝</mark> ，此诚<mark class="hl-label red">危急存亡之秋</mark> 也！然侍衞之臣，不懈于内；<mark class="hl-label purple">忠志之士</mark> ，忘身于外者，盖追先帝之殊遇，欲报之于陛下也。诚宜开张圣听，以光先帝遗德，恢弘志士之气；不宜妄自菲薄，引喻失义，以塞忠谏之路也。<br>宫中、府中，俱为一体；陟罚臧否，不宜异同。若有<mark class="hl-label orange">作奸</mark> 、<mark class="hl-label green">犯科</mark> ，及为忠善者，宜付有司，论其刑赏，以昭陛下平明之治；不宜偏私，使内外异法也。</p>
-]]></content>
-      <categories>
-        <category>markdown</category>
-      </categories>
-      <tags>
-        <tag>butterfly</tag>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-</search>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">东阿</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://dong-e1.github.io/2021/05/21/%E5%85%B3%E4%BA%8E%E6%A0%87%E7%AD%BE%E5%A4%96%E6%8C%82%E7%9A%84%E4%BD%BF%E7%94%A8/">http://dong-e1.github.io/2021/05/21/关于标签外挂的使用/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://Dong-e1.github.io" target="_blank">东阿的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/butterfly/">butterfly</a><a class="post-meta__tags" href="/tags/markdown/">markdown</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Dong-e1/cdn@latest/img/custom/1.1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/WeChatPay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/WeChatPay.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/AliPay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/AliPay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/05/21/NodeJs%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/Dong-e1/cdn@latest/img/custom/1.1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">NodeJs的安装配置</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/Dong_e.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">东阿</div><div class="author-info__description">欢迎您的到来！</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Dong-e1"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Dong-e1" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:2716918035@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到东阿的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Note-Bootstrap-Callout"><span class="toc-number">1.</span> <span class="toc-text">Note (Bootstrap Callout)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gallery%E7%9B%B8%E5%86%8C%E5%9B%BE%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">Gallery相册图库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gallery%E7%9B%B8%E5%86%8C"><span class="toc-number">3.</span> <span class="toc-text">Gallery相册</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tag-hide"><span class="toc-number">4.</span> <span class="toc-text">tag-hide</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mermaid"><span class="toc-number">5.</span> <span class="toc-text">mermaid</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tabs"><span class="toc-number">6.</span> <span class="toc-text">Tabs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Button"><span class="toc-number">7.</span> <span class="toc-text">Button</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inlineImg"><span class="toc-number">8.</span> <span class="toc-text">inlineImg</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#label"><span class="toc-number">9.</span> <span class="toc-text">label</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/05/21/%E5%85%B3%E4%BA%8E%E6%A0%87%E7%AD%BE%E5%A4%96%E6%8C%82%E7%9A%84%E4%BD%BF%E7%94%A8/" title="关于标签外挂的使用"><img src="https://cdn.jsdelivr.net/gh/Dong-e1/cdn@latest/img/custom/1.1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于标签外挂的使用"/></a><div class="content"><a class="title" href="/2021/05/21/%E5%85%B3%E4%BA%8E%E6%A0%87%E7%AD%BE%E5%A4%96%E6%8C%82%E7%9A%84%E4%BD%BF%E7%94%A8/" title="关于标签外挂的使用">关于标签外挂的使用</a><time datetime="2021-05-21T05:30:20.000Z" title="发表于 2021-05-21 13:30:20">2021-05-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/21/NodeJs%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="NodeJs的安装配置"><img src="https://cdn.jsdelivr.net/gh/Dong-e1/cdn@latest/img/custom/1.1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NodeJs的安装配置"/></a><div class="content"><a class="title" href="/2021/05/21/NodeJs%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="NodeJs的安装配置">NodeJs的安装配置</a><time datetime="2021-05-21T02:30:20.000Z" title="发表于 2021-05-21 10:30:20">2021-05-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/20/Git/" title="Git基础用法"><img src="https://cdn.jsdelivr.net/gh/Dong-e1/cdn@latest/img/custom/1.1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git基础用法"/></a><div class="content"><a class="title" href="/2021/05/20/Git/" title="Git基础用法">Git基础用法</a><time datetime="2021-05-20T09:30:20.000Z" title="发表于 2021-05-20 17:30:20">2021-05-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 By 东阿</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+       && mermaid.init()
+    })
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="王康,刘泽林,樊世胜,大傻逼" data-fontsize="15px" data-random="false" async="async"></script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/a4eb5438.js","daovoice")
+</script><script>var isChatBtn = true
+daovoice('init', {
+  app_id: 'a4eb5438',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (false) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
