@@ -6,7 +6,7 @@
   <link href="http://dong-e1.github.io/atom.xml" rel="self"/>
   
   <link href="http://dong-e1.github.io/"/>
-  <updated>2021-05-23T08:58:07.253Z</updated>
+  <updated>2021-05-24T03:25:47.641Z</updated>
   <id>http://dong-e1.github.io/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Front-matter设置</title>
-    <link href="http://dong-e1.github.io/2021/05/21/Front-matter/"/>
-    <id>http://dong-e1.github.io/2021/05/21/Front-matter/</id>
-    <published>2021-05-21T05:30:20.000Z</published>
-    <updated>2021-05-23T08:58:07.253Z</updated>
-    
-    
-    <summary type="html">用在页面和文章上的Front-matter规范</summary>
-    
-    
-    
-    <category term="markdown" scheme="http://dong-e1.github.io/categories/markdown/"/>
-    
-    
-    <category term="butterfly" scheme="http://dong-e1.github.io/tags/butterfly/"/>
-    
-    <category term="markdown" scheme="http://dong-e1.github.io/tags/markdown/"/>
-    
-  </entry>
   
   <entry>
     <title>Git基础用法</title>
@@ -55,6 +34,27 @@
     
     
     <category term="git" scheme="http://dong-e1.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Front-matter设置</title>
+    <link href="http://dong-e1.github.io/2021/05/21/Front-matter/"/>
+    <id>http://dong-e1.github.io/2021/05/21/Front-matter/</id>
+    <published>2021-05-21T05:30:20.000Z</published>
+    <updated>2021-05-23T08:58:07.253Z</updated>
+    
+    
+    <summary type="html">用在页面和文章上的Front-matter规范</summary>
+    
+    
+    
+    <category term="markdown" scheme="http://dong-e1.github.io/categories/markdown/"/>
+    
+    
+    <category term="butterfly" scheme="http://dong-e1.github.io/tags/butterfly/"/>
+    
+    <category term="markdown" scheme="http://dong-e1.github.io/tags/markdown/"/>
     
   </entry>
   
