@@ -1,0 +1,13 @@
+/* ad样式 */
+#shop{  
+    text-align: center;
+    margin-bottom: 0;
+}
+#brief{
+    width: 200px;
+    margin: 0 auto;
+}
+#brief p:first-child{
+  float: right;
+  margin: 0;
+}
