@@ -95,7 +95,7 @@
 
   
   <url>
-    <loc>http://www.dong-e.top/tags/markdown/</loc>
+    <loc>http://www.dong-e.top/tags/git/</loc>
     <lastmod>2021-05-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -109,7 +109,7 @@
   </url>
   
   <url>
-    <loc>http://www.dong-e.top/tags/git/</loc>
+    <loc>http://www.dong-e.top/tags/markdown/</loc>
     <lastmod>2021-05-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -132,14 +132,14 @@
 
   
   <url>
-    <loc>http://www.dong-e.top/categories/markdown/</loc>
+    <loc>http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2021-05-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>http://www.dong-e.top/categories/markdown/</loc>
     <lastmod>2021-05-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

@@ -1,171 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Markdown基本语法</title>
-    <url>/2021/05/21/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<div class="note info no-icon flat"><p><strong>Markdown</strong>是一种<strong>纯文本格式的轻量级标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式</strong>。这是一种14年前由作家和程序员<mark class="hl-label blue">John</mark>  <mark class="hl-label blue">Gruber</mark> 创建的文本编辑语言，Markdown的核心是Web发布所需的HTML代码的简写。当前许多网站都广泛使用Markdown来撰写帮助文档或者发布消息再或者发布博客，比如：<mark class="hl-label red">Github</mark> 、<mark class="hl-label red">CSDN博客</mark> 、<mark class="hl-label red">简书</mark> 、<mark class="hl-label red">Hexo</mark> 等。</p>
-</div>
-
-<hr>
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>只要在文字前面加#，即可把这段文字设置为标题。<strong>一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。</strong></p>
-<div class="note warning no-icon flat"><p>注：<strong>标准语法一般在#后跟个空格再写文字</strong>，虽然现在某些markdown编辑器不用空格也可以，但是最好还是按照标准语法来。比如Typora编辑器中不空格就不会生成标题的样式。</p>
-</div>
-
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section"># 这是一级标题</span></span><br><span class="line"><span class="section">## 这是二级标题</span></span><br><span class="line"><span class="section">### 这是三级标题</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="字体样式"><a href="#字体样式" class="headerlink" title="字体样式"></a>字体样式</h2><p>在写具体内容的时候，可能需要对某些内容显示不一样的样式，以用于特别标注。那么Markdown支持以下四种样式：</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="strong">**加粗效果**</span></span><br><span class="line"><span class="emphasis">*斜体效果*</span></span><br><span class="line"><span class="strong">**<span class="emphasis">*斜体加粗效果<span class="strong">**<span class="emphasis">*</span></span></span></span></span><br><span class="line"><span class="emphasis"><span class="strong"><span class="emphasis"><span class="strong">~~删除效果~~</span></span></span></span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<ul>
-<li>加粗          <strong>要加粗的文字左右分别用两个*号即可</strong>            =&gt;               <strong>加粗效果</strong></li>
-<li>斜体          <strong>要倾斜的文字左右分别用一个*号即可</strong>             =&gt;               <em>斜体效果</em></li>
-<li>斜体加粗  <strong>要倾斜和加粗的文字左右分别用三个*号即可</strong>   =&gt;              <em><strong>斜体加粗效果</strong></em></li>
-<li>删除线      <strong>要加删除线的文字左右分别用两个~号即可</strong>       =&gt;             <del>删除效果</del></li>
-</ul>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在需要设为引用的文字前面加上&gt;即可，引用也支持嵌套，如下：</p>
-<ul>
-<li>&gt;  对应的是一级引用</li>
-<li>&gt;&gt; 对应的是二级引用</li>
-<li>以此类推</li>
-</ul>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="quote">&gt; 一级引用</span></span><br><span class="line">&gt;&gt; 二级引用</span><br><span class="line">&gt;&gt;&gt; 三级引用</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<blockquote>
-<p>一级引用</p>
-<blockquote>
-<p>二级引用</p>
-<blockquote>
-<p>三级引用</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>一行连用三个或者**三个以上的星号*，减号-，或者下划线_**，就可以表示分割线。</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section"><span class="strong">**<span class="emphasis">*</span></span></span></span><br><span class="line"><span class="emphasis"><span class="strong"><span class="section">---</span></span></span></span><br><span class="line"><span class="emphasis"><span class="strong"><span class="section"><span class="strong">__<span class="emphasis">_</span></span></span></span></span></span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<hr>
-<hr>
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>在Markdown中插入图片的语法如下</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">图片链接 "optional title"</span>)</span><br><span class="line"></span><br><span class="line">Alt text：图片的Alt标签，用来描述图片的关键词，可以不写。最初的本意是当图片因为某种原因不能被显示时而出现的替代文字，后来又被用于SEO，可以方便搜索引擎根据Alt text里面的关键词搜索到图片。</span><br><span class="line">图片链接：可以是图片的本地地址或者是网址。</span><br><span class="line">"optional title"：鼠标悬置于图片上会出现的标题文字，可以不写。</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="超链接形式"><a href="#超链接形式" class="headerlink" title="超链接形式"></a>超链接形式</h3><p>只需要在基础语法的括号中填入图片的网络链接即可，现在已经有很多免费/收费图床和方便传图的小工具可选。</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">![](https://www.baidu.com/img/bd<span class="emphasis">_logo1.png?where=super)</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="本地图片"><a href="#本地图片" class="headerlink" title="本地图片"></a>本地图片</h3><p>只需要在基础语法的括号中填入图片的位置路径即可，支持绝对路径和相对路径。</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">![<span class="string">avatar</span>](<span class="link">/home/picture/1.png</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="把图片存入markdown文件"><a href="#把图片存入markdown文件" class="headerlink" title="把图片存入markdown文件"></a>把图片存入markdown文件</h3><p>用base64转码工具把图片转成一段字符串，然后把字符串填到基础格式中链接的那个位置。</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">基础用法：</span><br><span class="line">![<span class="string">avatar</span>](<span class="link">data:image/png;base64,iVBORw0......</span>)</span><br><span class="line">这个时候会发现插入的这一长串字符串会把整个文章分割开，非常影响编写文章时的体验。如果能够把大段的base64字符串放在文章末尾，然后在文章中通过一个id来调用，文章就不会被分割的这么乱了。</span><br><span class="line"></span><br><span class="line">高级用法</span><br><span class="line">比如：</span><br><span class="line">![<span class="string">avatar</span>][<span class="symbol">base64str</span>]</span><br><span class="line">[<span class="symbol">base64str</span>]:<span class="link">data:image/png;base64,iVBORw0..... </span></span><br></pre></td></tr></tbody></table></figure>
-
-<div class="note danger no-icon flat"><p>这种方法我没试过，也不推荐。</p>
-</div>
-
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>Markdown还支持超链接，语法格式如下：</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">[<span class="string">超链接名</span>](<span class="link">超链接地址 "超链接title"</span>)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">[<span class="string">东阿的博客</span>](<span class="link">https://dong-e1.github.io/</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<p><a href="https://dong-e1.github.io/">东阿的博客</a></p>
-<p>上面语法中[]中的内容为超链接名，那么[]其实可以不用文字，可以换成一张图片，如下</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">![<span class="string">[东阿的博客</span>](<span class="link">/img/Dong_e.jpeg</span>)](<span class="link">https://dong-e1.github.io/</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<p><a href="https://dong-e1.github.io/"></a></p><div style="width:200px"><a href="https://dong-e1.github.io/"><img src="/img/Dong_e.jpeg" alt="东阿的博客"></a></div><p></p>
-<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>Markdown最让人喜欢的一点就是支持代码高亮，并且支持数几十种语言的高亮，语法格式很简单，如下</p>
-<ul>
-<li><p>`代码内容`</p>
-<p>适用场景是比如你需要在一段文字中加入一小行代码,那么在两个之间`插入代码即可。</p>
-</li>
-<li><p>```语言名</p>
-<p>具体代码</p>
-<p>```</p>
-<p>适用场景是单独的贴上一整段代码，那么在三个`之间插入代码即可。</p>
-</li>
-</ul>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>在阐述分点的时候使用列表的形式会更加直观，Markdown支持有序和无序两种列表形式</p>
-<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>在需要作为列表条目的文字前面加上数字和点，<strong>并且点和后面的内容要有一个空格即可</strong>，如<code>1. 列表条目</code></p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 嘿！这个博客不错!</span><br><span class="line"><span class="bullet">2.</span> 嘿！这个博客不错!</span><br><span class="line"><span class="bullet">3.</span> 嘿！这个博客不错!</span><br></pre></td></tr></tbody></table></figure>
-
-<ol>
-<li> 嘿！这个博客不错!</li>
-<li> 嘿！这个博客不错!</li>
-<li> 嘿！这个博客不错!</li>
-</ol>
-<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>在需要作为列表条目的文字前面加上-+*这些符号中的任何一种，<strong>并且内容和符号之间要有一个空格</strong>，如<code>- 列表条目</code></p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 嘿！这个博客不错!</span><br><span class="line"><span class="bullet">+</span> 嘿！这个博客不错!</span><br><span class="line"><span class="bullet">*</span> 嘿！这个博客不错!</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li>嘿！这个博客不错!</li>
-</ul>
-<ul>
-<li>嘿！这个博客不错!</li>
-</ul>
-<ul>
-<li>嘿！这个博客不错!</li>
-</ul>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>Markdown还支持插入表格，语法如下</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">|表头|表头|表头|</span><br><span class="line">|-|:-:|-:|</span><br><span class="line">|内容|内容|内容|</span><br><span class="line">|内容|内容|内容|</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容,同时也是表格居中居左居右的定义：</span><br><span class="line">-符号有一个就行，多个也可以，只有-符号的话默认是居左</span><br><span class="line">-符号两边加：表示文字居中</span><br><span class="line">-符号右边加：表示文字居右</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">| 博客 | 好感度 | 点赞数 | 好评数 |</span><br><span class="line">| - | :-: | -: |:-|</span><br><span class="line">| 东阿 | 99+ | 99+ | 99+ |</span><br><span class="line">| 东阿 | 99+ | 99+ | 99+ |</span><br></pre></td></tr></tbody></table></figure>
-
-<table>
+    <title>Git基础用法</title>
+    <url>/2021/05/20/Git/</url>
+    <content><![CDATA[<h1 id="一-关于Git"><a href="#一-关于Git" class="headerlink" title="一.关于Git"></a>一.关于Git</h1><h2 id="1-Git基础"><a href="#1-Git基础" class="headerlink" title="1. Git基础"></a>1. Git基础</h2><h3 id="1-4-Git-基本工作流程"><a href="#1-4-Git-基本工作流程" class="headerlink" title="1.4 Git 基本工作流程"></a>1.4 Git 基本工作流程</h3><table>
 <thead>
 <tr>
-<th>博客</th>
-<th align="center">好感度</th>
-<th align="right">点赞数</th>
-<th align="left">好评数</th>
+<th>git仓库</th>
+<th>暂存区</th>
+<th>工作目录</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>东阿</td>
-<td align="center">99+</td>
-<td align="right">99+</td>
-<td align="left">99+</td>
-</tr>
-<tr>
-<td>东阿</td>
-<td align="center">99+</td>
-<td align="right">99+</td>
-<td align="left">99+</td>
+<td>用于存放提交记录</td>
+<td>临时存放被修改文件</td>
+<td>被Git管理的项目目录</td>
 </tr>
 </tbody></table>
-<h2 id="数学公式插入"><a href="#数学公式插入" class="headerlink" title="数学公式插入"></a>数学公式插入</h2><p>对编辑带有数学公式的笔记来说，Markdown依旧能够胜任，Markdown支持Latex数学公式，如下</p>
+<h3 id="1-5-Git-的使用"><a href="#1-5-Git-的使用" class="headerlink" title="1.5 Git 的使用"></a>1.5 Git 的使用</h3><h4 id="1-5-1-Git-使用前配置"><a href="#1-5-1-Git-使用前配置" class="headerlink" title="1.5.1 Git 使用前配置"></a>1.5.1 Git 使用前配置</h4><p>在使用 git 前，需要告诉 git 你是谁，在向 git 仓库中提交时需要用到。</p>
+<ol>
+<li>配置提交人姓名：<code>git config --global user.name 提交人姓名</code></li>
+<li>配置提交人姓名：<code>git config --global user.email 提交人邮箱</code> </li>
+<li>查看git配置信息：<code>git config --list</code>   </li>
+</ol>
+<p><strong>注意</strong></p>
+<ol>
+<li><p>如果要对配置信息进行修改，重复上述命令即可。</p>
+</li>
+<li><p>配置只需要执行一次。</p>
+</li>
+</ol>
+<h4 id="1-5-2-提交步骤"><a href="#1-5-2-提交步骤" class="headerlink" title="1.5.2 提交步骤"></a>1.5.2 提交步骤</h4><ol>
+<li><code>git init</code> 初始化git仓库</li>
+<li><code>git status</code> 查看文件状态</li>
+<li><code>git add 文件列表</code> 追踪文件</li>
+<li><code>git commit -m 提交信息</code>  向仓库中提交代码</li>
+<li><code>git log</code> 查看提交记录</li>
+</ol>
+<h4 id="1-5-3-撤销"><a href="#1-5-3-撤销" class="headerlink" title="1.5.3 撤销"></a>1.5.3 撤销</h4><ul>
+<li><p>用暂存区中的文件覆盖工作目录中的文件： <code>git checkout 文件</code></p>
+</li>
+<li><p>将文件从暂存区中删除： <code>git rm --cached 文件</code></p>
+</li>
+<li><p>将 git 仓库中指定的更新记录恢复出来，并且覆盖暂存区和工作目录：<code>git rest --hard commitID</code> </p>
+</li>
+</ul>
+<h2 id="2-Git进阶"><a href="#2-Git进阶" class="headerlink" title="2. Git进阶"></a>2. Git进阶</h2><h3 id="2-1-分支"><a href="#2-1-分支" class="headerlink" title="2.1 分支"></a>2.1 分支</h3><p>为了便于理解，大家暂时可以认为分支就是当前工作目录中代码的一份副本。</p>
+<p>使用分支，可以让我们从开发主线上分离出来，以免影响开发主线。</p>
+<h4 id="2-1-1-分支细分"><a href="#2-1-1-分支细分" class="headerlink" title="2.1.1 分支细分"></a>2.1.1 分支细分</h4><ol>
+<li><p>主分支（master）：第一次向 git 仓库中提交更新记录时自动产生的一个分支。</p>
+</li>
+<li><p>开发分支（develop）：作为开发的分支，基于 master 分支创建。</p>
+</li>
+<li><p>功能分支（feature）：作为开发具体功能的分支，基于开发分支创建</p>
+</li>
+</ol>
+<p><strong>功能分支 -&gt; 开发分支 -&gt; 主分支</strong></p>
+<h4 id="2-1-2-分支命令"><a href="#2-1-2-分支命令" class="headerlink" title="2.1.2 分支命令"></a>2.1.2 分支命令</h4><ul>
+<li><p><code>git branch</code> 查看分支</p>
+</li>
+<li><p><code>git branch 分支名称</code> 创建分支</p>
+</li>
+<li><p><code>git checkout 分支名称</code> 切换分支</p>
+</li>
+<li><p><code>git merge 来源分支</code> 合并分支</p>
+</li>
+<li><p><code>git branch -d 分支名称</code> 删除分支（分支被合并后才允许删除）（-D 强制删除）</p>
+</li>
+</ul>
+<h3 id="2-2-暂时保存更改"><a href="#2-2-暂时保存更改" class="headerlink" title="2.2 暂时保存更改"></a>2.2 暂时保存更改</h3><p>在git中，可以暂时提取分支上所有的改动并存储，让开发人员得到一个干净的工作副本，临时转向其他工作。</p>
+<p>使用场景：分支临时切换</p>
 <ul>
-<li>行内公式，如果你想在一段文字中添加数学公式，那么使用如下语法</li>
+<li>存储临时改动：<code>git stash</code></li>
+<li>恢复改动：<code>git stash pop</code></li>
 </ul>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">$行内公式$</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li>行间公式，如果你想你的数学公式单独成段，使用如下语法</li>
+<h2 id="3-Github"><a href="#3-Github" class="headerlink" title="3. Github"></a>3. Github</h2><p>在版本控制系统中，大约90%的操作都是在本地仓库中进行的：暂存，提交，查看状态或者历史记录等等。除此之外，如果仅仅只有你一个人在这个项目里工作，你永远没有机会需要设置一个远程仓库。</p>
+<p>只有当你需要和你的开发团队共享数据时，设置一个远程仓库才有意义。你可以把它想象成一个 “文件管理服务器”，利用这个服务器可以与开发团队的其他成员进行数据交换。</p>
+<h3 id="3-2-多人协作开发流程"><a href="#3-2-多人协作开发流程" class="headerlink" title="3.2 多人协作开发流程"></a>3.2 多人协作开发流程</h3><ul>
+<li>A在自己的计算机中创建本地仓库</li>
+<li>A在github中创建远程仓库</li>
+<li>A将本地仓库推送到远程仓库</li>
+<li>B克隆远程仓库到本地进行开发</li>
+<li>B将本地仓库中开发的内容推送到远程仓库</li>
+<li>A将远程仓库中的最新内容拉去到本地</li>
 </ul>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">$$</span><br><span class="line">行间公式</span><br><span class="line">$$</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">$$</span><br><span class="line">sum = \sum<span class="emphasis">_{i=1}^mx_</span>i</span><br><span class="line">$$</span><br></pre></td></tr></tbody></table></figure>
-
-<p>$$<br>sum = \sum_{i=1}^mx_i<br>$$</p>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li>键入<code>[TOC]</code>，之后回车目录便会呈现，目录树会根据文档中的h1~h6标题自动生成，并且支持点击跳转。</li>
-</ul>
-<div class="note info no-icon flat"><p>注意：[TOC]需要独占一行才能生效</p>
-</div>
-
-<p>手动添加跳转到某个标题的链接。使用如下的语法：</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">[<span class="string">名称</span>](<span class="link">#id</span>)</span><br><span class="line"></span><br><span class="line">“名称”可以随便填写，“id”需要填写跳转到的标题的内容。</span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">[<span class="string">数学公式插入</span>](<span class="link">#数学公式插入</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<p><a href="#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%8F%92%E5%85%A5">数学公式插入</a></p>
-<div class="note success no-icon flat"><p>Markdown会自动给每一个h1~h6标题生成一个锚，其id就是标题内容</p>
-</div>]]></content>
+<h3 id="3-3-创建仓库"><a href="#3-3-创建仓库" class="headerlink" title="3.3 创建仓库"></a>3.3 创建仓库</h3><ol>
+<li><p>git push 远程仓库地址 分支名称</p>
+</li>
+<li><p>git push 远程仓库地址别名 分支名称</p>
+</li>
+<li><p>git push -u 远程仓库地址别名 分支名称</p>
+<p> -u 记住推送地址及分支，下次推送只需要输入git push即可</p>
+</li>
+<li><p>git remote add 远程仓库地址别名 远程仓库地址</p>
+</li>
+</ol>
+<h3 id="3-4-拉取操作"><a href="#3-4-拉取操作" class="headerlink" title="3.4 拉取操作"></a>3.4 拉取操作</h3><h4 id="3-4-1-克隆仓库"><a href="#3-4-1-克隆仓库" class="headerlink" title="3.4.1 克隆仓库"></a>3.4.1 克隆仓库</h4><p>克隆远端数据仓库到本地：<code>git clone 仓库地址</code></p>
+<h4 id="3-4-2-拉取远程仓库中最新的版本"><a href="#3-4-2-拉取远程仓库中最新的版本" class="headerlink" title="3.4.2 拉取远程仓库中最新的版本"></a>3.4.2 拉取远程仓库中最新的版本</h4><p>拉取远程仓库中最新的版本：<code>git pull 远程仓库地址 分支名称</code></p>
+<h3 id="3-5-解决冲突"><a href="#3-5-解决冲突" class="headerlink" title="3.5 解决冲突"></a>3.5 解决冲突</h3><p>在多人同时开发一个项目时，如果两个人修改了同一个文件的同一个地方，就会发生冲突。冲突需要人为解决。</p>
+<h3 id="3-6-跨团队协作"><a href="#3-6-跨团队协作" class="headerlink" title="3.6 跨团队协作"></a>3.6 跨团队协作</h3><ol>
+<li>程序员 C fork仓库</li>
+<li>程序员 C 将仓库克隆在本地进行修改</li>
+<li>程序员 C 将仓库推送到远程</li>
+<li>程序员 C 发起pull reqest</li>
+<li>原仓库作者审核</li>
+<li>原仓库作者合并代码</li>
+</ol>
+<h3 id="3-7-ssh免登陆"><a href="#3-7-ssh免登陆" class="headerlink" title="3.7 ssh免登陆"></a>3.7 ssh免登陆</h3><p>https协议仓库地址：<a href="https://github.com/itcast-frontEnd/git-demo.git">https://github.com/itcast-frontEnd/git-demo.git</a></p>
+<p>生成秘钥：<code>ssh-keygen</code></p>
+<p>秘钥存储目录：C:\Users\用户\.ssh</p>
+<p>公钥名称：id_rsa.pub</p>
+<p>私钥名称：id_rsa</p>
+<h3 id="3-8-GIT忽略清单"><a href="#3-8-GIT忽略清单" class="headerlink" title="3.8 GIT忽略清单"></a>3.8 GIT忽略清单</h3><p>将不需要被git管理的文件名字添加到此文件中，在执行git命令的时候，git就会忽略这些文件。</p>
+<p>git忽略清单文件名称：**.gitignore**</p>
+<p>将工作目录中的文件全部添加到暂存区：<code>git add .</code></p>
+]]></content>
       <categories>
-        <category>markdown</category>
+        <category>前端</category>
+        <category>git</category>
       </categories>
       <tags>
-        <tag>markdown</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -335,131 +290,176 @@
         <category>markdown</category>
       </categories>
       <tags>
-        <tag>markdown</tag>
         <tag>butterfly</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
-    <title>Git基础用法</title>
-    <url>/2021/05/20/Git/</url>
-    <content><![CDATA[<h1 id="一-关于Git"><a href="#一-关于Git" class="headerlink" title="一.关于Git"></a>一.关于Git</h1><h2 id="1-Git基础"><a href="#1-Git基础" class="headerlink" title="1. Git基础"></a>1. Git基础</h2><h3 id="1-4-Git-基本工作流程"><a href="#1-4-Git-基本工作流程" class="headerlink" title="1.4 Git 基本工作流程"></a>1.4 Git 基本工作流程</h3><table>
+    <title>Markdown基本语法</title>
+    <url>/2021/05/21/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<div class="note info no-icon flat"><p><strong>Markdown</strong>是一种<strong>纯文本格式的轻量级标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式</strong>。这是一种14年前由作家和程序员<mark class="hl-label blue">John</mark>  <mark class="hl-label blue">Gruber</mark> 创建的文本编辑语言，Markdown的核心是Web发布所需的HTML代码的简写。当前许多网站都广泛使用Markdown来撰写帮助文档或者发布消息再或者发布博客，比如：<mark class="hl-label red">Github</mark> 、<mark class="hl-label red">CSDN博客</mark> 、<mark class="hl-label red">简书</mark> 、<mark class="hl-label red">Hexo</mark> 等。</p>
+</div>
+
+<hr>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>只要在文字前面加#，即可把这段文字设置为标题。<strong>一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。</strong></p>
+<div class="note warning no-icon flat"><p>注：<strong>标准语法一般在#后跟个空格再写文字</strong>，虽然现在某些markdown编辑器不用空格也可以，但是最好还是按照标准语法来。比如Typora编辑器中不空格就不会生成标题的样式。</p>
+</div>
+
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section"># 这是一级标题</span></span><br><span class="line"><span class="section">## 这是二级标题</span></span><br><span class="line"><span class="section">### 这是三级标题</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="字体样式"><a href="#字体样式" class="headerlink" title="字体样式"></a>字体样式</h2><p>在写具体内容的时候，可能需要对某些内容显示不一样的样式，以用于特别标注。那么Markdown支持以下四种样式：</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="strong">**加粗效果**</span></span><br><span class="line"><span class="emphasis">*斜体效果*</span></span><br><span class="line"><span class="strong">**<span class="emphasis">*斜体加粗效果<span class="strong">**<span class="emphasis">*</span></span></span></span></span><br><span class="line"><span class="emphasis"><span class="strong"><span class="emphasis"><span class="strong">~~删除效果~~</span></span></span></span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<ul>
+<li>加粗          <strong>要加粗的文字左右分别用两个*号即可</strong>            =&gt;               <strong>加粗效果</strong></li>
+<li>斜体          <strong>要倾斜的文字左右分别用一个*号即可</strong>             =&gt;               <em>斜体效果</em></li>
+<li>斜体加粗  <strong>要倾斜和加粗的文字左右分别用三个*号即可</strong>   =&gt;              <em><strong>斜体加粗效果</strong></em></li>
+<li>删除线      <strong>要加删除线的文字左右分别用两个~号即可</strong>       =&gt;             <del>删除效果</del></li>
+</ul>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在需要设为引用的文字前面加上&gt;即可，引用也支持嵌套，如下：</p>
+<ul>
+<li>&gt;  对应的是一级引用</li>
+<li>&gt;&gt; 对应的是二级引用</li>
+<li>以此类推</li>
+</ul>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="quote">&gt; 一级引用</span></span><br><span class="line">&gt;&gt; 二级引用</span><br><span class="line">&gt;&gt;&gt; 三级引用</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<blockquote>
+<p>一级引用</p>
+<blockquote>
+<p>二级引用</p>
+<blockquote>
+<p>三级引用</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>一行连用三个或者**三个以上的星号*，减号-，或者下划线_**，就可以表示分割线。</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="section"><span class="strong">**<span class="emphasis">*</span></span></span></span><br><span class="line"><span class="emphasis"><span class="strong"><span class="section">---</span></span></span></span><br><span class="line"><span class="emphasis"><span class="strong"><span class="section"><span class="strong">__<span class="emphasis">_</span></span></span></span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>在Markdown中插入图片的语法如下</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">图片链接 "optional title"</span>)</span><br><span class="line"></span><br><span class="line">Alt text：图片的Alt标签，用来描述图片的关键词，可以不写。最初的本意是当图片因为某种原因不能被显示时而出现的替代文字，后来又被用于SEO，可以方便搜索引擎根据Alt text里面的关键词搜索到图片。</span><br><span class="line">图片链接：可以是图片的本地地址或者是网址。</span><br><span class="line">"optional title"：鼠标悬置于图片上会出现的标题文字，可以不写。</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="超链接形式"><a href="#超链接形式" class="headerlink" title="超链接形式"></a>超链接形式</h3><p>只需要在基础语法的括号中填入图片的网络链接即可，现在已经有很多免费/收费图床和方便传图的小工具可选。</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">![](https://www.baidu.com/img/bd<span class="emphasis">_logo1.png?where=super)</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="本地图片"><a href="#本地图片" class="headerlink" title="本地图片"></a>本地图片</h3><p>只需要在基础语法的括号中填入图片的位置路径即可，支持绝对路径和相对路径。</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">![<span class="string">avatar</span>](<span class="link">/home/picture/1.png</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="把图片存入markdown文件"><a href="#把图片存入markdown文件" class="headerlink" title="把图片存入markdown文件"></a>把图片存入markdown文件</h3><p>用base64转码工具把图片转成一段字符串，然后把字符串填到基础格式中链接的那个位置。</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">基础用法：</span><br><span class="line">![<span class="string">avatar</span>](<span class="link">data:image/png;base64,iVBORw0......</span>)</span><br><span class="line">这个时候会发现插入的这一长串字符串会把整个文章分割开，非常影响编写文章时的体验。如果能够把大段的base64字符串放在文章末尾，然后在文章中通过一个id来调用，文章就不会被分割的这么乱了。</span><br><span class="line"></span><br><span class="line">高级用法</span><br><span class="line">比如：</span><br><span class="line">![<span class="string">avatar</span>][<span class="symbol">base64str</span>]</span><br><span class="line">[<span class="symbol">base64str</span>]:<span class="link">data:image/png;base64,iVBORw0..... </span></span><br></pre></td></tr></tbody></table></figure>
+
+<div class="note danger no-icon flat"><p>这种方法我没试过，也不推荐。</p>
+</div>
+
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>Markdown还支持超链接，语法格式如下：</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">[<span class="string">超链接名</span>](<span class="link">超链接地址 "超链接title"</span>)</span><br><span class="line">title可加可不加</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">[<span class="string">东阿的博客</span>](<span class="link">https://dong-e1.github.io/</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><a href="https://dong-e1.github.io/">东阿的博客</a></p>
+<p>上面语法中[]中的内容为超链接名，那么[]其实可以不用文字，可以换成一张图片，如下</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">![<span class="string">[东阿的博客</span>](<span class="link">/img/Dong_e.jpeg</span>)](<span class="link">https://dong-e1.github.io/</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><a href="https://dong-e1.github.io/"></a></p><div style="width:200px"><a href="https://dong-e1.github.io/"><img src="/img/Dong_e.jpeg" alt="东阿的博客"></a></div><p></p>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>Markdown最让人喜欢的一点就是支持代码高亮，并且支持数几十种语言的高亮，语法格式很简单，如下</p>
+<ul>
+<li><p>`代码内容`</p>
+<p>适用场景是比如你需要在一段文字中加入一小行代码,那么在两个之间`插入代码即可。</p>
+</li>
+<li><p>```语言名</p>
+<p>具体代码</p>
+<p>```</p>
+<p>适用场景是单独的贴上一整段代码，那么在三个`之间插入代码即可。</p>
+</li>
+</ul>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>在阐述分点的时候使用列表的形式会更加直观，Markdown支持有序和无序两种列表形式</p>
+<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><p>在需要作为列表条目的文字前面加上数字和点，<strong>并且点和后面的内容要有一个空格即可</strong>，如<code>1. 列表条目</code></p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 嘿！这个博客不错!</span><br><span class="line"><span class="bullet">2.</span> 嘿！这个博客不错!</span><br><span class="line"><span class="bullet">3.</span> 嘿！这个博客不错!</span><br></pre></td></tr></tbody></table></figure>
+
+<ol>
+<li> 嘿！这个博客不错!</li>
+<li> 嘿！这个博客不错!</li>
+<li> 嘿！这个博客不错!</li>
+</ol>
+<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p>在需要作为列表条目的文字前面加上-+*这些符号中的任何一种，<strong>并且内容和符号之间要有一个空格</strong>，如<code>- 列表条目</code></p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 嘿！这个博客不错!</span><br><span class="line"><span class="bullet">+</span> 嘿！这个博客不错!</span><br><span class="line"><span class="bullet">*</span> 嘿！这个博客不错!</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>嘿！这个博客不错!</li>
+</ul>
+<ul>
+<li>嘿！这个博客不错!</li>
+</ul>
+<ul>
+<li>嘿！这个博客不错!</li>
+</ul>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>Markdown还支持插入表格，语法如下</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">|表头|表头|表头|</span><br><span class="line">|-|:-:|-:|</span><br><span class="line">|内容|内容|内容|</span><br><span class="line">|内容|内容|内容|</span><br><span class="line"></span><br><span class="line">第二行分割表头和内容,同时也是表格居中居左居右的定义：</span><br><span class="line">-符号有一个就行，多个也可以，只有-符号的话默认是居左</span><br><span class="line">-符号两边加：表示文字居中</span><br><span class="line">-符号右边加：表示文字居右</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">| 博客 | 好感度 | 点赞数 | 好评数 |</span><br><span class="line">| - | :-: | -: |:-|</span><br><span class="line">| 东阿 | 99+ | 99+ | 99+ |</span><br><span class="line">| 东阿 | 99+ | 99+ | 99+ |</span><br></pre></td></tr></tbody></table></figure>
+
+<table>
 <thead>
 <tr>
-<th>git仓库</th>
-<th>暂存区</th>
-<th>工作目录</th>
+<th>博客</th>
+<th align="center">好感度</th>
+<th align="right">点赞数</th>
+<th align="left">好评数</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>用于存放提交记录</td>
-<td>临时存放被修改文件</td>
-<td>被Git管理的项目目录</td>
+<td>东阿</td>
+<td align="center">99+</td>
+<td align="right">99+</td>
+<td align="left">99+</td>
+</tr>
+<tr>
+<td>东阿</td>
+<td align="center">99+</td>
+<td align="right">99+</td>
+<td align="left">99+</td>
 </tr>
 </tbody></table>
-<h3 id="1-5-Git-的使用"><a href="#1-5-Git-的使用" class="headerlink" title="1.5 Git 的使用"></a>1.5 Git 的使用</h3><h4 id="1-5-1-Git-使用前配置"><a href="#1-5-1-Git-使用前配置" class="headerlink" title="1.5.1 Git 使用前配置"></a>1.5.1 Git 使用前配置</h4><p>在使用 git 前，需要告诉 git 你是谁，在向 git 仓库中提交时需要用到。</p>
-<ol>
-<li>配置提交人姓名：<code>git config --global user.name 提交人姓名</code></li>
-<li>配置提交人姓名：<code>git config --global user.email 提交人邮箱</code> </li>
-<li>查看git配置信息：<code>git config --list</code>   </li>
-</ol>
-<p><strong>注意</strong></p>
-<ol>
-<li><p>如果要对配置信息进行修改，重复上述命令即可。</p>
-</li>
-<li><p>配置只需要执行一次。</p>
-</li>
-</ol>
-<h4 id="1-5-2-提交步骤"><a href="#1-5-2-提交步骤" class="headerlink" title="1.5.2 提交步骤"></a>1.5.2 提交步骤</h4><ol>
-<li><code>git init</code> 初始化git仓库</li>
-<li><code>git status</code> 查看文件状态</li>
-<li><code>git add 文件列表</code> 追踪文件</li>
-<li><code>git commit -m 提交信息</code>  向仓库中提交代码</li>
-<li><code>git log</code> 查看提交记录</li>
-</ol>
-<h4 id="1-5-3-撤销"><a href="#1-5-3-撤销" class="headerlink" title="1.5.3 撤销"></a>1.5.3 撤销</h4><ul>
-<li><p>用暂存区中的文件覆盖工作目录中的文件： <code>git checkout 文件</code></p>
-</li>
-<li><p>将文件从暂存区中删除： <code>git rm --cached 文件</code></p>
-</li>
-<li><p>将 git 仓库中指定的更新记录恢复出来，并且覆盖暂存区和工作目录：<code>git rest --hard commitID</code> </p>
-</li>
-</ul>
-<h2 id="2-Git进阶"><a href="#2-Git进阶" class="headerlink" title="2. Git进阶"></a>2. Git进阶</h2><h3 id="2-1-分支"><a href="#2-1-分支" class="headerlink" title="2.1 分支"></a>2.1 分支</h3><p>为了便于理解，大家暂时可以认为分支就是当前工作目录中代码的一份副本。</p>
-<p>使用分支，可以让我们从开发主线上分离出来，以免影响开发主线。</p>
-<h4 id="2-1-1-分支细分"><a href="#2-1-1-分支细分" class="headerlink" title="2.1.1 分支细分"></a>2.1.1 分支细分</h4><ol>
-<li><p>主分支（master）：第一次向 git 仓库中提交更新记录时自动产生的一个分支。</p>
-</li>
-<li><p>开发分支（develop）：作为开发的分支，基于 master 分支创建。</p>
-</li>
-<li><p>功能分支（feature）：作为开发具体功能的分支，基于开发分支创建</p>
-</li>
-</ol>
-<p><strong>功能分支 -&gt; 开发分支 -&gt; 主分支</strong></p>
-<h4 id="2-1-2-分支命令"><a href="#2-1-2-分支命令" class="headerlink" title="2.1.2 分支命令"></a>2.1.2 分支命令</h4><ul>
-<li><p><code>git branch</code> 查看分支</p>
-</li>
-<li><p><code>git branch 分支名称</code> 创建分支</p>
-</li>
-<li><p><code>git checkout 分支名称</code> 切换分支</p>
-</li>
-<li><p><code>git merge 来源分支</code> 合并分支</p>
-</li>
-<li><p><code>git branch -d 分支名称</code> 删除分支（分支被合并后才允许删除）（-D 强制删除）</p>
-</li>
-</ul>
-<h3 id="2-2-暂时保存更改"><a href="#2-2-暂时保存更改" class="headerlink" title="2.2 暂时保存更改"></a>2.2 暂时保存更改</h3><p>在git中，可以暂时提取分支上所有的改动并存储，让开发人员得到一个干净的工作副本，临时转向其他工作。</p>
-<p>使用场景：分支临时切换</p>
+<h2 id="数学公式插入"><a href="#数学公式插入" class="headerlink" title="数学公式插入"></a>数学公式插入</h2><p>对编辑带有数学公式的笔记来说，Markdown依旧能够胜任，Markdown支持Latex数学公式，如下</p>
 <ul>
-<li>存储临时改动：<code>git stash</code></li>
-<li>恢复改动：<code>git stash pop</code></li>
+<li>行内公式，如果你想在一段文字中添加数学公式，那么使用如下语法</li>
 </ul>
-<h2 id="3-Github"><a href="#3-Github" class="headerlink" title="3. Github"></a>3. Github</h2><p>在版本控制系统中，大约90%的操作都是在本地仓库中进行的：暂存，提交，查看状态或者历史记录等等。除此之外，如果仅仅只有你一个人在这个项目里工作，你永远没有机会需要设置一个远程仓库。</p>
-<p>只有当你需要和你的开发团队共享数据时，设置一个远程仓库才有意义。你可以把它想象成一个 “文件管理服务器”，利用这个服务器可以与开发团队的其他成员进行数据交换。</p>
-<h3 id="3-2-多人协作开发流程"><a href="#3-2-多人协作开发流程" class="headerlink" title="3.2 多人协作开发流程"></a>3.2 多人协作开发流程</h3><ul>
-<li>A在自己的计算机中创建本地仓库</li>
-<li>A在github中创建远程仓库</li>
-<li>A将本地仓库推送到远程仓库</li>
-<li>B克隆远程仓库到本地进行开发</li>
-<li>B将本地仓库中开发的内容推送到远程仓库</li>
-<li>A将远程仓库中的最新内容拉去到本地</li>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">$行内公式$</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>行间公式，如果你想你的数学公式单独成段，使用如下语法</li>
 </ul>
-<h3 id="3-3-创建仓库"><a href="#3-3-创建仓库" class="headerlink" title="3.3 创建仓库"></a>3.3 创建仓库</h3><ol>
-<li><p>git push 远程仓库地址 分支名称</p>
-</li>
-<li><p>git push 远程仓库地址别名 分支名称</p>
-</li>
-<li><p>git push -u 远程仓库地址别名 分支名称</p>
-<p> -u 记住推送地址及分支，下次推送只需要输入git push即可</p>
-</li>
-<li><p>git remote add 远程仓库地址别名 远程仓库地址</p>
-</li>
-</ol>
-<h3 id="3-4-拉取操作"><a href="#3-4-拉取操作" class="headerlink" title="3.4 拉取操作"></a>3.4 拉取操作</h3><h4 id="3-4-1-克隆仓库"><a href="#3-4-1-克隆仓库" class="headerlink" title="3.4.1 克隆仓库"></a>3.4.1 克隆仓库</h4><p>克隆远端数据仓库到本地：<code>git clone 仓库地址</code></p>
-<h4 id="3-4-2-拉取远程仓库中最新的版本"><a href="#3-4-2-拉取远程仓库中最新的版本" class="headerlink" title="3.4.2 拉取远程仓库中最新的版本"></a>3.4.2 拉取远程仓库中最新的版本</h4><p>拉取远程仓库中最新的版本：<code>git pull 远程仓库地址 分支名称</code></p>
-<h3 id="3-5-解决冲突"><a href="#3-5-解决冲突" class="headerlink" title="3.5 解决冲突"></a>3.5 解决冲突</h3><p>在多人同时开发一个项目时，如果两个人修改了同一个文件的同一个地方，就会发生冲突。冲突需要人为解决。</p>
-<h3 id="3-6-跨团队协作"><a href="#3-6-跨团队协作" class="headerlink" title="3.6 跨团队协作"></a>3.6 跨团队协作</h3><ol>
-<li>程序员 C fork仓库</li>
-<li>程序员 C 将仓库克隆在本地进行修改</li>
-<li>程序员 C 将仓库推送到远程</li>
-<li>程序员 C 发起pull reqest</li>
-<li>原仓库作者审核</li>
-<li>原仓库作者合并代码</li>
-</ol>
-<h3 id="3-7-ssh免登陆"><a href="#3-7-ssh免登陆" class="headerlink" title="3.7 ssh免登陆"></a>3.7 ssh免登陆</h3><p>https协议仓库地址：<a href="https://github.com/itcast-frontEnd/git-demo.git">https://github.com/itcast-frontEnd/git-demo.git</a></p>
-<p>生成秘钥：<code>ssh-keygen</code></p>
-<p>秘钥存储目录：C:\Users\用户\.ssh</p>
-<p>公钥名称：id_rsa.pub</p>
-<p>私钥名称：id_rsa</p>
-<h3 id="3-8-GIT忽略清单"><a href="#3-8-GIT忽略清单" class="headerlink" title="3.8 GIT忽略清单"></a>3.8 GIT忽略清单</h3><p>将不需要被git管理的文件名字添加到此文件中，在执行git命令的时候，git就会忽略这些文件。</p>
-<p>git忽略清单文件名称：**.gitignore**</p>
-<p>将工作目录中的文件全部添加到暂存区：<code>git add .</code></p>
-]]></content>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">$$</span><br><span class="line">行间公式</span><br><span class="line">$$</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">$$</span><br><span class="line">sum = \sum<span class="emphasis">_{i=1}^mx_</span>i</span><br><span class="line">$$</span><br></pre></td></tr></tbody></table></figure>
+
+<p>$$<br>sum = \sum_{i=1}^mx_i<br>$$</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li>键入<code>[TOC]</code>，之后回车目录便会呈现，目录树会根据文档中的h1~h6标题自动生成，并且支持点击跳转。</li>
+</ul>
+<div class="note info no-icon flat"><p>注意：[TOC]需要独占一行才能生效</p>
+</div>
+
+<p>手动添加跳转到某个标题的链接。使用如下的语法：</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">[<span class="string">名称</span>](<span class="link">#id</span>)</span><br><span class="line"></span><br><span class="line">“名称”可以随便填写，“id”需要填写跳转到的标题的内容。</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">[<span class="string">数学公式插入</span>](<span class="link">#数学公式插入</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p><a href="#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%8F%92%E5%85%A5">数学公式插入</a></p>
+<div class="note success no-icon flat"><p>Markdown会自动给每一个h1~h6标题生成一个锚，其id就是标题内容</p>
+</div>]]></content>
       <categories>
-        <category>前端</category>
-        <category>git</category>
+        <category>markdown</category>
       </categories>
       <tags>
-        <tag>git</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -913,8 +913,8 @@
         <category>markdown</category>
       </categories>
       <tags>
-        <tag>markdown</tag>
         <tag>butterfly</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
 </search>
