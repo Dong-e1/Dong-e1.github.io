@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.dong-e.top/project/index.html</loc>
+    
+    <lastmod>2021-06-01</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.dong-e.top/about/index.html</loc>
+    
+    <lastmod>2021-06-01</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.dong-e.top/2021/06/01/Canvas/</loc>
+    
+    <lastmod>2021-06-01</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.dong-e.top/2021/05/20/Git/</loc>
     
     <lastmod>2021-05-31</lastmod>
@@ -51,13 +72,6 @@
   </url>
   
   <url>
-    <loc>http://www.dong-e.top/about/index.html</loc>
-    
-    <lastmod>2021-05-22</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.dong-e.top/tags/index.html</loc>
     
     <lastmod>2021-05-22</lastmod>
@@ -88,43 +102,64 @@
 
   <url>
     <loc>http://www.dong-e.top/</loc>
-    <lastmod>2021-05-31</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
+    <loc>http://www.dong-e.top/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.dong-e.top/tags/HTML/</loc>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.dong-e.top/tags/Canvas/</loc>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.dong-e.top/tags/butterfly/</loc>
-    <lastmod>2021-05-31</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/tags/markdown/</loc>
-    <lastmod>2021-05-31</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/tags/git/</loc>
-    <lastmod>2021-05-31</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/tags/node/</loc>
-    <lastmod>2021-05-31</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2021-05-31</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -132,29 +167,36 @@
 
   
   <url>
-    <loc>http://www.dong-e.top/categories/markdown/</loc>
-    <lastmod>2021-05-31</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2021-05-31</lastmod>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/git/</loc>
-    <lastmod>2021-05-31</lastmod>
+    <loc>http://www.dong-e.top/categories/markdown/</loc>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/HTML/</loc>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/nodeJs/</loc>
-    <lastmod>2021-05-31</lastmod>
+    <lastmod>2021-06-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/git/</loc>
+    <lastmod>2021-06-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

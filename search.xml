@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>HTML-Canvas</title>
+    <url>/2021/06/01/Canvas/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>前端</category>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>HTML</tag>
+        <tag>Canvas</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Front-matter设置</title>
     <url>/2021/05/21/Front-matter/</url>
     <content><![CDATA[<h2 id="Page-Front-matter"><a href="#Page-Front-matter" class="headerlink" title="Page Front-matter"></a>Page Front-matter</h2><figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">date:</span><br><span class="line">updated:</span><br><span class="line">type:</span><br><span class="line">comments:</span><br><span class="line">description:</span><br><span class="line">keywords:</span><br><span class="line">top<span class="emphasis">_img:</span></span><br><span class="line"><span class="emphasis">mathjax:</span></span><br><span class="line"><span class="emphasis">katex:</span></span><br><span class="line"><span class="emphasis">aside:</span></span><br><span class="line"><span class="emphasis">aplayer:</span></span><br><span class="line"><span class="emphasis">highlight_</span>shrink:</span><br><span class="line">---</span><br></pre></td></tr></tbody></table></figure>

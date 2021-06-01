@@ -6,7 +6,7 @@
   <link href="http://www.dong-e.top/atom.xml" rel="self"/>
   
   <link href="http://www.dong-e.top/"/>
-  <updated>2021-05-26T14:00:13.780Z</updated>
+  <updated>2021-06-01T02:13:29.864Z</updated>
   <id>http://www.dong-e.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTML-Canvas</title>
+    <link href="http://www.dong-e.top/2021/06/01/Canvas/"/>
+    <id>http://www.dong-e.top/2021/06/01/Canvas/</id>
+    <published>2021-06-01T01:25:56.645Z</published>
+    <updated>2021-06-01T02:13:29.864Z</updated>
+    
+    
+    <summary type="html">学习Canvas时的一些常用总结</summary>
+    
+    
+    
+    <category term="前端" scheme="http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="HTML" scheme="http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/HTML/"/>
+    
+    
+    <category term="前端" scheme="http://www.dong-e.top/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="HTML" scheme="http://www.dong-e.top/tags/HTML/"/>
+    
+    <category term="Canvas" scheme="http://www.dong-e.top/tags/Canvas/"/>
+    
+  </entry>
   
   <entry>
     <title>Front-matter设置</title>
