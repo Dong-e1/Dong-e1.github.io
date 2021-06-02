@@ -4,7 +4,14 @@
   <url>
     <loc>http://www.dong-e.top/project/index.html</loc>
     
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.dong-e.top/2021/06/02/%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</loc>
+    
+    <lastmod>2021-06-02</lastmod>
     
   </url>
   
@@ -102,7 +109,7 @@
 
   <url>
     <loc>http://www.dong-e.top/</loc>
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -110,56 +117,63 @@
   
   <url>
     <loc>http://www.dong-e.top/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/tags/HTML/</loc>
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/tags/Canvas/</loc>
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/tags/butterfly/</loc>
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/tags/markdown/</loc>
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/tags/git/</loc>
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/tags/node/</loc>
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.dong-e.top/tags/%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -168,35 +182,49 @@
   
   <url>
     <loc>http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/categories/markdown/</loc>
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/HTML/</loc>
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/nodeJs/</loc>
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/git/</loc>
-    <lastmod>2021-06-01</lastmod>
+    <lastmod>2021-06-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.dong-e.top/categories/%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2021-06-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.dong-e.top/categories/%E9%A1%B9%E7%9B%AE/%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E/</loc>
+    <lastmod>2021-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

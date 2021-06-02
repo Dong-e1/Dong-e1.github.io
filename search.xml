@@ -582,6 +582,113 @@
       </tags>
   </entry>
   <entry>
+    <title>Gulp搭建的小米静态网页</title>
+    <url>/2021/06/02/%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</url>
+    <content><![CDATA[<h2 id="小米商城静态网页"><a href="#小米商城静态网页" class="headerlink" title="小米商城静态网页"></a>小米商城静态网页</h2><div class="note primary no-icon flat"><p>这个静态网页是在学习完JavaScript基础时，想去了解整个网页体系，然后去找资源尝试练习。</p>
+<p>页面功能也很简单，主要是练习了数据的请求获取以及对json数据的处理，轮播图，购物车加购等功能</p>
+</div>
+
+<h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><p><strong>前端技术</strong>：HTML+CSS+JavaScript+jQuery</p>
+<p><strong>开发工具</strong>：Gulp，Sass，require.js</p>
+<h3 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h3><div class="note success flat"><p>前端自动化系统构建工具</p>
+</div>
+
+<ol>
+<li><p>用npm或者cnpm安装gulp包  <code>npm install gulp -g</code></p>
+</li>
+<li><p>关于gulpfile.js文件的一些配置</p>
+<p>目录下<mark class="hl-label red">新建</mark> gulpfile.js文件——gulp项目配置文件</p>
+<mark class="hl-label red">安装</mark> 第三方插件 `gulp-sass`   `gulp-minify-css`  `gulp-rename`
+
+<p>gulpfile.js文件里<mark class="hl-label red">引入</mark> gulp和插件</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>);</span><br><span class="line"><span class="keyword">const</span> scss = <span class="built_in">require</span>(<span class="string">"gulp-sass"</span>);</span><br><span class="line"><span class="keyword">const</span> minifyCSS = <span class="built_in">require</span>(<span class="string">"gulp-minify-css"</span>);</span><br><span class="line"><span class="keyword">const</span> rename = <span class="built_in">require</span>(<span class="string">"gulp-rename"</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>工作流程</strong>  把.scss文件=&gt;css文件=&gt;压缩=&gt;min.css</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">src: 读取文件，输出流</span><br><span class="line">pipe: 处理流，输出流</span><br><span class="line">dest: 输入流，输出文件</span><br></pre></td></tr></tbody></table></figure>
+
+<div class="note warning no-icon flat"><p>使用task()时,每个任务都会接受一个回调函数做为参数，不处理的话，就会报错</p>
+<p><code>gulp: Did you forget to signal async completion</code></p>
+</div>
+
+<p><strong>分别<mark class="hl-label red">建立</mark> 任务</strong><br>处理文件任务 “scss”, “scripts”, “copy-html”, “data”, “scssAll”, “images”</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">stylesheet/*.scss =&gt; *匹配文件下所有scss文件</span><br><span class="line">!gulpfile.js =&gt; !取消对这个文件的处理</span><br><span class="line">images/**/* =&gt;  **匹配这个文件下所有的文件以及下一级文件下的文件</span><br></pre></td></tr></tbody></table></figure>
+
+<p>任务 build =&gt;  一次性执行多个任务</p>
+<p>任务 watch  =&gt;建立监听文件改动，并进行文件任务操作</p>
+<mark class="hl-label red">启动</mark> 一个服务器  npm安装`gulp-connect`
+
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> connect = <span class="built_in">require</span>(<span class="string">"gulp-connect"</span>);</span><br><span class="line">gulp.task(<span class="string">"server"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    connect.server({</span><br><span class="line">        <span class="attr">root</span>: <span class="string">"dist"</span>, <span class="comment">//打包后的文件夹</span></span><br><span class="line">        <span class="attr">port</span>: <span class="number">8887</span>, <span class="comment">//0~65535</span></span><br><span class="line">        <span class="attr">livereload</span>: <span class="literal">true</span> <span class="comment">//在文件任务后都加上 `.pipe(connect.reload())`  可以使页面实时更新</span></span><br><span class="line">    })</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<p>启动一个默认任务  直接使用gulp运行</p>
+<p><code>gulp.task("default", ["watch", "server"]);</code></p>
+<h3 id="require-js"><a href="#require-js" class="headerlink" title="require.js"></a>require.js</h3><p>页面引入</p>
+<p><code>&lt;script&nbsp;src='js/require.js'&nbsp;defer&nbsp;async='true'&nbsp;data-main='js/main.js'&gt;&lt;/script&gt;</code></p>
+<ol>
+<li><p>所有js必须通过模块化开发实现  require.js  AMD规范</p>
+</li>
+<li><p>一切文件路径都以dist文件路径为准</p>
+</li>
+<li><p>加载 requirejs 脚本的 script 标签加入了data-main属性 使每一个页面都使用这个配置</p>
+</li>
+<li><p>defer,async=’true’是浏览器异步加载 </p>
+</li>
+</ol>
+<div class="note info no-icon flat"><ul>
+<li>如果async为true，那么脚本在下载完成后异步执行。</li>
+<li>如果async为false，defer为true，那么脚本会在页面解析完毕之后执行。</li>
+<li>如果async和defer都为false，那么脚本会在页面解析中，停止页面解析，立刻下载并且执行。</li>
+</ul>
+</div>
+
+
+
+<h3 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h3><div class="note info no-icon flat"><ol>
+<li><p>是全局配置文件  配置当前这个项目用到了哪些模块</p>
+</li>
+<li><p>遵从的都是AMD规范</p>
+</li>
+<li><p>所有.js文件，后缀都可以省略</p>
+</li>
+</ol>
+</div>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">require</span>.config({</span><br><span class="line">  <span class="attr">paths</span>: {</span><br><span class="line">    <span class="comment">//加载本地服务器文件，并设置精炼的模块名字</span></span><br><span class="line">    <span class="string">"jquery"</span>: <span class="string">"jquery-1.11.3"</span>,</span><br><span class="line">    <span class="string">"jquery-cookie"</span>: <span class="string">"jquery.cookie"</span>,</span><br><span class="line">    <span class="string">"nav"</span>: <span class="string">"nav"</span>,</span><br><span class="line">    <span class="string">"slide"</span>: <span class="string">"slide"</span>,</span><br><span class="line">    <span class="string">"data"</span>: <span class="string">"data"</span></span><br><span class="line">  },</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">    插件形式的非AMD模块，我们经常会用到jquery插件，而且这些插件基本都不符合AMD规范</span></span><br><span class="line"><span class="comment">    这时候就需要将插件"垫"到jquery中：</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="attr">shim</span>: {</span><br><span class="line">    <span class="comment">//设置依赖关系</span></span><br><span class="line">    <span class="string">"jquery-cookie"</span>: [<span class="string">"jquery"</span>]</span><br><span class="line">  }</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>导入其他模块</strong></p>
+<p> 方法：require()</p>
+<p> 语法：require([依赖文件1，依赖文件2，…]，function(模块1，模块2，…){})</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="string">"nav"</span>, <span class="string">"slide"</span>, <span class="string">"data"</span>], <span class="function"><span class="keyword">function</span> (<span class="params">nav, slide, data</span>) </span>{</span><br><span class="line">  nav.download();</span><br><span class="line"></span><br><span class="line">  nav.banner();</span><br><span class="line">  nav.lefNavTab();</span><br><span class="line">  nav.topNavTab();</span><br><span class="line">  nav.searchTab();</span><br><span class="line"></span><br><span class="line">  <span class="comment">//商品列表数据加载</span></span><br><span class="line">  slide.download();</span><br><span class="line">  slide.slideTab();</span><br><span class="line"></span><br><span class="line">  <span class="comment">//主页的数据加载</span></span><br><span class="line">  data.download();</span><br><span class="line">  data.tabMenu();</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="nav-js"><a href="#nav-js" class="headerlink" title="nav.js"></a>nav.js</h3><div class="note info no-icon flat"><ol>
+<li><p>处理首页导航部分 </p>
+</li>
+<li><p>声明模块遵从AMD</p>
+</li>
+<li><p>依赖其他模块的模块</p>
+</li>
+</ol>
+</div>
+
+<p>  使用define()定义</p>
+<p>  语法：define([依赖文件1，依赖文件2，…]，function(模块A，模块B，…){})</p>
+<p>利用jQuery中的ajax语法，获取数据</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line">$.ajax({</span><br><span class="line">      <span class="attr">type</span>: <span class="string">"get"</span>,<span class="comment">//请求方式</span></span><br><span class="line">      <span class="attr">url</span>: <span class="string">"../data/nav.json"</span>,<span class="comment">//请求地址</span></span><br><span class="line">      <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>{},<span class="comment">//成功处理数据</span></span><br><span class="line">      <span class="attr">error</span>: <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>{ <span class="comment">//失败返回失败信息</span></span><br><span class="line">           <span class="built_in">console</span>.log(msg);</span><br><span class="line">      }</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<p>利用return，向外暴露内容。用于其他模块引用</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> {</span><br><span class="line">        <span class="attr">download</span>: download,</span><br><span class="line">        <span class="attr">banner</span>: banner,</span><br><span class="line">        <span class="attr">lefNavTab</span>: lefNavTab,</span><br><span class="line">        <span class="attr">topNavTab</span>: topNavTab,</span><br><span class="line">        <span class="attr">searchTab</span>: searchTab,</span><br><span class="line"></span><br><span class="line">        <span class="attr">leftNavDownload</span>: leftNavDownload,</span><br><span class="line">        <span class="attr">topNavDownload</span>: topNavDownload,</span><br><span class="line">        <span class="attr">allGoodsTab</span>: allGoodsTab</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>项目</category>
+        <category>小米商城</category>
+      </categories>
+      <tags>
+        <tag>项目</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于标签外挂的使用</title>
     <url>/2021/05/21/%E5%85%B3%E4%BA%8E%E6%A0%87%E7%AD%BE%E5%A4%96%E6%8C%82%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<div class="note primary no-icon flat"><p>这篇文章引用文章来自于</p>
