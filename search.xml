@@ -187,234 +187,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git基础用法</title>
-    <url>/2021/05/20/Git/</url>
-    <content><![CDATA[<h2 id="一-Git基础"><a href="#一-Git基础" class="headerlink" title="一.Git基础"></a>一.Git基础</h2><h3 id="认识Git"><a href="#认识Git" class="headerlink" title="认识Git"></a>认识Git</h3><div class="note danger no-icon flat"><p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p>
-<p>Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。</p>
-</div>
-
-<h3 id="Git-基本工作流程"><a href="#Git-基本工作流程" class="headerlink" title="Git 基本工作流程"></a>Git 基本工作流程</h3><p><img src="https://7.dusays.com/2021/05/31/c533c7fe131f4.png" alt="流程图"></p>
-<div class="note info no-icon flat"><p>workspace: 工作区</p>
-<p>index: 暂存区 【可以使用 git status来查看当前暂存区的状态】</p>
-<p>repository： 本地仓库（仓库区）</p>
-<p>remote：远程仓库</p>
-</div>
-
-<h3 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h3><p><img src="https://7.dusays.com/2021/05/31/bcc39d9687a11.png" alt="命令"></p>
-<h3 id="Git-的使用"><a href="#Git-的使用" class="headerlink" title="Git 的使用"></a>Git 的使用</h3><h4 id="Git-使用前配置"><a href="#Git-使用前配置" class="headerlink" title="Git 使用前配置"></a>Git 使用前配置</h4><p>在使用 git 前，需要告诉 git 你是谁，在向 git 仓库中提交时需要用到。</p>
-<ol>
-<li>配置提交人姓名：<code>git config --global user.name 提交人姓名</code></li>
-<li>配置提交人姓名：<code>git config --global user.email 提交人邮箱</code> </li>
-<li>查看git配置信息：<code>git config --list</code>   </li>
-</ol>
-<div class="note warning no-icon flat"><p><strong>注意</strong></p>
-<ol>
-<li>如果要对配置信息进行修改，重复上述命令即可。</li>
-<li>配置只需要执行一次。</li>
-</ol>
-</div>
-
-<h4 id="提交步骤"><a href="#提交步骤" class="headerlink" title="提交步骤"></a>提交步骤</h4><ol>
-<li><code>git init</code> 初始化git仓库</li>
-<li><code>git status</code> 查看文件状态</li>
-<li><code>git add 文件列表</code> 追踪文件</li>
-<li><code>git commit -m 提交信息</code>  向仓库中提交代码</li>
-<li><code>git commit --amend -m</code>  修复（替换上一次）提交</li>
-<li><code>git log</code> 查看提交记录</li>
-</ol>
-<h4 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h4><ul>
-<li>用暂存区中的文件覆盖工作目录中的文件： <code>git checkout 文件</code></li>
-<li>将文件从暂存区中删除： <code>git rm --cached 文件</code></li>
-<li>从暂存区中撤销一个指定文件: <code>git reset HEAD 文件名称</code></li>
-<li>从暂存区中撤销所有文件: <code>git reset HEAD .</code></li>
-<li>将 git 仓库中指定的更新记录恢复出来，并且覆盖暂存区和工作目录：<code>git rest --hard commitID</code> </li>
-</ul>
-<h4 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h4><ul>
-<li><p>比较 工作区和暂存区: <code>git diff 文件 </code></p>
-</li>
-<li><p>比较 暂存区和仓库: <code>git diff --cached [commitId] 文件</code></p>
-</li>
-<li><p>比较 工作区和仓库: <code>git diff commitId filename</code></p>
-</li>
-<li><p>比较 仓库不同版本: <code>git diff commitId1 commitId2</code></p>
-</li>
-</ul>
-<h2 id="二-Git进阶"><a href="#二-Git进阶" class="headerlink" title="二.Git进阶"></a>二.Git进阶</h2><h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><div class="note info no-icon flat"><p>为了便于理解，大家暂时可以认为分支就是当前工作目录中代码的一份副本。</p>
-<p>使用分支，可以让我们从开发主线上分离出来，以免影响开发主线。</p>
-</div>
-
-<h4 id="分支细分"><a href="#分支细分" class="headerlink" title="分支细分"></a>分支细分</h4><ol>
-<li><p>主分支（master）：第一次向 git 仓库中提交更新记录时自动产生的一个分支。</p>
-</li>
-<li><p>开发分支（develop）：作为开发的分支，基于 master 分支创建。</p>
-</li>
-<li><p>功能分支（feature）：作为开发具体功能的分支，基于开发分支创建</p>
-</li>
-</ol>
-<p><strong>功能分支 -&gt; 开发分支 -&gt; 主分支</strong></p>
-<h4 id="分支命令"><a href="#分支命令" class="headerlink" title="分支命令"></a>分支命令</h4><ul>
-<li><code>git branch</code> 查看分支</li>
-<li><code>git branch 分支名称</code> 创建分支</li>
-<li><code>git checkout 分支名称</code> 切换分支</li>
-<li><code>git merge 来源分支</code> 合并分支</li>
-<li><code>git branch -d 分支名称</code> 删除分支（分支被合并后才允许删除）（-D 强制删除）</li>
-<li><code>git branch --merged</code> 查看已经合并的分支</li>
-<li><code>git branch --no-merged</code> 查看未合并的分支</li>
-<li><code>git checkout -b 分支名称</code> 新建分支并切到新分支上</li>
-</ul>
-<h3 id="暂时保存更改"><a href="#暂时保存更改" class="headerlink" title="暂时保存更改"></a>暂时保存更改</h3><div class="note info no-icon flat"><p>在git中，可以暂时提取分支上所有的改动并存储，让开发人员得到一个干净的工作副本，临时转向其他工作。</p>
-</div>
-
-<p>使用场景：分支临时切换</p>
-<ul>
-<li>存储临时改动：<code>git stash</code></li>
-<li>恢复改动：<code>git stash pop</code></li>
-</ul>
-<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><div class="note info no-icon flat"><p>有的时候，我们希望给某一个特定的历史提交打上一些标签</p>
-</div>
-
-<ul>
-<li><code>git tag -a v1.0.0 HEAD/commitId</code> 新建tag</li>
-<li><code>git tag</code> 查看tag</li>
-</ul>
-<h2 id="三-Github"><a href="#三-Github" class="headerlink" title="三.Github"></a>三.Github</h2><p>在版本控制系统中，大约90%的操作都是在本地仓库中进行的：暂存，提交，查看状态或者历史记录等等。除此之外，如果仅仅只有你一个人在这个项目里工作，你永远没有机会需要设置一个远程仓库。</p>
-<p>只有当你需要和你的开发团队共享数据时，设置一个远程仓库才有意义。你可以把它想象成一个 “文件管理服务器”，利用这个服务器可以与开发团队的其他成员进行数据交换。</p>
-<h3 id="提交远程仓库"><a href="#提交远程仓库" class="headerlink" title="提交远程仓库"></a>提交远程仓库</h3><ol start="3">
-<li><p>git push -u 远程仓库地址 分支名称</p>
-<p> -u 记住推送地址及分支，下次推送只需要输入git push即可</p>
-</li>
-<li><p>git remote add 远程仓库地址别名 远程仓库地址</p>
-</li>
-</ol>
-<h3 id="拉取操作"><a href="#拉取操作" class="headerlink" title="拉取操作"></a>拉取操作</h3><ol>
-<li>git pull origin 远程分支名称</li>
-</ol>
-<h4 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h4><p>克隆远端数据仓库到本地：<code>git clone 仓库地址</code></p>
-<h4 id="拉取远程仓库中最新的版本"><a href="#拉取远程仓库中最新的版本" class="headerlink" title="拉取远程仓库中最新的版本"></a>拉取远程仓库中最新的版本</h4><p>拉取远程仓库中最新的版本：<code>git pull 远程仓库地址 分支名称</code></p>
-<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><div class="note warning no-icon flat"><p>在多人同时开发一个项目时，如果两个人修改了同一个文件的同一个地方，就会发生冲突。冲突需要人为解决。</p>
-<ul>
-<li>查看冲突文件</li>
-<li>修复冲突内容</li>
-<li>提交</li>
-</ul>
-</div>
-
-<h3 id="ssh免登陆"><a href="#ssh免登陆" class="headerlink" title="ssh免登陆"></a>ssh免登陆</h3><p>生成秘钥：<code>ssh-keygen -t rsa -C "xxxx"</code></p>
-<p>秘钥存储目录：C:\Users\用户\.ssh</p>
-<p>公钥名称：id_rsa.pub</p>
-<p>私钥名称：id_rsa</p>
-<h3 id="GIT忽略清单"><a href="#GIT忽略清单" class="headerlink" title="GIT忽略清单"></a>GIT忽略清单</h3><p>将不需要被git管理的文件名字添加到此文件中，在执行git命令的时候，git就会忽略这些文件。</p>
-<p>git忽略清单文件名称： <strong>.gitignore</strong></p>
-]]></content>
-      <categories>
-        <category>前端</category>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>NodeJs的安装配置</title>
-    <url>/2021/05/21/NodeJs%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h2 id="1-软件下载"><a href="#1-软件下载" class="headerlink" title="1.软件下载"></a>1.软件下载</h2><p><strong><mark class="hl-label red">[下载官网地址]：</mark> </strong><a class="btn-beautify button--animated larger" href="https://nodejs.org/en/download/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a></p>
-<div class="note primary flat"><p>下载首选文件后缀为.msi文件的安装包</p>
-</div>
-
-<h2 id="2-软件介绍"><a href="#2-软件介绍" class="headerlink" title="2.软件介绍"></a>2.软件介绍</h2><p><strong><mark class="hl-label blue">Node.js</mark> </strong> 是一个基于Chrome V8引擎的JavaScript运行环境，让JavaScript运行在服务端的开发平台，使JavaScript成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言。Node 使用事件驱动，非阻塞I/O 模型而得以轻量和高效，非常适合在分布式设备上运行数据密集型的实时应用。</p>
-<h2 id="3-软件安装"><a href="#3-软件安装" class="headerlink" title="3.软件安装"></a>3.软件安装</h2><div class="note flat"><p>1.点击下载的.msi文件进行安装</p>
-</div>
-
-<img src="\img\md\node安装配置\安装.png" alt="I accept the" style="zoom: 67%;">
-
-<div class="note flat"><p>2.一直点击Next，遇到【I accept the…】则勾选继续Next，遇到【Change…】则更改安装路径，不建议C盘</p>
-</div>
-
-<img src="\img\md\node安装配置\I accept the.png" alt="I accept the" style="zoom: 67%;">
-
-<img src="\img\md\node安装配置\Change.png" alt="Change" style="zoom:67%;">
-
-<div class="note flat"><p>3.一直Next，然后点击Install进行安装。</p>
-</div>
-
-<h2 id="4-软件检测"><a href="#4-软件检测" class="headerlink" title="4.软件检测"></a>4.软件检测</h2><p>在键盘按下【win+R】键，输入cmd，然后回车，打开cmd窗口</p>
-<img src="\img\md\node安装配置\cmd.webp" alt="cmd" style="zoom: 67%;">
-
-<p>按下图分别输入<code>node -v</code>和<code>npm -v</code>进行检测，出现版本号则说明安装成功</p>
-<img src="\img\md\node安装配置\检测.png" alt="I accept the" style="zoom: 100%;">
-
-<h2 id="5-Node配置"><a href="#5-Node配置" class="headerlink" title="5.Node配置"></a>5.Node配置</h2><div class="note warning no-icon flat"><p>说明：这里的环境配置主要配置的是npm安装的全局模块所在的路径，以及缓存cache的路径，之所以要配置，是因为以后在执行类似：npm install express [-g] （后面的可选参数-g，g代表global全局安装的意思）的安装语句时，默认会将安装的模块安装到【C:\Users\用户名\AppData\Roaming\npm】路径中，占C盘空间。所以要更改路径。</p>
-</div>
-
-<h3 id="缓存路径更改"><a href="#缓存路径更改" class="headerlink" title="缓存路径更改"></a>缓存路径更改</h3><ul>
-<li>1.在node安装路径下创建node_cache和node_global两个文件夹</li>
-</ul>
-<img src="\img\md\node安装配置\创建文件夹.png" alt="创建文件夹" style="zoom:80%;">
-
-<ul>
-<li>2.创建完两个空文件夹之后，打开cmd命令窗口，输入</li>
-</ul>
-<div class="note danger no-icon flat"><p>“”中的路径是你创建文件夹的路径，记住更改</p>
-</div>
-
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">npm config set prefix "D:\Develop\nodejs\node_global"</span><br><span class="line">npm config set cache "D:\Develop\nodejs\node_cache"</span><br></pre></td></tr></tbody></table></figure>
-
-<p>这样此后所安装的模块都会安装到改路径下。</p>
-<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><ul>
-<li><p>1.node_path环境变量:</p>
-<p>打开系统属性-高级-环境变量，在系统变量中新建</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>变量名</th>
-<th>变量值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>NODE_PATH</td>
-<td>D:\Develop\nodejs\node_global\node_modules（路径自己更改）</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>2.编辑用户变量中 <code>path</code></p>
-<p>将默认的 <code>C</code> 盘下 <code>APPData/Roaming\npm</code> 修改为 <code>D:\Develop\nodejs\node_global</code></p>
-</li>
-<li><p>3.使用淘宝NPM镜像</p>
-</li>
-</ul>
-<div class="note info no-icon flat"><p>由于国内网络环境限制问题，使用 <code>npm</code> 安装包时，会遇到时间长，甚至安装失败的问题，建议使用淘宝镜像，具体方法参见<a href="https://npm.taobao.org/">官网</a></p>
-</div>
-
-<p>可使用官方推荐的 <em>cnpm</em> 命令行工具代替默认的 <code>npm</code>:</p>
-<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
-<div class="note danger no-icon flat"><p>注意：有时使用 cnpm 安装的路径可能回存在问题，例如在使用react-native开发应用时会出现问题。此时可以使用nrm切换淘宝源：</p>
-</div>
-
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">npx nrm use taobao</span><br><span class="line">  </span><br><span class="line">// 以下方式切换回官方源</span><br><span class="line">npx nrm use npm</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li><p>4.测试</p>
-<p>最后安装个module测试下，我们就安装最常用的express模块，打开cmd窗口，<br>输入如下命令进行模块的全局安装：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">npm install express -g     <span class="comment"># -g是全局安装的意思</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>​  查看安装路径是否有文件。</p>
-<img src="\img\md\node安装配置\测试.png" alt="I accept the" style="zoom: 67%;">
-
-]]></content>
-      <categories>
-        <category>前端</category>
-        <category>nodeJs</category>
-      </categories>
-      <tags>
-        <tag>node</tag>
-        <tag>软件安装</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown基本语法</title>
     <url>/2021/05/21/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<div class="note info no-icon flat"><p><strong>Markdown</strong>是一种<strong>纯文本格式的轻量级标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式</strong>。这是一种14年前由作家和程序员<mark class="hl-label blue">John</mark>  <mark class="hl-label blue">Gruber</mark> 创建的文本编辑语言，Markdown的核心是Web发布所需的HTML代码的简写。当前许多网站都广泛使用Markdown来撰写帮助文档或者发布消息再或者发布博客，比如：<mark class="hl-label red">Github</mark> 、<mark class="hl-label red">CSDN博客</mark> 、<mark class="hl-label red">简书</mark> 、<mark class="hl-label red">Hexo</mark> 等。</p>
@@ -583,6 +355,168 @@
       </tags>
   </entry>
   <entry>
+    <title>Git基础用法</title>
+    <url>/2021/05/20/Git/</url>
+    <content><![CDATA[<h2 id="一-Git基础"><a href="#一-Git基础" class="headerlink" title="一.Git基础"></a>一.Git基础</h2><h3 id="认识Git"><a href="#认识Git" class="headerlink" title="认识Git"></a>认识Git</h3><div class="note danger no-icon flat"><p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p>
+<p>Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。</p>
+</div>
+
+<h3 id="Git-基本工作流程"><a href="#Git-基本工作流程" class="headerlink" title="Git 基本工作流程"></a>Git 基本工作流程</h3><p><img src="https://7.dusays.com/2021/05/31/c533c7fe131f4.png" alt="流程图"></p>
+<div class="note info no-icon flat"><p>workspace: 工作区</p>
+<p>index: 暂存区 【可以使用 git status来查看当前暂存区的状态】</p>
+<p>repository： 本地仓库（仓库区）</p>
+<p>remote：远程仓库</p>
+</div>
+
+<h3 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h3><p><img src="https://7.dusays.com/2021/05/31/bcc39d9687a11.png" alt="命令"></p>
+<h3 id="Git-的使用"><a href="#Git-的使用" class="headerlink" title="Git 的使用"></a>Git 的使用</h3><h4 id="Git-使用前配置"><a href="#Git-使用前配置" class="headerlink" title="Git 使用前配置"></a>Git 使用前配置</h4><p>在使用 git 前，需要告诉 git 你是谁，在向 git 仓库中提交时需要用到。</p>
+<ol>
+<li>配置提交人姓名：<code>git config --global user.name 提交人姓名</code></li>
+<li>配置提交人姓名：<code>git config --global user.email 提交人邮箱</code> </li>
+<li>查看git配置信息：<code>git config --list</code>   </li>
+</ol>
+<div class="note warning no-icon flat"><p><strong>注意</strong></p>
+<ol>
+<li>如果要对配置信息进行修改，重复上述命令即可。</li>
+<li>配置只需要执行一次。</li>
+</ol>
+</div>
+
+<h4 id="提交步骤"><a href="#提交步骤" class="headerlink" title="提交步骤"></a>提交步骤</h4><ol>
+<li><code>git init</code> 初始化git仓库</li>
+<li><code>git status</code> 查看文件状态</li>
+<li><code>git add 文件列表</code> 追踪文件</li>
+<li><code>git commit -m 提交信息</code>  向仓库中提交代码</li>
+<li><code>git commit --amend -m</code>  修复（替换上一次）提交</li>
+<li><code>git log</code> 查看提交记录</li>
+</ol>
+<h4 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h4><ul>
+<li>用暂存区中的文件覆盖工作目录中的文件： <code>git checkout 文件</code></li>
+<li>将文件从暂存区中删除： <code>git rm --cached 文件</code></li>
+<li>从暂存区中撤销一个指定文件: <code>git reset HEAD 文件名称</code></li>
+<li>从暂存区中撤销所有文件: <code>git reset HEAD .</code></li>
+<li>将 git 仓库中指定的更新记录恢复出来，并且覆盖暂存区和工作目录：<code>git rest --hard commitID</code> </li>
+</ul>
+<h4 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h4><ul>
+<li><p>比较 工作区和暂存区: <code>git diff 文件 </code></p>
+</li>
+<li><p>比较 暂存区和仓库: <code>git diff --cached [commitId] 文件</code></p>
+</li>
+<li><p>比较 工作区和仓库: <code>git diff commitId filename</code></p>
+</li>
+<li><p>比较 仓库不同版本: <code>git diff commitId1 commitId2</code></p>
+</li>
+</ul>
+<h2 id="二-Git进阶"><a href="#二-Git进阶" class="headerlink" title="二.Git进阶"></a>二.Git进阶</h2><h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><div class="note info no-icon flat"><p>为了便于理解，大家暂时可以认为分支就是当前工作目录中代码的一份副本。</p>
+<p>使用分支，可以让我们从开发主线上分离出来，以免影响开发主线。</p>
+</div>
+
+<h4 id="分支细分"><a href="#分支细分" class="headerlink" title="分支细分"></a>分支细分</h4><ol>
+<li><p>主分支（master）：第一次向 git 仓库中提交更新记录时自动产生的一个分支。</p>
+</li>
+<li><p>开发分支（develop）：作为开发的分支，基于 master 分支创建。</p>
+</li>
+<li><p>功能分支（feature）：作为开发具体功能的分支，基于开发分支创建</p>
+</li>
+</ol>
+<p><strong>功能分支 -&gt; 开发分支 -&gt; 主分支</strong></p>
+<h4 id="分支命令"><a href="#分支命令" class="headerlink" title="分支命令"></a>分支命令</h4><ul>
+<li><code>git branch</code> 查看分支</li>
+<li><code>git branch 分支名称</code> 创建分支</li>
+<li><code>git checkout 分支名称</code> 切换分支</li>
+<li><code>git merge 来源分支</code> 合并分支</li>
+<li><code>git branch -d 分支名称</code> 删除分支（分支被合并后才允许删除）（-D 强制删除）</li>
+<li><code>git branch --merged</code> 查看已经合并的分支</li>
+<li><code>git branch --no-merged</code> 查看未合并的分支</li>
+<li><code>git checkout -b 分支名称</code> 新建分支并切到新分支上</li>
+</ul>
+<h3 id="暂时保存更改"><a href="#暂时保存更改" class="headerlink" title="暂时保存更改"></a>暂时保存更改</h3><div class="note info no-icon flat"><p>在git中，可以暂时提取分支上所有的改动并存储，让开发人员得到一个干净的工作副本，临时转向其他工作。</p>
+</div>
+
+<p>使用场景：分支临时切换</p>
+<ul>
+<li>存储临时改动：<code>git stash</code></li>
+<li>恢复改动：<code>git stash pop</code></li>
+</ul>
+<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><div class="note info no-icon flat"><p>有的时候，我们希望给某一个特定的历史提交打上一些标签</p>
+</div>
+
+<ul>
+<li><code>git tag -a v1.0.0 HEAD/commitId</code> 新建tag</li>
+<li><code>git tag</code> 查看tag</li>
+</ul>
+<h2 id="三-Github"><a href="#三-Github" class="headerlink" title="三.Github"></a>三.Github</h2><p>在版本控制系统中，大约90%的操作都是在本地仓库中进行的：暂存，提交，查看状态或者历史记录等等。除此之外，如果仅仅只有你一个人在这个项目里工作，你永远没有机会需要设置一个远程仓库。</p>
+<p>只有当你需要和你的开发团队共享数据时，设置一个远程仓库才有意义。你可以把它想象成一个 “文件管理服务器”，利用这个服务器可以与开发团队的其他成员进行数据交换。</p>
+<h3 id="提交远程仓库"><a href="#提交远程仓库" class="headerlink" title="提交远程仓库"></a>提交远程仓库</h3><ol start="3">
+<li><p>git push -u 远程仓库地址 分支名称</p>
+<p> -u 记住推送地址及分支，下次推送只需要输入git push即可</p>
+</li>
+<li><p>git remote add 远程仓库地址别名 远程仓库地址</p>
+</li>
+</ol>
+<h3 id="拉取操作"><a href="#拉取操作" class="headerlink" title="拉取操作"></a>拉取操作</h3><ol>
+<li>git pull origin 远程分支名称</li>
+</ol>
+<h4 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h4><p>克隆远端数据仓库到本地：<code>git clone 仓库地址</code></p>
+<h4 id="拉取远程仓库中最新的版本"><a href="#拉取远程仓库中最新的版本" class="headerlink" title="拉取远程仓库中最新的版本"></a>拉取远程仓库中最新的版本</h4><p>拉取远程仓库中最新的版本：<code>git pull 远程仓库地址 分支名称</code></p>
+<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><div class="note warning no-icon flat"><p>在多人同时开发一个项目时，如果两个人修改了同一个文件的同一个地方，就会发生冲突。冲突需要人为解决。</p>
+<ul>
+<li>查看冲突文件</li>
+<li>修复冲突内容</li>
+<li>提交</li>
+</ul>
+</div>
+
+<h3 id="ssh免登陆"><a href="#ssh免登陆" class="headerlink" title="ssh免登陆"></a>ssh免登陆</h3><p>生成秘钥：<code>ssh-keygen -t rsa -C "xxxx"</code></p>
+<p>秘钥存储目录：C:\Users\用户\.ssh</p>
+<p>公钥名称：id_rsa.pub</p>
+<p>私钥名称：id_rsa</p>
+<h3 id="GIT忽略清单"><a href="#GIT忽略清单" class="headerlink" title="GIT忽略清单"></a>GIT忽略清单</h3><p>将不需要被git管理的文件名字添加到此文件中，在执行git命令的时候，git就会忽略这些文件。</p>
+<p>git忽略清单文件名称： <strong>.gitignore</strong></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue电商后台管理</title>
+    <url>/2021/06/04/Vue%E7%94%B5%E5%95%86%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><div class="note info no-icon flat"><p>在学习完Vue基础后学习了这个后台管理项目，只负责前端页面。</p>
+<p>学习到了Vue组件开发思想，以及如何看后台接口文档，如何去调试，如何去验证数据，以及如何将数据更新到页面。</p>
+</div>
+
+<mark class="hl-label red">前端技术栈</mark> :Vue,Vue-Router,Element-UI,Axios,Echarts
+
+<h2 id="main-dev-js配置"><a href="#main-dev-js配置" class="headerlink" title="main-dev.js配置"></a>main-dev.js配置</h2><p>项目在开发阶段的主配置，</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App.vue'</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'./router'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./plugins/element.js'</span></span><br><span class="line"><span class="comment">// 导入全局样式表</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./assets/css/global.css'</span></span><br><span class="line"><span class="comment">// 导入样式表(阿里图标库)</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./assets/fonts/iconfont.css'</span></span><br><span class="line"><span class="comment">//导入树形结构UI</span></span><br><span class="line"><span class="keyword">import</span> TreeTable <span class="keyword">from</span> <span class="string">'vue-table-with-tree-grid'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 导入富文本编辑器</span></span><br><span class="line"><span class="keyword">import</span> VueQuillEditor <span class="keyword">from</span> <span class="string">'vue-quill-editor'</span></span><br><span class="line"><span class="comment">// require styles 导入富文本编辑器对应的样式</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'quill/dist/quill.core.css'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'quill/dist/quill.snow.css'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'quill/dist/quill.bubble.css'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 导入NProgress包对应的Js和css（页面进度条）</span></span><br><span class="line"><span class="keyword">import</span> NProgress <span class="keyword">from</span> <span class="string">'nprogress'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'nprogress/nprogress.css'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"><span class="comment">// 配置请求的根路径</span></span><br><span class="line">axios.defaults.baseURL = <span class="string">'http://127.0.0.1:8888/api/private/v1/'</span></span><br><span class="line"><span class="comment">// 在require拦截器中，显示进度条 NProgress.start()</span></span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span> =&gt;</span> {</span><br><span class="line">  <span class="comment">// console.log(config);</span></span><br><span class="line">  NProgress.start()</span><br><span class="line">  <span class="comment">//请求头携带token</span></span><br><span class="line">  config.headers.Authorization = <span class="built_in">window</span>.sessionStorage.getItem(<span class="string">'token'</span>)</span><br><span class="line">  <span class="comment">// 在最后必须return config</span></span><br><span class="line">  <span class="keyword">return</span> config</span><br><span class="line">})</span><br><span class="line"><span class="comment">// 在response拦截器中，隐藏进度条 NProgress.done()</span></span><br><span class="line">axios.interceptors.response.use(<span class="function"><span class="params">config</span> =&gt;</span> {</span><br><span class="line">  NProgress.done()</span><br><span class="line">  <span class="keyword">return</span> config</span><br><span class="line">})</span><br><span class="line"><span class="comment">//挂载到vue原型对象上</span></span><br><span class="line">Vue.prototype.$http = axios</span><br><span class="line"><span class="comment">//阻止启动生产消息 避免警告语句</span></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">Vue.component(<span class="string">'tree-table'</span>, TreeTable)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将富文本编辑器，注册为全局可用的组件</span></span><br><span class="line">Vue.use(VueQuillEditor)</span><br><span class="line"><span class="comment">// 过滤时间格式</span></span><br><span class="line">Vue.filter(<span class="string">'dateFormat'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">originVal</span>) </span>{</span><br><span class="line">  <span class="keyword">const</span> dt = <span class="keyword">new</span> <span class="built_in">Date</span>(originVal)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> y = dt.getFullYear()</span><br><span class="line">  <span class="keyword">const</span> m = (dt.getMonth() + <span class="number">1</span> + <span class="string">''</span>).padStart(<span class="number">2</span>, <span class="string">'0'</span>)</span><br><span class="line">  <span class="keyword">const</span> d = (dt.getDate() + <span class="string">''</span>).padStart(<span class="number">2</span>, <span class="string">'0'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> hh = (dt.getHours() + <span class="string">''</span>).padStart(<span class="number">2</span>, <span class="string">'0'</span>)</span><br><span class="line">  <span class="keyword">const</span> mm = (dt.getMinutes() + <span class="string">''</span>).padStart(<span class="number">2</span>, <span class="string">'0'</span>)</span><br><span class="line">  <span class="keyword">const</span> ss = (dt.getSeconds() + <span class="string">''</span>).padStart(<span class="number">2</span>, <span class="string">'0'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">${y}</span>-<span class="subst">${m}</span>-<span class="subst">${d}</span> <span class="subst">${hh}</span>:<span class="subst">${mm}</span>:<span class="subst">${ss}</span>`</span></span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//$mount()手动挂载</span></span><br><span class="line"><span class="comment">// 1 当Vue实例没有el属性时，则该实例尚没有挂载到某个dom中；</span></span><br><span class="line"><span class="comment">//假如需要延迟挂载，可以在之后手动调用vm.$mount()方法来挂载。</span></span><br><span class="line"><span class="keyword">new</span> Vue({</span><br><span class="line">  router,</span><br><span class="line">  <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> h(App)</span><br><span class="line">}).$mount(<span class="string">'#app'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="App-vue"><a href="#App-vue" class="headerlink" title="App.vue"></a>App.vue</h2><p>需要渲染的页面，用路由占位符去按需加载组件</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div id="app"&gt;</span><br><span class="line">        &lt;!-- 路由占位符 --&gt;</span><br><span class="line">        &lt;router-view&gt; &lt;/router-view&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="index-js-router"><a href="#index-js-router" class="headerlink" title="index.js(router)"></a>index.js(router)</h2><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//是正常导入</span></span><br><span class="line"><span class="keyword">import</span> Login <span class="keyword">from</span> <span class="string">'../components/Login.vue'</span></span><br><span class="line"><span class="comment">//是webpack打包改名配置</span></span><br><span class="line"><span class="keyword">const</span> Login = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "login_home_welcome"*/</span> <span class="string">'../components/Login.vue'</span>)</span><br><span class="line"><span class="comment">//路由配置</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> Router({<span class="attr">routes</span>: [{<span class="attr">path</span>: <span class="string">''</span>, <span class="attr">component</span>:<span class="string">''</span>,[children:<span class="string">''</span>]]})</span><br></pre></td></tr></tbody></table></figure>
+
+<p>完整代码</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"><span class="comment">// import Login from '../components/Login.vue'</span></span><br><span class="line"><span class="keyword">const</span> Login = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "login_home_welcome"*/</span> <span class="string">'../components/Login.vue'</span>)</span><br><span class="line"><span class="comment">// import Home from '../components/Home.vue'</span></span><br><span class="line"><span class="keyword">const</span> Home = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "login_home_welcome"*/</span> <span class="string">'../components/Home.vue'</span>)</span><br><span class="line"><span class="comment">// import Welcome from '../components/Welcome.vue'</span></span><br><span class="line"><span class="keyword">const</span> Welcome = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "login_home_welcome"*/</span> <span class="string">'../components/Welcome.vue'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// import Users from '../components/user/Users.vue'</span></span><br><span class="line"><span class="keyword">const</span> Users = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "Users_Rights_Roles"*/</span> <span class="string">'../components/user/Users.vue'</span>)</span><br><span class="line"><span class="comment">// import Rights from '../components/power/Rights.vue'</span></span><br><span class="line"><span class="keyword">const</span> Rights = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "Users_Rights_Roles"*/</span> <span class="string">'../components/power/Rights.vue'</span>)</span><br><span class="line"><span class="comment">// import Roles from '../components/power/Roles.vue'</span></span><br><span class="line"><span class="keyword">const</span> Roles = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "Users_Rights_Roles"*/</span> <span class="string">'../components/power/Roles.vue'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// import Cate from '../components/goods/Cate.vue'</span></span><br><span class="line"><span class="keyword">const</span> Cate = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "Cate_Params"*/</span> <span class="string">'../components/goods/Cate.vue'</span>)</span><br><span class="line"><span class="comment">// import Params from '../components/goods/Params.vue'</span></span><br><span class="line"><span class="keyword">const</span> Params = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "Cate_Params"*/</span> <span class="string">'../components/goods/Params.vue'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// import GoodsList from '../components/goods/List.vue'</span></span><br><span class="line"><span class="keyword">const</span> GoodsList = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "GoodsList_Add"*/</span> <span class="string">'../components/goods/List.vue'</span>)</span><br><span class="line"><span class="comment">// import Add from '../components/goods/Add.vue'</span></span><br><span class="line"><span class="keyword">const</span> Add = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "GoodsList_Add"*/</span> <span class="string">'../components/goods/Add.vue'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// import Order from '../components/order/Order.vue'</span></span><br><span class="line"><span class="keyword">const</span> Order = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "Order_Report"*/</span> <span class="string">'../components/order/Order.vue'</span>)</span><br><span class="line"><span class="comment">// import Report from '../components/report/Report.vue'</span></span><br><span class="line"><span class="keyword">const</span> Report = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "Order_Report"*/</span> <span class="string">'../components/report/Report.vue'</span>)</span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> Router({</span><br><span class="line">  <span class="attr">routes</span>: [{</span><br><span class="line">    <span class="attr">path</span>: <span class="string">'/'</span>,</span><br><span class="line">      <span class="comment">//重定向</span></span><br><span class="line">    <span class="attr">redirect</span>: <span class="string">'/login'</span></span><br><span class="line">  }, {</span><br><span class="line">    <span class="attr">path</span>: <span class="string">'/login'</span>,</span><br><span class="line">    <span class="attr">component</span>: Login</span><br><span class="line">  }, {</span><br><span class="line">    <span class="attr">path</span>: <span class="string">'/home'</span>,</span><br><span class="line">    <span class="attr">component</span>: Home,</span><br><span class="line">    <span class="attr">redirect</span>: <span class="string">'/welcome'</span>,</span><br><span class="line">    <span class="attr">children</span>: [{</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/welcome'</span>,</span><br><span class="line">      <span class="attr">component</span>: Welcome</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/users'</span>,</span><br><span class="line">      <span class="attr">component</span>: Users</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/rights'</span>,</span><br><span class="line">      <span class="attr">component</span>: Rights</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/roles'</span>,</span><br><span class="line">      <span class="attr">component</span>: Roles</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/categories'</span>,</span><br><span class="line">      <span class="attr">component</span>: Cate</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/params'</span>,</span><br><span class="line">      <span class="attr">component</span>: Params</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/goods'</span>,</span><br><span class="line">      <span class="attr">component</span>: GoodsList</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/goods/add'</span>,</span><br><span class="line">      <span class="attr">component</span>: Add</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/orders'</span>,</span><br><span class="line">      <span class="attr">component</span>: Order</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/reports'</span>,</span><br><span class="line">      <span class="attr">component</span>: Report</span><br><span class="line">    }]</span><br><span class="line">  }]</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="comment">// 挂载路由导航守卫</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> {</span><br><span class="line">  <span class="comment">// to 将要访问的路径</span></span><br><span class="line">  <span class="comment">// from 代表从哪个路径跳转而来</span></span><br><span class="line">  <span class="comment">// next 是一个函数，表示放行</span></span><br><span class="line">  <span class="comment">//      next（）放行  next('/login') 强制跳转</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (to.path === <span class="string">'/login'</span>) <span class="keyword">return</span> next()</span><br><span class="line">  <span class="comment">//获取token</span></span><br><span class="line">  <span class="keyword">const</span> tokenStr = <span class="built_in">window</span>.sessionStorage.getItem(<span class="string">'token'</span>)</span><br><span class="line">  <span class="keyword">if</span> (!tokenStr) <span class="keyword">return</span> next(<span class="string">'/login'</span>)</span><br><span class="line">  next()</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>组件结构：data 数据 ， created 渲染前 ， methods 方法 ，computed 计算</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default {</span><br><span class="line">    data() {</span><br><span class="line">    return{}</span><br><span class="line">    },</span><br><span class="line">    created() {},</span><br><span class="line">    methods: {},</span><br><span class="line">    computed: {}</span><br><span class="line">  }</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style lang="less" scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>项目</category>
+        <category>Vue后台管理</category>
+      </categories>
+      <tags>
+        <tag>项目</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cookie、session、localStorage区别</title>
     <url>/2021/06/19/cookie%E3%80%81session%E3%80%81localStorage/</url>
     <content><![CDATA[<h1 id="一、cookie"><a href="#一、cookie" class="headerlink" title="一、cookie"></a>一、cookie</h1><h2 id="01-cookie简介"><a href="#01-cookie简介" class="headerlink" title="01. cookie简介"></a>01. cookie简介</h2><ol>
@@ -727,111 +661,103 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue电商后台管理</title>
-    <url>/2021/06/04/Vue%E7%94%B5%E5%95%86%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<h2 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h2><div class="note info no-icon flat"><p>在学习完Vue基础后学习了这个后台管理项目，只负责前端页面。</p>
-<p>学习到了Vue组件开发思想，以及如何看后台接口文档，如何去调试，如何去验证数据，以及如何将数据更新到页面。</p>
+    <title>NodeJs的安装配置</title>
+    <url>/2021/05/21/NodeJs%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="1-软件下载"><a href="#1-软件下载" class="headerlink" title="1.软件下载"></a>1.软件下载</h2><p><strong><mark class="hl-label red">[下载官网地址]：</mark> </strong><a class="btn-beautify button--animated larger" href="https://nodejs.org/en/download/" title="Butterfly"><i class="far fa-hand-point-right"></i><span>Butterfly</span></a></p>
+<div class="note primary flat"><p>下载首选文件后缀为.msi文件的安装包</p>
 </div>
 
-<mark class="hl-label red">前端技术栈</mark> :Vue,Vue-Router,Element-UI,Axios,Echarts
+<h2 id="2-软件介绍"><a href="#2-软件介绍" class="headerlink" title="2.软件介绍"></a>2.软件介绍</h2><p><strong><mark class="hl-label blue">Node.js</mark> </strong> 是一个基于Chrome V8引擎的JavaScript运行环境，让JavaScript运行在服务端的开发平台，使JavaScript成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言。Node 使用事件驱动，非阻塞I/O 模型而得以轻量和高效，非常适合在分布式设备上运行数据密集型的实时应用。</p>
+<h2 id="3-软件安装"><a href="#3-软件安装" class="headerlink" title="3.软件安装"></a>3.软件安装</h2><div class="note flat"><p>1.点击下载的.msi文件进行安装</p>
+</div>
 
-<h2 id="main-dev-js配置"><a href="#main-dev-js配置" class="headerlink" title="main-dev.js配置"></a>main-dev.js配置</h2><p>项目在开发阶段的主配置，</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App.vue'</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'./router'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./plugins/element.js'</span></span><br><span class="line"><span class="comment">// 导入全局样式表</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./assets/css/global.css'</span></span><br><span class="line"><span class="comment">// 导入样式表(阿里图标库)</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'./assets/fonts/iconfont.css'</span></span><br><span class="line"><span class="comment">//导入树形结构UI</span></span><br><span class="line"><span class="keyword">import</span> TreeTable <span class="keyword">from</span> <span class="string">'vue-table-with-tree-grid'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 导入富文本编辑器</span></span><br><span class="line"><span class="keyword">import</span> VueQuillEditor <span class="keyword">from</span> <span class="string">'vue-quill-editor'</span></span><br><span class="line"><span class="comment">// require styles 导入富文本编辑器对应的样式</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'quill/dist/quill.core.css'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'quill/dist/quill.snow.css'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'quill/dist/quill.bubble.css'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 导入NProgress包对应的Js和css（页面进度条）</span></span><br><span class="line"><span class="keyword">import</span> NProgress <span class="keyword">from</span> <span class="string">'nprogress'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'nprogress/nprogress.css'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"><span class="comment">// 配置请求的根路径</span></span><br><span class="line">axios.defaults.baseURL = <span class="string">'http://127.0.0.1:8888/api/private/v1/'</span></span><br><span class="line"><span class="comment">// 在require拦截器中，显示进度条 NProgress.start()</span></span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">config</span> =&gt;</span> {</span><br><span class="line">  <span class="comment">// console.log(config);</span></span><br><span class="line">  NProgress.start()</span><br><span class="line">  <span class="comment">//请求头携带token</span></span><br><span class="line">  config.headers.Authorization = <span class="built_in">window</span>.sessionStorage.getItem(<span class="string">'token'</span>)</span><br><span class="line">  <span class="comment">// 在最后必须return config</span></span><br><span class="line">  <span class="keyword">return</span> config</span><br><span class="line">})</span><br><span class="line"><span class="comment">// 在response拦截器中，隐藏进度条 NProgress.done()</span></span><br><span class="line">axios.interceptors.response.use(<span class="function"><span class="params">config</span> =&gt;</span> {</span><br><span class="line">  NProgress.done()</span><br><span class="line">  <span class="keyword">return</span> config</span><br><span class="line">})</span><br><span class="line"><span class="comment">//挂载到vue原型对象上</span></span><br><span class="line">Vue.prototype.$http = axios</span><br><span class="line"><span class="comment">//阻止启动生产消息 避免警告语句</span></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">Vue.component(<span class="string">'tree-table'</span>, TreeTable)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将富文本编辑器，注册为全局可用的组件</span></span><br><span class="line">Vue.use(VueQuillEditor)</span><br><span class="line"><span class="comment">// 过滤时间格式</span></span><br><span class="line">Vue.filter(<span class="string">'dateFormat'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">originVal</span>) </span>{</span><br><span class="line">  <span class="keyword">const</span> dt = <span class="keyword">new</span> <span class="built_in">Date</span>(originVal)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> y = dt.getFullYear()</span><br><span class="line">  <span class="keyword">const</span> m = (dt.getMonth() + <span class="number">1</span> + <span class="string">''</span>).padStart(<span class="number">2</span>, <span class="string">'0'</span>)</span><br><span class="line">  <span class="keyword">const</span> d = (dt.getDate() + <span class="string">''</span>).padStart(<span class="number">2</span>, <span class="string">'0'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> hh = (dt.getHours() + <span class="string">''</span>).padStart(<span class="number">2</span>, <span class="string">'0'</span>)</span><br><span class="line">  <span class="keyword">const</span> mm = (dt.getMinutes() + <span class="string">''</span>).padStart(<span class="number">2</span>, <span class="string">'0'</span>)</span><br><span class="line">  <span class="keyword">const</span> ss = (dt.getSeconds() + <span class="string">''</span>).padStart(<span class="number">2</span>, <span class="string">'0'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">${y}</span>-<span class="subst">${m}</span>-<span class="subst">${d}</span> <span class="subst">${hh}</span>:<span class="subst">${mm}</span>:<span class="subst">${ss}</span>`</span></span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//$mount()手动挂载</span></span><br><span class="line"><span class="comment">// 1 当Vue实例没有el属性时，则该实例尚没有挂载到某个dom中；</span></span><br><span class="line"><span class="comment">//假如需要延迟挂载，可以在之后手动调用vm.$mount()方法来挂载。</span></span><br><span class="line"><span class="keyword">new</span> Vue({</span><br><span class="line">  router,</span><br><span class="line">  <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> h(App)</span><br><span class="line">}).$mount(<span class="string">'#app'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<img src="\img\md\node安装配置\安装.png" alt="I accept the" style="zoom: 67%;">
 
-<h2 id="App-vue"><a href="#App-vue" class="headerlink" title="App.vue"></a>App.vue</h2><p>需要渲染的页面，用路由占位符去按需加载组件</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div id="app"&gt;</span><br><span class="line">        &lt;!-- 路由占位符 --&gt;</span><br><span class="line">        &lt;router-view&gt; &lt;/router-view&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></tbody></table></figure>
+<div class="note flat"><p>2.一直点击Next，遇到【I accept the…】则勾选继续Next，遇到【Change…】则更改安装路径，不建议C盘</p>
+</div>
 
-<h2 id="index-js-router"><a href="#index-js-router" class="headerlink" title="index.js(router)"></a>index.js(router)</h2><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//是正常导入</span></span><br><span class="line"><span class="keyword">import</span> Login <span class="keyword">from</span> <span class="string">'../components/Login.vue'</span></span><br><span class="line"><span class="comment">//是webpack打包改名配置</span></span><br><span class="line"><span class="keyword">const</span> Login = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "login_home_welcome"*/</span> <span class="string">'../components/Login.vue'</span>)</span><br><span class="line"><span class="comment">//路由配置</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> Router({<span class="attr">routes</span>: [{<span class="attr">path</span>: <span class="string">''</span>, <span class="attr">component</span>:<span class="string">''</span>,[children:<span class="string">''</span>]]})</span><br></pre></td></tr></tbody></table></figure>
+<img src="\img\md\node安装配置\I accept the.png" alt="I accept the" style="zoom: 67%;">
 
-<p>完整代码</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"><span class="comment">// import Login from '../components/Login.vue'</span></span><br><span class="line"><span class="keyword">const</span> Login = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "login_home_welcome"*/</span> <span class="string">'../components/Login.vue'</span>)</span><br><span class="line"><span class="comment">// import Home from '../components/Home.vue'</span></span><br><span class="line"><span class="keyword">const</span> Home = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "login_home_welcome"*/</span> <span class="string">'../components/Home.vue'</span>)</span><br><span class="line"><span class="comment">// import Welcome from '../components/Welcome.vue'</span></span><br><span class="line"><span class="keyword">const</span> Welcome = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "login_home_welcome"*/</span> <span class="string">'../components/Welcome.vue'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// import Users from '../components/user/Users.vue'</span></span><br><span class="line"><span class="keyword">const</span> Users = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "Users_Rights_Roles"*/</span> <span class="string">'../components/user/Users.vue'</span>)</span><br><span class="line"><span class="comment">// import Rights from '../components/power/Rights.vue'</span></span><br><span class="line"><span class="keyword">const</span> Rights = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "Users_Rights_Roles"*/</span> <span class="string">'../components/power/Rights.vue'</span>)</span><br><span class="line"><span class="comment">// import Roles from '../components/power/Roles.vue'</span></span><br><span class="line"><span class="keyword">const</span> Roles = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "Users_Rights_Roles"*/</span> <span class="string">'../components/power/Roles.vue'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// import Cate from '../components/goods/Cate.vue'</span></span><br><span class="line"><span class="keyword">const</span> Cate = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "Cate_Params"*/</span> <span class="string">'../components/goods/Cate.vue'</span>)</span><br><span class="line"><span class="comment">// import Params from '../components/goods/Params.vue'</span></span><br><span class="line"><span class="keyword">const</span> Params = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "Cate_Params"*/</span> <span class="string">'../components/goods/Params.vue'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// import GoodsList from '../components/goods/List.vue'</span></span><br><span class="line"><span class="keyword">const</span> GoodsList = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "GoodsList_Add"*/</span> <span class="string">'../components/goods/List.vue'</span>)</span><br><span class="line"><span class="comment">// import Add from '../components/goods/Add.vue'</span></span><br><span class="line"><span class="keyword">const</span> Add = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "GoodsList_Add"*/</span> <span class="string">'../components/goods/Add.vue'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// import Order from '../components/order/Order.vue'</span></span><br><span class="line"><span class="keyword">const</span> Order = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "Order_Report"*/</span> <span class="string">'../components/order/Order.vue'</span>)</span><br><span class="line"><span class="comment">// import Report from '../components/report/Report.vue'</span></span><br><span class="line"><span class="keyword">const</span> Report = <span class="function">() =&gt;</span> <span class="keyword">import</span>( <span class="comment">/* webpackChunkName: "Order_Report"*/</span> <span class="string">'../components/report/Report.vue'</span>)</span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> Router({</span><br><span class="line">  <span class="attr">routes</span>: [{</span><br><span class="line">    <span class="attr">path</span>: <span class="string">'/'</span>,</span><br><span class="line">      <span class="comment">//重定向</span></span><br><span class="line">    <span class="attr">redirect</span>: <span class="string">'/login'</span></span><br><span class="line">  }, {</span><br><span class="line">    <span class="attr">path</span>: <span class="string">'/login'</span>,</span><br><span class="line">    <span class="attr">component</span>: Login</span><br><span class="line">  }, {</span><br><span class="line">    <span class="attr">path</span>: <span class="string">'/home'</span>,</span><br><span class="line">    <span class="attr">component</span>: Home,</span><br><span class="line">    <span class="attr">redirect</span>: <span class="string">'/welcome'</span>,</span><br><span class="line">    <span class="attr">children</span>: [{</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/welcome'</span>,</span><br><span class="line">      <span class="attr">component</span>: Welcome</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/users'</span>,</span><br><span class="line">      <span class="attr">component</span>: Users</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/rights'</span>,</span><br><span class="line">      <span class="attr">component</span>: Rights</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/roles'</span>,</span><br><span class="line">      <span class="attr">component</span>: Roles</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/categories'</span>,</span><br><span class="line">      <span class="attr">component</span>: Cate</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/params'</span>,</span><br><span class="line">      <span class="attr">component</span>: Params</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/goods'</span>,</span><br><span class="line">      <span class="attr">component</span>: GoodsList</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/goods/add'</span>,</span><br><span class="line">      <span class="attr">component</span>: Add</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/orders'</span>,</span><br><span class="line">      <span class="attr">component</span>: Order</span><br><span class="line">    }, {</span><br><span class="line">      <span class="attr">path</span>: <span class="string">'/reports'</span>,</span><br><span class="line">      <span class="attr">component</span>: Report</span><br><span class="line">    }]</span><br><span class="line">  }]</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="comment">// 挂载路由导航守卫</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> {</span><br><span class="line">  <span class="comment">// to 将要访问的路径</span></span><br><span class="line">  <span class="comment">// from 代表从哪个路径跳转而来</span></span><br><span class="line">  <span class="comment">// next 是一个函数，表示放行</span></span><br><span class="line">  <span class="comment">//      next（）放行  next('/login') 强制跳转</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (to.path === <span class="string">'/login'</span>) <span class="keyword">return</span> next()</span><br><span class="line">  <span class="comment">//获取token</span></span><br><span class="line">  <span class="keyword">const</span> tokenStr = <span class="built_in">window</span>.sessionStorage.getItem(<span class="string">'token'</span>)</span><br><span class="line">  <span class="keyword">if</span> (!tokenStr) <span class="keyword">return</span> next(<span class="string">'/login'</span>)</span><br><span class="line">  next()</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></tbody></table></figure>
+<img src="\img\md\node安装配置\Change.png" alt="Change" style="zoom:67%;">
 
-<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>组件结构：data 数据 ， created 渲染前 ， methods 方法 ，computed 计算</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default {</span><br><span class="line">    data() {</span><br><span class="line">    return{}</span><br><span class="line">    },</span><br><span class="line">    created() {},</span><br><span class="line">    methods: {},</span><br><span class="line">    computed: {}</span><br><span class="line">  }</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style lang="less" scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></tbody></table></figure>
+<div class="note flat"><p>3.一直Next，然后点击Install进行安装。</p>
+</div>
 
+<h2 id="4-软件检测"><a href="#4-软件检测" class="headerlink" title="4.软件检测"></a>4.软件检测</h2><p>在键盘按下【win+R】键，输入cmd，然后回车，打开cmd窗口</p>
+<img src="\img\md\node安装配置\cmd.webp" alt="cmd" style="zoom: 67%;">
 
+<p>按下图分别输入<code>node -v</code>和<code>npm -v</code>进行检测，出现版本号则说明安装成功</p>
+<img src="\img\md\node安装配置\检测.png" alt="I accept the" style="zoom: 100%;">
+
+<h2 id="5-Node配置"><a href="#5-Node配置" class="headerlink" title="5.Node配置"></a>5.Node配置</h2><div class="note warning no-icon flat"><p>说明：这里的环境配置主要配置的是npm安装的全局模块所在的路径，以及缓存cache的路径，之所以要配置，是因为以后在执行类似：npm install express [-g] （后面的可选参数-g，g代表global全局安装的意思）的安装语句时，默认会将安装的模块安装到【C:\Users\用户名\AppData\Roaming\npm】路径中，占C盘空间。所以要更改路径。</p>
+</div>
+
+<h3 id="缓存路径更改"><a href="#缓存路径更改" class="headerlink" title="缓存路径更改"></a>缓存路径更改</h3><ul>
+<li>1.在node安装路径下创建node_cache和node_global两个文件夹</li>
+</ul>
+<img src="\img\md\node安装配置\创建文件夹.png" alt="创建文件夹" style="zoom:80%;">
+
+<ul>
+<li>2.创建完两个空文件夹之后，打开cmd命令窗口，输入</li>
+</ul>
+<div class="note danger no-icon flat"><p>“”中的路径是你创建文件夹的路径，记住更改</p>
+</div>
+
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">npm config set prefix "D:\Develop\nodejs\node_global"</span><br><span class="line">npm config set cache "D:\Develop\nodejs\node_cache"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这样此后所安装的模块都会安装到改路径下。</p>
+<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><ul>
+<li><p>1.node_path环境变量:</p>
+<p>打开系统属性-高级-环境变量，在系统变量中新建</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>变量值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NODE_PATH</td>
+<td>D:\Develop\nodejs\node_global\node_modules（路径自己更改）</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>2.编辑用户变量中 <code>path</code></p>
+<p>将默认的 <code>C</code> 盘下 <code>APPData/Roaming\npm</code> 修改为 <code>D:\Develop\nodejs\node_global</code></p>
+</li>
+<li><p>3.使用淘宝NPM镜像</p>
+</li>
+</ul>
+<div class="note info no-icon flat"><p>由于国内网络环境限制问题，使用 <code>npm</code> 安装包时，会遇到时间长，甚至安装失败的问题，建议使用淘宝镜像，具体方法参见<a href="https://npm.taobao.org/">官网</a></p>
+</div>
+
+<p>可使用官方推荐的 <em>cnpm</em> 命令行工具代替默认的 <code>npm</code>:</p>
+<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
+<div class="note danger no-icon flat"><p>注意：有时使用 cnpm 安装的路径可能回存在问题，例如在使用react-native开发应用时会出现问题。此时可以使用nrm切换淘宝源：</p>
+</div>
+
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">npx nrm use taobao</span><br><span class="line">  </span><br><span class="line">// 以下方式切换回官方源</span><br><span class="line">npx nrm use npm</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><p>4.测试</p>
+<p>最后安装个module测试下，我们就安装最常用的express模块，打开cmd窗口，<br>输入如下命令进行模块的全局安装：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">npm install express -g     <span class="comment"># -g是全局安装的意思</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>​  查看安装路径是否有文件。</p>
+<img src="\img\md\node安装配置\测试.png" alt="I accept the" style="zoom: 67%;">
 
 ]]></content>
       <categories>
-        <category>项目</category>
-        <category>Vue后台管理</category>
+        <category>前端</category>
+        <category>nodeJs</category>
       </categories>
       <tags>
-        <tag>项目</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Node&amp;Express搭建的博客</title>
-    <url>/2021/06/03/node%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<div class="note primary no-icon flat"><p>开发技术：Node   ejs   express   express-session   mysql</p>
-</div>
-
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h3 id="创建五个文件夹"><a href="#创建五个文件夹" class="headerlink" title="创建五个文件夹"></a>创建五个文件夹</h3><p>static(静态资源)  views(模板)    router(路由)   model(查询数据库)   middleware(处理数据)</p>
-<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>=&gt; <mark class="hl-label red">model</mark> 导出一个向数据库查询的类<br>=&gt; <mark class="hl-label red">middleware</mark> 引用model类里的方法进行数据处理<br>=&gt; <mark class="hl-label red">router</mark> 对数据进行渲染到指定页面<br>=&gt; <mark class="hl-label red">views</mark> 通过ejs模板引入数据</p>
-<hr>
-
-<h2 id="package-json配置"><a href="#package-json配置" class="headerlink" title="package.json配置"></a>package.json配置</h2><figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line"><span class="string">"dependencies"</span>: {</span><br><span class="line">    <span class="attr">"cookie-session"</span>: <span class="string">"^1.4.0"</span>,<span class="comment">//验证后台登录是否失效</span></span><br><span class="line">    <span class="attr">"ejs"</span>: <span class="string">"^3.0.1"</span>,<span class="comment">//渲染引擎</span></span><br><span class="line">    <span class="attr">"express"</span>: <span class="string">"^4.17.1"</span>,<span class="comment">//node.js Web应用框架</span></span><br><span class="line">    <span class="attr">"multer"</span>: <span class="string">"^1.4.2"</span>,<span class="comment">//express官方推荐的文件上传中间件</span></span><br><span class="line">    <span class="attr">"mysql"</span>: <span class="string">"^2.18.1"</span><span class="comment">//数据库</span></span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="index-js主入口"><a href="#index-js主入口" class="headerlink" title="index.js主入口"></a>index.js主入口</h2><h3 id="应用初始化"><a href="#应用初始化" class="headerlink" title="应用初始化"></a>应用初始化</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//引用express</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="comment">//创建主应用</span></span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line"><span class="comment">//监听端口号</span></span><br><span class="line">app.listen(<span class="number">3000</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="用ejs去渲染"><a href="#用ejs去渲染" class="headerlink" title="用ejs去渲染"></a>用ejs去渲染</h3><p>更改ejs模板后缀.ejs为.html</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//模板引擎的设置</span></span><br><span class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'html'</span>)</span><br><span class="line">app.set(<span class="string">'views'</span>, <span class="string">`<span class="subst">${__dirname}</span>/views`</span>)</span><br><span class="line">app.engine(<span class="string">'html'</span>, <span class="built_in">require</span>(<span class="string">'ejs'</span>).renderFile)</span><br></pre></td></tr></tbody></table></figure>
-
-<div class="note warning no-icon flat"><p>注意：在路由里，可以省去 index.html的后缀，直接写index即可，但是在 视图里 include的时候，还是需要写上.html的后缀，否则报错</p>
-</div>
-
-<h3 id="引用静态资源"><a href="#引用静态资源" class="headerlink" title="引用静态资源"></a>引用静态资源</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//静态资源配置</span></span><br><span class="line">app.use(express.static(<span class="string">'static'</span>))</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="POST请求处理"><a href="#POST请求处理" class="headerlink" title="POST请求处理"></a>POST请求处理</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line">app.use(express.urlencoded({</span><br><span class="line">    </span><br><span class="line"><span class="comment">// extended: false 方法内部使用querystring模块处理请求参数</span></span><br><span class="line"><span class="comment">// extended: true 方法内部使用第三方模块处理请求参数</span></span><br><span class="line">    <span class="attr">extended</span>: <span class="literal">true</span></span><br><span class="line">}))</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="前台路由设置"><a href="#前台路由设置" class="headerlink" title="前台路由设置"></a>前台路由设置</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//调用首页子应用</span></span><br><span class="line">app.use(<span class="regexp">/\/(index)?/</span>, <span class="built_in">require</span>(<span class="string">'./router/index'</span>))</span><br><span class="line"><span class="comment">//调用文章子应用</span></span><br><span class="line">app.use(<span class="string">'/article'</span>, <span class="built_in">require</span>(<span class="string">'./router/article'</span>))</span><br><span class="line"><span class="comment">//调用搜索子应用</span></span><br><span class="line">app.use(<span class="string">'/search'</span>, <span class="built_in">require</span>(<span class="string">'./router/search'</span>))</span><br><span class="line"><span class="comment">//调用登录子应用</span></span><br><span class="line">app.use(<span class="string">'/login'</span>, <span class="built_in">require</span>(<span class="string">'./router/login'</span>))</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="后台验证"><a href="#后台验证" class="headerlink" title="后台验证"></a>后台验证</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//进入后台的权限验证</span></span><br><span class="line">app.use(<span class="string">'/admin/?*'</span>, <span class="built_in">require</span>(<span class="string">'./middleware/auth'</span>).allowToAdmin)</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="后台路由设置"><a href="#后台路由设置" class="headerlink" title="后台路由设置"></a>后台路由设置</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//调用后台首页</span></span><br><span class="line">app.use(<span class="regexp">/\/admin\/(index)?/</span>, <span class="built_in">require</span>(<span class="string">'./router/admin/index'</span>))</span><br><span class="line"><span class="comment">//调用后台文章管理</span></span><br><span class="line">app.use(<span class="string">'/admin/article'</span>, <span class="built_in">require</span>(<span class="string">'./router/admin/article'</span>))</span><br><span class="line"><span class="comment">//调用后台类目管理</span></span><br><span class="line">app.use(<span class="string">'/admin/category'</span>, <span class="built_in">require</span>(<span class="string">'./router/admin/category'</span>))</span><br><span class="line"><span class="comment">//调用后台日志管理</span></span><br><span class="line">app.use(<span class="string">'/admin/log'</span>, <span class="built_in">require</span>(<span class="string">'./router/admin/log'</span>))</span><br><span class="line"><span class="comment">//调用后台账户管理</span></span><br><span class="line">app.use(<span class="string">'/admin/account'</span>, <span class="built_in">require</span>(<span class="string">'./router/admin/account'</span>))</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="用户退出操作"><a href="#用户退出操作" class="headerlink" title="用户退出操作"></a>用户退出操作</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//退出</span></span><br><span class="line">app.get(<span class="string">'/user/logout'</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> {</span><br><span class="line">    req.session.user = <span class="literal">null</span></span><br><span class="line">    res.render(<span class="string">'login'</span>, {</span><br><span class="line">        <span class="attr">msg</span>: <span class="string">'退出成功'</span></span><br><span class="line">    })</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="引入其他模块"><a href="#引入其他模块" class="headerlink" title="引入其他模块"></a>引入其他模块</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> session = <span class="built_in">require</span>(<span class="string">'cookie-session'</span>)</span><br><span class="line"><span class="keyword">const</span> multer = <span class="built_in">require</span>(<span class="string">'multer'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="multer"><a href="#multer" class="headerlink" title="multer"></a>multer</h4><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//上传配置</span></span><br><span class="line"><span class="keyword">const</span> upload = multer({</span><br><span class="line">    <span class="attr">dest</span>: <span class="string">'./static/upload'</span>, <span class="comment">//上传文件的存储目录</span></span><br><span class="line">    <span class="attr">limits</span>: {</span><br><span class="line">        <span class="attr">fileSize</span>: <span class="number">1024</span> * <span class="number">1024</span> * <span class="number">2</span> <span class="comment">//单个文件大小限制在2mb以内</span></span><br><span class="line">    }</span><br><span class="line">})</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="session"><a href="#session" class="headerlink" title="session"></a>session</h4><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//SESSION配置</span></span><br><span class="line">app.use(session({</span><br><span class="line">    <span class="attr">keys</span>: [<span class="string">'secret'</span>],</span><br><span class="line">    <span class="attr">maxAge</span>: <span class="number">1000</span> * <span class="number">60</span> * <span class="number">30</span> <span class="comment">//生命周期</span></span><br><span class="line">}))</span><br><span class="line"></span><br><span class="line"><span class="comment">//SESSION延期</span></span><br><span class="line">app.use(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> {</span><br><span class="line">    req.session.nowInMinutes = <span class="built_in">Math</span>.floor(<span class="built_in">Date</span>.now() / <span class="number">60e3</span>)</span><br><span class="line">    next()</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="path-fs"><a href="#path-fs" class="headerlink" title="path+fs"></a>path+fs</h4><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//上传操作</span></span><br><span class="line">app.post(<span class="string">'/admin/*'</span>, upload.single(<span class="string">'upload'</span>), <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> {</span><br><span class="line">    <span class="comment">//上传成功后的文件对象</span></span><br><span class="line">    <span class="keyword">let</span> {</span><br><span class="line">        file</span><br><span class="line">    } = req</span><br><span class="line">    <span class="keyword">if</span> (file) {</span><br><span class="line">        <span class="comment">//file.originalname==&gt;文件的原名称</span></span><br><span class="line">        <span class="keyword">let</span> extname = path.extname(file.originalname)</span><br><span class="line">        <span class="comment">//file.path==&gt;上传后的文件路径</span></span><br><span class="line">        fs.renameSync(file.path, file.path + extname)</span><br><span class="line">        <span class="comment">//file.filename==&gt;上传后的文件名</span></span><br><span class="line">        req.uploadUrl = <span class="string">'/upload/'</span> + file.filename + extname</span><br><span class="line">    }</span><br><span class="line">    next()</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h2 id="index-html模板"><a href="#index-html模板" class="headerlink" title="index.html模板"></a>index.html模板</h2><h3 id="用ejs模板导入公共部分"><a href="#用ejs模板导入公共部分" class="headerlink" title="用ejs模板导入公共部分"></a>用ejs模板导入公共部分</h3><p><code>&lt;%- include('header.html') -%&gt;</code></p>
-<p><code>&lt;%- include('footer.html') -%&gt;</code></p>
-<h3 id="通过ejs语法获取数据，"><a href="#通过ejs语法获取数据，" class="headerlink" title="通过ejs语法获取数据，"></a>通过ejs语法获取数据，</h3><p><code>&lt;%= 变量名 %&gt;</code>：转义输出</p>
-<p><code>&lt;%- 变量名%&gt;</code>：不转义输出</p>
-<p><code>&lt;% Javascript代码 %&gt;</code>：JavaScript代码，for,if等</p>
-<p><code>&lt;% include 文件的地址 %&gt;</code>：引入外部的文件</p>
-<h2 id="index-js路由"><a href="#index-js路由" class="headerlink" title="index.js路由"></a>index.js路由</h2><h3 id="引入需要的模块"><a href="#引入需要的模块" class="headerlink" title="引入需要的模块"></a>引入需要的模块</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>)</span><br><span class="line"><span class="keyword">const</span> article = <span class="built_in">require</span>(<span class="string">'../middleware/article'</span>)</span><br><span class="line"><span class="keyword">const</span> category = <span class="built_in">require</span>(<span class="string">'../middleware/category'</span>)</span><br><span class="line"><span class="keyword">const</span> auth = <span class="built_in">require</span>(<span class="string">'../middleware/auth'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="创建首页子应用"><a href="#创建首页子应用" class="headerlink" title="创建首页子应用"></a>创建首页子应用</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> indexApp = express()</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="获取数据，渲染页面"><a href="#获取数据，渲染页面" class="headerlink" title="获取数据，渲染页面"></a>获取数据，渲染页面</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//加载首页页面</span></span><br><span class="line">indexApp.get(<span class="string">'/'</span>, [article.getHot, article.getList, category.getList], <span class="function">(<span class="params">req, res</span>) =&gt;</span> {</span><br><span class="line">    <span class="keyword">let</span> {</span><br><span class="line">        hots,</span><br><span class="line">        articles,</span><br><span class="line">        categories,</span><br><span class="line">        user</span><br><span class="line">    } = req</span><br><span class="line">    <span class="comment">//渲染index模板</span></span><br><span class="line">    res.render(<span class="string">'index'</span>, {</span><br><span class="line">        <span class="attr">hots</span>: hots,</span><br><span class="line">        <span class="attr">articles</span>: articles,</span><br><span class="line">        <span class="attr">categories</span>: categories,</span><br><span class="line">        <span class="attr">user</span>: user</span><br><span class="line">    })</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="model文件"><a href="#model文件" class="headerlink" title="model文件"></a>model文件</h2><h3 id="model-js"><a href="#model-js" class="headerlink" title="model.js"></a>model.js</h3><p>sql语句查询是异步操作，我们要把他同步化</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数据模型的基类</span></span><br><span class="line"><span class="comment"> * 封装了数据库操作</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="title">Model</span> </span>{</span><br><span class="line">    <span class="comment">//连接对象</span></span><br><span class="line">    <span class="keyword">static</span> conn = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数据库连接方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="title">connection</span>(<span class="params"></span>)</span> {</span><br><span class="line">        Model.conn = mysql.createConnection({</span><br><span class="line">            <span class="attr">host</span>: <span class="string">'8.140.25.21'</span>,</span><br><span class="line">            <span class="attr">user</span>: <span class="string">'admin'</span>,</span><br><span class="line">            <span class="attr">password</span>: <span class="string">'wang123456'</span>,</span><br><span class="line">            <span class="attr">database</span>: <span class="string">'blog'</span></span><br><span class="line">        })</span><br><span class="line">        Model.conn.connect(<span class="function"><span class="params">err</span> =&gt;</span> {</span><br><span class="line">            <span class="keyword">if</span> (err) {</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">`数据库连接失败：<span class="subst">${err.message}</span>`</span>);</span><br><span class="line">            }</span><br><span class="line">        })</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 关闭数据库连接</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="title">end</span>(<span class="params"></span>)</span> {</span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">null</span> != Model.conn) {</span><br><span class="line">            Model.conn.end()</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通用查询方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param <span class="type">{string}</span> </span>sql 要执行的sql语句</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param <span class="type">{Array}</span> </span>params 给sql语句的占位符进行赋值的参数数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@returns </span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="title">query</span>(<span class="params">sql, params = []</span>)</span> {</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line">            <span class="built_in">this</span>.connection()</span><br><span class="line"></span><br><span class="line">            Model.conn.query(sql, params, <span class="function">(<span class="params">err, results</span>) =&gt;</span> {</span><br><span class="line">                <span class="keyword">if</span> (err) {</span><br><span class="line">                    reject(err)</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    resolve(results)</span><br><span class="line">                }</span><br><span class="line">            })</span><br><span class="line"></span><br><span class="line">            <span class="built_in">this</span>.end()</span><br><span class="line">        })</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="article-js"><a href="#article-js" class="headerlink" title="article.js"></a>article.js</h3><h4 id="继承model类并导出Article类"><a href="#继承model类并导出Article类" class="headerlink" title="继承model类并导出Article类"></a>继承model类并导出Article类</h4><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//继承model基类</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="title">Article</span> <span class="keyword">extends</span> <span class="title">require</span>('./<span class="title">model</span>')</span>{}</span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="封装数据查询方法"><a href="#封装数据查询方法" class="headerlink" title="封装数据查询方法"></a>封装数据查询方法</h4><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 获取热门推荐文章</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param <span class="type">{integer}</span> </span>num 条目数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">static</span> <span class="function"><span class="title">getHot</span>(<span class="params">num</span>)</span> {</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line">           <span class="keyword">let</span> sql = <span class="string">'SELECT id,title,content,`time`,thumbnail FROM article WHERE hot = 1 LIMIT ?'</span></span><br><span class="line">           <span class="built_in">this</span>.query(sql, num).then(<span class="function"><span class="params">results</span> =&gt;</span> {</span><br><span class="line">               resolve(results)</span><br><span class="line">           }).catch(<span class="function"><span class="params">err</span> =&gt;</span> {</span><br><span class="line">               <span class="built_in">console</span>.log(<span class="string">`获取热门推荐文章失败：<span class="subst">${err.message}</span>`</span>);</span><br><span class="line">               reject(err)</span><br><span class="line">           })</span><br><span class="line">       })</span><br><span class="line">   }</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="article-js中间件"><a href="#article-js中间件" class="headerlink" title="article.js中间件"></a>article.js中间件</h2><h3 id="引用模块"><a href="#引用模块" class="headerlink" title="引用模块"></a>引用模块</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Article = <span class="built_in">require</span>(<span class="string">'../model/article'</span>)</span><br><span class="line"><span class="keyword">const</span> Tab = <span class="built_in">require</span>(<span class="string">'../model/tab'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="导出处理数据方法"><a href="#导出处理数据方法" class="headerlink" title="导出处理数据方法"></a>导出处理数据方法</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * 文章中间件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取热门文章</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="attr">getHot</span>: <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> {</span><br><span class="line">        Article.getHot(<span class="number">3</span>).then(<span class="function"><span class="params">results</span> =&gt;</span> {</span><br><span class="line">            req.hots = results</span><br><span class="line">            <span class="comment">//next() ，功能就是 运行下一个函数（组件）</span></span><br><span class="line">            next()</span><br><span class="line">        }).catch(<span class="function"><span class="params">err</span> =&gt;</span> {</span><br><span class="line">            next(err)</span><br><span class="line">        })</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-]]></content>
-      <categories>
-        <category>项目</category>
-        <category>Node博客</category>
-      </categories>
-      <tags>
-        <tag>项目</tag>
+        <tag>node</tag>
+        <tag>软件安装</tag>
       </tags>
   </entry>
   <entry>
@@ -1034,6 +960,80 @@
       </tags>
   </entry>
   <entry>
+    <title>Node&amp;Express搭建的博客</title>
+    <url>/2021/06/03/node%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<div class="note primary no-icon flat"><p>开发技术：Node   ejs   express   express-session   mysql</p>
+</div>
+
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h3 id="创建五个文件夹"><a href="#创建五个文件夹" class="headerlink" title="创建五个文件夹"></a>创建五个文件夹</h3><p>static(静态资源)  views(模板)    router(路由)   model(查询数据库)   middleware(处理数据)</p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>=&gt; <mark class="hl-label red">model</mark> 导出一个向数据库查询的类<br>=&gt; <mark class="hl-label red">middleware</mark> 引用model类里的方法进行数据处理<br>=&gt; <mark class="hl-label red">router</mark> 对数据进行渲染到指定页面<br>=&gt; <mark class="hl-label red">views</mark> 通过ejs模板引入数据</p>
+<hr>
+
+<h2 id="package-json配置"><a href="#package-json配置" class="headerlink" title="package.json配置"></a>package.json配置</h2><figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line"><span class="string">"dependencies"</span>: {</span><br><span class="line">    <span class="attr">"cookie-session"</span>: <span class="string">"^1.4.0"</span>,<span class="comment">//验证后台登录是否失效</span></span><br><span class="line">    <span class="attr">"ejs"</span>: <span class="string">"^3.0.1"</span>,<span class="comment">//渲染引擎</span></span><br><span class="line">    <span class="attr">"express"</span>: <span class="string">"^4.17.1"</span>,<span class="comment">//node.js Web应用框架</span></span><br><span class="line">    <span class="attr">"multer"</span>: <span class="string">"^1.4.2"</span>,<span class="comment">//express官方推荐的文件上传中间件</span></span><br><span class="line">    <span class="attr">"mysql"</span>: <span class="string">"^2.18.1"</span><span class="comment">//数据库</span></span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="index-js主入口"><a href="#index-js主入口" class="headerlink" title="index.js主入口"></a>index.js主入口</h2><h3 id="应用初始化"><a href="#应用初始化" class="headerlink" title="应用初始化"></a>应用初始化</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//引用express</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"><span class="comment">//创建主应用</span></span><br><span class="line"><span class="keyword">const</span> app = express()</span><br><span class="line"><span class="comment">//监听端口号</span></span><br><span class="line">app.listen(<span class="number">3000</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="用ejs去渲染"><a href="#用ejs去渲染" class="headerlink" title="用ejs去渲染"></a>用ejs去渲染</h3><p>更改ejs模板后缀.ejs为.html</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//模板引擎的设置</span></span><br><span class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'html'</span>)</span><br><span class="line">app.set(<span class="string">'views'</span>, <span class="string">`<span class="subst">${__dirname}</span>/views`</span>)</span><br><span class="line">app.engine(<span class="string">'html'</span>, <span class="built_in">require</span>(<span class="string">'ejs'</span>).renderFile)</span><br></pre></td></tr></tbody></table></figure>
+
+<div class="note warning no-icon flat"><p>注意：在路由里，可以省去 index.html的后缀，直接写index即可，但是在 视图里 include的时候，还是需要写上.html的后缀，否则报错</p>
+</div>
+
+<h3 id="引用静态资源"><a href="#引用静态资源" class="headerlink" title="引用静态资源"></a>引用静态资源</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//静态资源配置</span></span><br><span class="line">app.use(express.static(<span class="string">'static'</span>))</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="POST请求处理"><a href="#POST请求处理" class="headerlink" title="POST请求处理"></a>POST请求处理</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line">app.use(express.urlencoded({</span><br><span class="line">    </span><br><span class="line"><span class="comment">// extended: false 方法内部使用querystring模块处理请求参数</span></span><br><span class="line"><span class="comment">// extended: true 方法内部使用第三方模块处理请求参数</span></span><br><span class="line">    <span class="attr">extended</span>: <span class="literal">true</span></span><br><span class="line">}))</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="前台路由设置"><a href="#前台路由设置" class="headerlink" title="前台路由设置"></a>前台路由设置</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//调用首页子应用</span></span><br><span class="line">app.use(<span class="regexp">/\/(index)?/</span>, <span class="built_in">require</span>(<span class="string">'./router/index'</span>))</span><br><span class="line"><span class="comment">//调用文章子应用</span></span><br><span class="line">app.use(<span class="string">'/article'</span>, <span class="built_in">require</span>(<span class="string">'./router/article'</span>))</span><br><span class="line"><span class="comment">//调用搜索子应用</span></span><br><span class="line">app.use(<span class="string">'/search'</span>, <span class="built_in">require</span>(<span class="string">'./router/search'</span>))</span><br><span class="line"><span class="comment">//调用登录子应用</span></span><br><span class="line">app.use(<span class="string">'/login'</span>, <span class="built_in">require</span>(<span class="string">'./router/login'</span>))</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="后台验证"><a href="#后台验证" class="headerlink" title="后台验证"></a>后台验证</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//进入后台的权限验证</span></span><br><span class="line">app.use(<span class="string">'/admin/?*'</span>, <span class="built_in">require</span>(<span class="string">'./middleware/auth'</span>).allowToAdmin)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="后台路由设置"><a href="#后台路由设置" class="headerlink" title="后台路由设置"></a>后台路由设置</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//调用后台首页</span></span><br><span class="line">app.use(<span class="regexp">/\/admin\/(index)?/</span>, <span class="built_in">require</span>(<span class="string">'./router/admin/index'</span>))</span><br><span class="line"><span class="comment">//调用后台文章管理</span></span><br><span class="line">app.use(<span class="string">'/admin/article'</span>, <span class="built_in">require</span>(<span class="string">'./router/admin/article'</span>))</span><br><span class="line"><span class="comment">//调用后台类目管理</span></span><br><span class="line">app.use(<span class="string">'/admin/category'</span>, <span class="built_in">require</span>(<span class="string">'./router/admin/category'</span>))</span><br><span class="line"><span class="comment">//调用后台日志管理</span></span><br><span class="line">app.use(<span class="string">'/admin/log'</span>, <span class="built_in">require</span>(<span class="string">'./router/admin/log'</span>))</span><br><span class="line"><span class="comment">//调用后台账户管理</span></span><br><span class="line">app.use(<span class="string">'/admin/account'</span>, <span class="built_in">require</span>(<span class="string">'./router/admin/account'</span>))</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="用户退出操作"><a href="#用户退出操作" class="headerlink" title="用户退出操作"></a>用户退出操作</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//退出</span></span><br><span class="line">app.get(<span class="string">'/user/logout'</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> {</span><br><span class="line">    req.session.user = <span class="literal">null</span></span><br><span class="line">    res.render(<span class="string">'login'</span>, {</span><br><span class="line">        <span class="attr">msg</span>: <span class="string">'退出成功'</span></span><br><span class="line">    })</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="引入其他模块"><a href="#引入其他模块" class="headerlink" title="引入其他模块"></a>引入其他模块</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> session = <span class="built_in">require</span>(<span class="string">'cookie-session'</span>)</span><br><span class="line"><span class="keyword">const</span> multer = <span class="built_in">require</span>(<span class="string">'multer'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="multer"><a href="#multer" class="headerlink" title="multer"></a>multer</h4><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//上传配置</span></span><br><span class="line"><span class="keyword">const</span> upload = multer({</span><br><span class="line">    <span class="attr">dest</span>: <span class="string">'./static/upload'</span>, <span class="comment">//上传文件的存储目录</span></span><br><span class="line">    <span class="attr">limits</span>: {</span><br><span class="line">        <span class="attr">fileSize</span>: <span class="number">1024</span> * <span class="number">1024</span> * <span class="number">2</span> <span class="comment">//单个文件大小限制在2mb以内</span></span><br><span class="line">    }</span><br><span class="line">})</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="session"><a href="#session" class="headerlink" title="session"></a>session</h4><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//SESSION配置</span></span><br><span class="line">app.use(session({</span><br><span class="line">    <span class="attr">keys</span>: [<span class="string">'secret'</span>],</span><br><span class="line">    <span class="attr">maxAge</span>: <span class="number">1000</span> * <span class="number">60</span> * <span class="number">30</span> <span class="comment">//生命周期</span></span><br><span class="line">}))</span><br><span class="line"></span><br><span class="line"><span class="comment">//SESSION延期</span></span><br><span class="line">app.use(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> {</span><br><span class="line">    req.session.nowInMinutes = <span class="built_in">Math</span>.floor(<span class="built_in">Date</span>.now() / <span class="number">60e3</span>)</span><br><span class="line">    next()</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="path-fs"><a href="#path-fs" class="headerlink" title="path+fs"></a>path+fs</h4><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//上传操作</span></span><br><span class="line">app.post(<span class="string">'/admin/*'</span>, upload.single(<span class="string">'upload'</span>), <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> {</span><br><span class="line">    <span class="comment">//上传成功后的文件对象</span></span><br><span class="line">    <span class="keyword">let</span> {</span><br><span class="line">        file</span><br><span class="line">    } = req</span><br><span class="line">    <span class="keyword">if</span> (file) {</span><br><span class="line">        <span class="comment">//file.originalname==&gt;文件的原名称</span></span><br><span class="line">        <span class="keyword">let</span> extname = path.extname(file.originalname)</span><br><span class="line">        <span class="comment">//file.path==&gt;上传后的文件路径</span></span><br><span class="line">        fs.renameSync(file.path, file.path + extname)</span><br><span class="line">        <span class="comment">//file.filename==&gt;上传后的文件名</span></span><br><span class="line">        req.uploadUrl = <span class="string">'/upload/'</span> + file.filename + extname</span><br><span class="line">    }</span><br><span class="line">    next()</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="index-html模板"><a href="#index-html模板" class="headerlink" title="index.html模板"></a>index.html模板</h2><h3 id="用ejs模板导入公共部分"><a href="#用ejs模板导入公共部分" class="headerlink" title="用ejs模板导入公共部分"></a>用ejs模板导入公共部分</h3><p><code>&lt;%- include('header.html') -%&gt;</code></p>
+<p><code>&lt;%- include('footer.html') -%&gt;</code></p>
+<h3 id="通过ejs语法获取数据，"><a href="#通过ejs语法获取数据，" class="headerlink" title="通过ejs语法获取数据，"></a>通过ejs语法获取数据，</h3><p><code>&lt;%= 变量名 %&gt;</code>：转义输出</p>
+<p><code>&lt;%- 变量名%&gt;</code>：不转义输出</p>
+<p><code>&lt;% Javascript代码 %&gt;</code>：JavaScript代码，for,if等</p>
+<p><code>&lt;% include 文件的地址 %&gt;</code>：引入外部的文件</p>
+<h2 id="index-js路由"><a href="#index-js路由" class="headerlink" title="index.js路由"></a>index.js路由</h2><h3 id="引入需要的模块"><a href="#引入需要的模块" class="headerlink" title="引入需要的模块"></a>引入需要的模块</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>)</span><br><span class="line"><span class="keyword">const</span> article = <span class="built_in">require</span>(<span class="string">'../middleware/article'</span>)</span><br><span class="line"><span class="keyword">const</span> category = <span class="built_in">require</span>(<span class="string">'../middleware/category'</span>)</span><br><span class="line"><span class="keyword">const</span> auth = <span class="built_in">require</span>(<span class="string">'../middleware/auth'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="创建首页子应用"><a href="#创建首页子应用" class="headerlink" title="创建首页子应用"></a>创建首页子应用</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> indexApp = express()</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="获取数据，渲染页面"><a href="#获取数据，渲染页面" class="headerlink" title="获取数据，渲染页面"></a>获取数据，渲染页面</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//加载首页页面</span></span><br><span class="line">indexApp.get(<span class="string">'/'</span>, [article.getHot, article.getList, category.getList], <span class="function">(<span class="params">req, res</span>) =&gt;</span> {</span><br><span class="line">    <span class="keyword">let</span> {</span><br><span class="line">        hots,</span><br><span class="line">        articles,</span><br><span class="line">        categories,</span><br><span class="line">        user</span><br><span class="line">    } = req</span><br><span class="line">    <span class="comment">//渲染index模板</span></span><br><span class="line">    res.render(<span class="string">'index'</span>, {</span><br><span class="line">        <span class="attr">hots</span>: hots,</span><br><span class="line">        <span class="attr">articles</span>: articles,</span><br><span class="line">        <span class="attr">categories</span>: categories,</span><br><span class="line">        <span class="attr">user</span>: user</span><br><span class="line">    })</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="model文件"><a href="#model文件" class="headerlink" title="model文件"></a>model文件</h2><h3 id="model-js"><a href="#model-js" class="headerlink" title="model.js"></a>model.js</h3><p>sql语句查询是异步操作，我们要把他同步化</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 数据模型的基类</span></span><br><span class="line"><span class="comment"> * 封装了数据库操作</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="title">Model</span> </span>{</span><br><span class="line">    <span class="comment">//连接对象</span></span><br><span class="line">    <span class="keyword">static</span> conn = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数据库连接方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="title">connection</span>(<span class="params"></span>)</span> {</span><br><span class="line">        Model.conn = mysql.createConnection({</span><br><span class="line">            <span class="attr">host</span>: <span class="string">'8.140.25.21'</span>,</span><br><span class="line">            <span class="attr">user</span>: <span class="string">'admin'</span>,</span><br><span class="line">            <span class="attr">password</span>: <span class="string">'wang123456'</span>,</span><br><span class="line">            <span class="attr">database</span>: <span class="string">'blog'</span></span><br><span class="line">        })</span><br><span class="line">        Model.conn.connect(<span class="function"><span class="params">err</span> =&gt;</span> {</span><br><span class="line">            <span class="keyword">if</span> (err) {</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">`数据库连接失败：<span class="subst">${err.message}</span>`</span>);</span><br><span class="line">            }</span><br><span class="line">        })</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 关闭数据库连接</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="title">end</span>(<span class="params"></span>)</span> {</span><br><span class="line">        <span class="keyword">if</span> (<span class="literal">null</span> != Model.conn) {</span><br><span class="line">            Model.conn.end()</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通用查询方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param <span class="type">{string}</span> </span>sql 要执行的sql语句</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param <span class="type">{Array}</span> </span>params 给sql语句的占位符进行赋值的参数数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@returns </span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="title">query</span>(<span class="params">sql, params = []</span>)</span> {</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line">            <span class="built_in">this</span>.connection()</span><br><span class="line"></span><br><span class="line">            Model.conn.query(sql, params, <span class="function">(<span class="params">err, results</span>) =&gt;</span> {</span><br><span class="line">                <span class="keyword">if</span> (err) {</span><br><span class="line">                    reject(err)</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    resolve(results)</span><br><span class="line">                }</span><br><span class="line">            })</span><br><span class="line"></span><br><span class="line">            <span class="built_in">this</span>.end()</span><br><span class="line">        })</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="article-js"><a href="#article-js" class="headerlink" title="article.js"></a>article.js</h3><h4 id="继承model类并导出Article类"><a href="#继承model类并导出Article类" class="headerlink" title="继承model类并导出Article类"></a>继承model类并导出Article类</h4><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//继承model基类</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="title">Article</span> <span class="keyword">extends</span> <span class="title">require</span>('./<span class="title">model</span>')</span>{}</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="封装数据查询方法"><a href="#封装数据查询方法" class="headerlink" title="封装数据查询方法"></a>封装数据查询方法</h4><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 获取热门推荐文章</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param <span class="type">{integer}</span> </span>num 条目数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="keyword">static</span> <span class="function"><span class="title">getHot</span>(<span class="params">num</span>)</span> {</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line">           <span class="keyword">let</span> sql = <span class="string">'SELECT id,title,content,`time`,thumbnail FROM article WHERE hot = 1 LIMIT ?'</span></span><br><span class="line">           <span class="built_in">this</span>.query(sql, num).then(<span class="function"><span class="params">results</span> =&gt;</span> {</span><br><span class="line">               resolve(results)</span><br><span class="line">           }).catch(<span class="function"><span class="params">err</span> =&gt;</span> {</span><br><span class="line">               <span class="built_in">console</span>.log(<span class="string">`获取热门推荐文章失败：<span class="subst">${err.message}</span>`</span>);</span><br><span class="line">               reject(err)</span><br><span class="line">           })</span><br><span class="line">       })</span><br><span class="line">   }</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="article-js中间件"><a href="#article-js中间件" class="headerlink" title="article.js中间件"></a>article.js中间件</h2><h3 id="引用模块"><a href="#引用模块" class="headerlink" title="引用模块"></a>引用模块</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Article = <span class="built_in">require</span>(<span class="string">'../model/article'</span>)</span><br><span class="line"><span class="keyword">const</span> Tab = <span class="built_in">require</span>(<span class="string">'../model/tab'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="导出处理数据方法"><a href="#导出处理数据方法" class="headerlink" title="导出处理数据方法"></a>导出处理数据方法</h3><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * 文章中间件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取热门文章</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="attr">getHot</span>: <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> {</span><br><span class="line">        Article.getHot(<span class="number">3</span>).then(<span class="function"><span class="params">results</span> =&gt;</span> {</span><br><span class="line">            req.hots = results</span><br><span class="line">            <span class="comment">//next() ，功能就是 运行下一个函数（组件）</span></span><br><span class="line">            next()</span><br><span class="line">        }).catch(<span class="function"><span class="params">err</span> =&gt;</span> {</span><br><span class="line">            next(err)</span><br><span class="line">        })</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+]]></content>
+      <categories>
+        <category>项目</category>
+        <category>Node博客</category>
+      </categories>
+      <tags>
+        <tag>项目</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Gulp搭建的小米静态网页</title>
     <url>/2021/06/02/%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</url>
     <content><![CDATA[<div class="note primary no-icon flat"><p>这个静态网页是在学习完JavaScript基础时，想去了解整个网页体系，然后去找资源尝试练习。</p>
@@ -1138,6 +1138,324 @@
       </categories>
       <tags>
         <tag>项目</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6语法</title>
+    <url>/2021/06/19/ES6/</url>
+    <content><![CDATA[<div class="note info flat"><p>本文大部分来源自微信公众号“扣丁学堂”，主要用来学习ES6，侵联删！！！</p>
+</div>
+
+<h1 id="一·-var、let和const"><a href="#一·-var、let和const" class="headerlink" title="一·.var、let和const"></a>一·.var、let和const</h1><p><code>var</code>是之前就有的了，在这里提出来主要是为了比较其和<code>let与const</code>。</p>
+<h2 id="1-块级作用域"><a href="#1-块级作用域" class="headerlink" title="1.块级作用域"></a>1.块级作用域</h2><p>在日常开发中多存在于使用<strong>if/for</strong>关键字结合let/const创建的块级作用域</p>
+<p><strong>值得注意的是使用let/const关键字声明变量的for循环和var声明的有些不同</strong></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) {</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> {</span><br><span class="line">    <span class="built_in">console</span>.log(i); <span class="comment">// 输出3个3</span></span><br><span class="line">  }, <span class="number">0</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解析：变量i是<code>var</code>声明的，在全局范围内是都有效，<strong>全局只有一个变量i</strong>。每次循环，变量的值会发生改变。循环内的i是指向全局的i。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) {</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> {</span><br><span class="line">    <span class="built_in">console</span>.log(i); <span class="comment">// 输出0, 1, 2</span></span><br><span class="line">  }, <span class="number">0</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>解析：变量i是<code>let</code>声明的，当前的i只在本轮循环有效，所以<strong>每次循环的i其实都是一个新变量</strong>。JavaScript引擎内部会记住上一轮的值，初始化本轮的变量i时，就在上一轮循环的基础上进行计算。</p>
+<h2 id="2-不存在变量提升"><a href="#2-不存在变量提升" class="headerlink" title="2.不存在变量提升"></a>2.不存在变量提升</h2><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">100</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>var</code>命令会发生<strong>变量提升</strong>现象，即变量可以在声明之前使用，值为<code>undefined</code>；而<code>let</code>纠正了这种行为，不能产生变量提升。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">100</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="3-暂时性死区"><a href="#3-暂时性死区" class="headerlink" title="3.暂时性死区"></a>3.暂时性死区</h2><p>只要块级作用域内，存在<code>let</code>命令，它所声明的变量就绑定在这个区域，不再受外部影响。</p>
+<p>如：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> temp = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>) {</span><br><span class="line">  temp = <span class="string">'abc'</span>; <span class="comment">// 引入错误</span></span><br><span class="line">  <span class="keyword">let</span> temp;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在上面中，if后面的大括号内容就形成了一个区域。而temp此时是找不到外层的，因为内部有个<code>temp</code>且你在内部<code>let temp</code>声明前赋值了。</p>
+<h2 id="4-不可重复声明"><a href="#4-不可重复声明" class="headerlink" title="4. 不可重复声明"></a>4. 不可重复声明</h2><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1000</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 1000</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1000</span>; <span class="comment">// 报重复声明错误</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="5-ES6声明的变量不会挂在顶层对象"><a href="#5-ES6声明的变量不会挂在顶层对象" class="headerlink" title="5. ES6声明的变量不会挂在顶层对象"></a>5. ES6声明的变量不会挂在顶层对象</h2><p>ES6变量的声明是指<code>let, const, import, class</code>声明。</p>
+<p> 而<code>var, function</code>声明是ES6之前的。</p>
+<p>所以说目前<code>JavaScript</code>有六种声明变量的方式</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> job = <span class="string">'teacher'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.job); <span class="comment">// teacher</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> job = <span class="string">'teacher'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.job); <span class="comment">// undefined</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="const注意点"><a href="#const注意点" class="headerlink" title="const注意点"></a>const注意点</h2><ul>
+<li><code>let</code>可以先声明稍后赋值；而<code>const</code>声明之后必须立马赋值，否则会报错</li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a;</span><br><span class="line">a = <span class="number">100</span>; <span class="comment">// this is ok</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> a; <span class="comment">// 报没初始化数据的错误</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><code>const</code>声明了简单的数据类型就不能更改了；声明了引用类型（数组，对象等），指针指向的地址不能更改，但是内部的数据可以更改的</li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">'this is a string'</span>;</span><br><span class="line">str = <span class="string">'this is another string'</span>; <span class="comment">// 报了个“给不变的变量分配值”的错误</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = {</span><br><span class="line">  <span class="attr">name</span>: <span class="string">'jia'</span></span><br><span class="line">}</span><br><span class="line">obj.name = <span class="string">'ming'</span>; <span class="comment">// this is ok</span></span><br><span class="line">obj = {}; <span class="comment">// 报了个“给不变的变量分配值”的错误</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="let和const的使用场景"><a href="#let和const的使用场景" class="headerlink" title="let和const的使用场景"></a><strong>let和const的使用场景</strong></h2><ol>
+<li><p><code>let</code>使用场景：变量，用以代替<code>var</code></p>
+</li>
+<li><p><code>const</code>使用场景：常量、声明匿名函数、箭头函数的时候。</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 常量</span></span><br><span class="line"><span class="keyword">const</span> PI = <span class="number">3.14</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匿名函数</span></span><br><span class="line"><span class="keyword">const</span> fn1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="comment">// do something</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数</span></span><br><span class="line"><span class="keyword">const</span> fn2 = <span class="function">() =&gt;</span> {</span><br><span class="line">  <span class="comment">// do something</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>建议</strong></p>
+<p>在日常开发中，我的建议是全面拥抱let/const，一般的变量声明使用let关键字，而当声明一些配置项（类似接口地址，npm依赖包，分页器默认页数等一些一旦声明后就不会改变的变量）的时候可以使用const，来显式的告诉项目其他开发者，这个变量是不能改变的(const声明的常量建议使用全大写字母标识,单词间用下划线)，同时也建议了解var关键字的缺陷（变量提升，污染全局变量等），这样才能更好的使用新语法</p>
+<h1 id="二-解构赋值"><a href="#二-解构赋值" class="headerlink" title="二.解构赋值"></a>二.解构赋值</h1><p>解构可以理解就是一个作用：简化你变量赋值的操作。</p>
+<h2 id="数组场景"><a href="#数组场景" class="headerlink" title="数组场景"></a>数组场景</h2><p><strong>数组解构的原理其实是消耗数组的迭代器，把生成对象的value属性的值赋值给对应的变量</strong></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [name, job] = [<span class="string">'jiaming'</span>, <span class="string">'teacher'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(name); <span class="comment">// jiaming</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>本质上，这种写法属于<strong>模式匹配</strong>，只要<strong>等号两边的模式相同（重点）</strong>，左边的变量就会被赋予对应的值。再比如：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [ , , third] = [<span class="string">"foo"</span>, <span class="string">"bar"</span>, <span class="string">"baz"</span>];</span><br><span class="line"><span class="built_in">console</span>.log(third); <span class="comment">// "baz"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [head, body, ...tail] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(tail); <span class="comment">// [3, 4, 5]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>也可以使用默认值。但是默认值生效的前提是：</p>
+<p><code>ES6内部使用严格相等运算符（===），判断一个位置是否有值。所以，只有当一个数组成员严格等于undefined，默认值才会生效。</code></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [x, y = <span class="string">'b'</span>] = [<span class="string">'a'</span>]; <span class="comment">// x='a', y='b'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [z = <span class="number">1</span>] = [<span class="literal">undefined</span>];</span><br><span class="line"><span class="built_in">console</span>.log(z); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [k = <span class="number">1</span>] = [<span class="literal">null</span>];</span><br><span class="line"><span class="built_in">console</span>.log(k); <span class="comment">// null</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="对象场景"><a href="#对象场景" class="headerlink" title="对象场景"></a>对象场景</h2><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> state = {</span><br><span class="line">  <span class="attr">name</span>: <span class="string">'jiaming'</span>,</span><br><span class="line">  <span class="attr">job</span>: <span class="string">'teacher'</span></span><br><span class="line">};</span><br><span class="line"><span class="keyword">let</span> {</span><br><span class="line">  name,</span><br><span class="line">  job</span><br><span class="line">} = state;</span><br><span class="line"><span class="comment">// 上面的场景很熟悉吧</span></span><br><span class="line"><span class="built_in">console</span>.log(job); <span class="comment">// teacher</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面的例子如果写具体的话，是这样的：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> state = {</span><br><span class="line">  <span class="attr">name</span>: <span class="string">'jiaming'</span>,</span><br><span class="line">  <span class="attr">job</span>: <span class="string">'teacher'</span></span><br><span class="line">};</span><br><span class="line"><span class="keyword">let</span> {</span><br><span class="line">  <span class="attr">name</span>: name, <span class="comment">// 第一个name是匹配模式，第二个name才是变量，两者同名简化成一个即可</span></span><br><span class="line">  <span class="attr">job</span>: job</span><br><span class="line">} = state;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>我们来改写下：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> state = {</span><br><span class="line">  <span class="attr">name</span>: <span class="string">'jiaming'</span>,</span><br><span class="line">  <span class="attr">job</span>: <span class="string">'teacher'</span></span><br><span class="line">};</span><br><span class="line"><span class="keyword">let</span> {</span><br><span class="line">  <span class="attr">name</span>: job,</span><br><span class="line">  <span class="attr">job</span>: name</span><br><span class="line">} = state;</span><br><span class="line"><span class="built_in">console</span>.log(job); <span class="comment">// jiaming</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>对象也可以使用默认值，但是前提是：<code>对象的属性值严格等于undefined</code>。</p>
+<p>如下：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> {x = <span class="number">3</span>} = {<span class="attr">x</span>: <span class="literal">undefined</span>};</span><br><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> {y = <span class="number">3</span>} = {<span class="attr">y</span>: <span class="literal">null</span>};</span><br><span class="line"><span class="built_in">console</span>.log(y); <span class="comment">// null</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="字符串场景"><a href="#字符串场景" class="headerlink" title="字符串场景"></a>字符串场景</h2><p>字符串之所以能够被解构赋值，是因为此时字符串被转换成了一个类似数组的对象。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> [a, b, ...arr] = <span class="string">'hello'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// ["l", "l", "o"]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> {<span class="attr">length</span>: len} = <span class="string">'hello'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(len); <span class="comment">// 5</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="数值和布尔值场景"><a href="#数值和布尔值场景" class="headerlink" title="数值和布尔值场景"></a>数值和布尔值场景</h2><p>解构赋值时，如果等号右边是数值和布尔值，则会先转换为对象（分别是基本包装类型Number和基本包装类型Boolean）。不过这种场景用得不多～</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> {<span class="attr">toString</span>: s} = <span class="number">123</span>;</span><br><span class="line"><span class="built_in">console</span>.log(s); <span class="comment">// function toString() { [native code] }</span></span><br><span class="line"><span class="built_in">console</span>.log(s === <span class="built_in">Number</span>.prototype.toString); <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> {<span class="attr">toString</span>: s} = <span class="number">123</span>;</span><br><span class="line"><span class="built_in">console</span>.log(s); <span class="comment">// function toString() { [native code] }</span></span><br><span class="line"><span class="built_in">console</span>.log(s === <span class="built_in">Number</span>.prototype.toString); <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>解构赋值的规则是，只要等号右边的值不是对象或数组，就先将其转为对象。<code>由于undefined和null无法转为对象，所以对它们进行解构赋值，都会报错</code></p>
+<h2 id="两种使用场景"><a href="#两种使用场景" class="headerlink" title="两种使用场景"></a>两种使用场景</h2><ol>
+<li>交换两变量值</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [a, b] = [<span class="string">'reng'</span>, <span class="string">'jia'</span>];</span><br><span class="line">[a, b] = [b, a];</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 'reng'</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ol start="2">
+<li>将字符串转换为数组</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [...arr] = <span class="string">'reng'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// ["r", "e", "n", "g"]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.splice(<span class="number">0</span>, <span class="number">2</span>)); <span class="comment">// ["r", "e"] 返回删除的数组（能使用数组的方法了）</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="三-扩展"><a href="#三-扩展" class="headerlink" title="三.扩展"></a>三.扩展</h1><h2 id="字符串扩展"><a href="#字符串扩展" class="headerlink" title="字符串扩展"></a>字符串扩展</h2><p>模版字符串解放了拼接字符串带来的繁琐操作的体力劳动。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">'jiaming'</span>;</span><br><span class="line"><span class="keyword">let</span> str = <span class="string">'Hello! My name is '</span>+ name + <span class="string">'. Nice to meet you!'</span>;</span><br><span class="line"><span class="keyword">let</span> strTemp = <span class="string">`Hello! My name is <span class="subst">${ name }</span>. Nice to meet you!`</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>对于新增的字符串方法，可以记下下面这几个：</p>
+<ul>
+<li>includes(): 返回布尔值，表示是否找到了参数字符串</li>
+<li>startWith(): 返回布尔值，表示参数字符串是否在原字符串的头部</li>
+<li>endWith(): 返回布尔值，表示参数字符串是否在原字符串的尾部</li>
+<li>trimStart(): 返回字符串，表示消除参数字符串开头的空格</li>
+<li>trimEnd(): 返回字符串，表示消除参数字符串结尾的空格</li>
+</ul>
+<h2 id="数值扩展"><a href="#数值扩展" class="headerlink" title="数值扩展"></a>数值扩展</h2><p>留意下在<code>Number</code>对象上提供的新方法：</p>
+<ul>
+<li>Number.isFinite(): 返回布尔值，表示参数值是否有限的</li>
+<li>Number.isNaN(): 返回布尔值，用来检查一个值是否为NaN</li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Number</span>.isNaN(<span class="literal">NaN</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Number</span>.isNaN(<span class="number">15</span>) <span class="comment">// false</span></span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>Number.isInteger(): 返回布尔值，用来判断一个数值是否为整数</li>
+</ul>
+<h2 id="函数扩展"><a href="#函数扩展" class="headerlink" title="函数扩展"></a>函数扩展</h2><h3 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h3><p>ES6引入rest参数（形式是<code>...变量名</code>），用于获取多余的参数，这样就不需要使用<code>arguments</code>对象了。rest参数搭配的<strong>变量是一个数组（arguments是一个类数组来的）</strong>，该变量将多余的参数放入数组中。</p>
+<div class="note warning flat"><p>arguments对象是一个类数组，还得通过<code>Array.prototype.slice.call(arguments)</code>将其转换为真数组；而rest参数直接就可以使用数组的方法了。</p>
+</div>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">...arr</span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(arr); <span class="comment">// [2, 5, 3]</span></span><br><span class="line">  <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> val <span class="keyword">of</span> arr) {</span><br><span class="line">    sum += val;</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span> sum;</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">2</span>, <span class="number">5</span>, <span class="number">3</span>)); <span class="comment">// 10</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><p>ES6允许使用“箭头”(<code>=&gt;</code>)定义函数。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> f = <span class="function"><span class="params">v</span> =&gt;</span> v; <span class="comment">// 注意是有返回值return的啊</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">const</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">v</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> v;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果箭头函数的代码块部分多于一条语句，就要使用大括号将它们括起来，并且使用<code>return</code>语句返回结果。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sum = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价于，使用了大括号，那箭头函数里面就要使用return了</span></span><br><span class="line"><span class="keyword">const</span> sum = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> { <span class="keyword">return</span> num1 + num2 }</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="keyword">const</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> num1 + num2</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>使用箭头函数注意点：</strong></p>
+<ol>
+<li>箭头函数没有自己this，它的this是词法的，引用的是上下文的this，即在你写这行代码的时候就箭头函数的this就已经和外层执行上下文的this绑定了(这里个人认为并不代表完全是静态的,因为外层的上下文仍是动态的可以使用call,apply,bind修改,这里只是说明了箭头函数的this始终等于它上层上下文中的this)。</li>
+<li>箭头函数没有prototype属性，没有constructor，即不能用作与构造函数（不能用new关键字调用），否则会抛出一个错误。</li>
+<li>不可以使用<code>arguments</code>对象，该对象在函数体内不存在的，如果要用，可以用rest参数代替。</li>
+<li>不可以使用<code>yield</code>命令，因此箭头函数不能用作Generator函数。</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'id:'</span>, <span class="built_in">this</span>.id); <span class="comment">// 寻找上下文中的id: 42</span></span><br><span class="line">  }, <span class="number">100</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> id = <span class="number">21</span>;</span><br><span class="line"></span><br><span class="line">foo.call({ <span class="attr">id</span>: <span class="number">42</span> });<span class="comment">//改变了上下文</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 错误使用箭头函数的例子</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> cat = {</span><br><span class="line">  <span class="attr">lives</span>: <span class="number">9</span>,</span><br><span class="line">  <span class="attr">jumps</span>: <span class="function">() =&gt;</span> { <span class="comment">// 箭头函数的错误使用，因为对象不构成单独的作用域</span></span><br><span class="line">    <span class="built_in">this</span>.lives--; <span class="comment">// this 指向window</span></span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.getElementById(<span class="string">'press'</span>); <span class="comment">// 一个节点对象</span></span><br><span class="line">button.addEventListener(<span class="string">'click'</span>, <span class="function">() =&gt;</span> { <span class="comment">// 箭头函数的this指向window</span></span><br><span class="line">   <span class="built_in">this</span>.classList.toggle(<span class="string">'on'</span>);</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数改成`function`匿名函数指向就正确了。</span></span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>箭头函数适合处理简单的计算，如果有复杂的函数体或读写操纵不建议使用，这样可以提高代码的可读性</p>
+</blockquote>
+<h2 id="数组扩展"><a href="#数组扩展" class="headerlink" title="数组扩展"></a>数组扩展</h2><h3 id="数组扩展运算符"><a href="#数组扩展运算符" class="headerlink" title="数组扩展运算符"></a>数组扩展运算符</h3><p>数组扩展运算符（spread）是三个点（<code>...</code>）。它好比<strong>rest参数的逆运算</strong>，将一个数组转为用空格分隔的参数序列。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(...[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]); <span class="comment">// 1 2 3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>, ...[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], <span class="number">5</span>); <span class="comment">// 1 2 3 4 5</span></span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>⚠️rest参数是运用在函数参数上的，将函数参数转换为数组的形式</p>
+</blockquote>
+<p>下面我们结合数组扩展运算符和rest参数来实现一个类似<code>call</code>的方法call2操作：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.call2 = <span class="function"><span class="keyword">function</span>(<span class="params">context, ...args</span>)</span>{ <span class="comment">// 这里使用到rest参数</span></span><br><span class="line">  context = context || <span class="built_in">window</span>; <span class="comment">// 因为传递过来的context有可能是null</span></span><br><span class="line">  context.fn = <span class="built_in">this</span>; <span class="comment">// 让fn的上下文为context</span></span><br><span class="line">  <span class="keyword">const</span> result = context.fn(...args); <span class="comment">// 这里使用了数组扩展运算符</span></span><br><span class="line">  <span class="keyword">delete</span> context.fn;</span><br><span class="line">  <span class="keyword">return</span> result; <span class="comment">// 因为有可能this函数会有返回值return</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> job = <span class="string">'outter teacher'</span>;</span><br><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">  <span class="attr">job</span>: <span class="string">'inner teacher'</span></span><br><span class="line">};</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showJob</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.job);</span><br><span class="line">}</span><br><span class="line">showJob(); <span class="comment">// outter teacher</span></span><br><span class="line">showJob.call2(obj); <span class="comment">// inner teacher</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h3><p><code>Array.from</code>方法用于将<code>两类对象</code>转为<strong>真正的数组</strong>：类似数组的对象（array-like object）和可遍历（iterable）的对象（对象包括ES6新增的数据结构Set和Map）。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 类数组转化成数组</span></span><br><span class="line"><span class="keyword">let</span> arrayLike = {</span><br><span class="line">  <span class="string">'0'</span>: <span class="string">'a'</span>,</span><br><span class="line">  <span class="string">'1'</span>: <span class="string">'b'</span>,</span><br><span class="line">  <span class="string">'2'</span>: <span class="string">'c'</span>,</span><br><span class="line">  <span class="attr">length</span>: <span class="number">3</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES5的写法</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [].slice.call(arrayLike); <span class="comment">// ['a', 'b', 'c']</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6的写法</span></span><br><span class="line"><span class="keyword">let</span> arr2 = <span class="built_in">Array</span>.from(arrayLike); <span class="comment">// ['a', 'b', 'c']</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of()"></a>Array.of()</h3><p><code>Array.of()</code>方法用于将一组值，转换为数组。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = <span class="built_in">Array</span>.of(<span class="number">2</span>, <span class="number">3</span>, <span class="string">'reng'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// [2, 3, 'reng']</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.pop()); <span class="comment">// reng</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>Array.of</code>基本上可以弥补<code>Array()或new Array()</code>带来的因为参数个数导致的不同行为。<code>Array.of</code>基本上可以替代它们两个了。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.of(); <span class="comment">// []</span></span><br><span class="line"><span class="built_in">Array</span>.of(<span class="string">'reng'</span>); <span class="comment">// ['reng']</span></span><br><span class="line"><span class="built_in">Array</span>.of(<span class="number">2</span>, <span class="string">'reng'</span>); <span class="comment">// [2, 'reng']</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>数组中还有其它有用的方法：</p>
+<ul>
+<li>copyWithin(target, start = 0, end = this.length): 拷贝指定数组的范围值</li>
+<li>find(fn): 用于查找第一个符合条件的数组成员，没有返回undefined</li>
+<li>findIndex(fn): 用于查找第一个符合条件的数组成员的位置，没有返回-1</li>
+<li>entries(): 对键值对的遍历</li>
+<li>keys(): 对键的遍历</li>
+<li>values(): 对值的遍历</li>
+<li>includes(el): 返回一个布尔值，表示某个数组是否包含给定的值，与字符串的<code>include(el)</code>方法相似</li>
+<li>flat(num): 将嵌套的数组拉平，num是遍历的深度</li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line">[<span class="number">1</span>, [<span class="number">2</span>, [<span class="number">3</span>]]].flat(<span class="literal">Infinity</span>);</span><br><span class="line"><span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>有这么一个需求</strong>：<code>将数组[[2, 8], [2], [[4, 6], 7, 6]]转成一维且元素不重复的数组。</code></p>
+<p>我们的实现方案如下</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line">[<span class="number">1</span>, [<span class="number">2</span>, [<span class="number">3</span>]]].flat(<span class="literal">Infinity</span>);</span><br><span class="line"><span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="对象扩展"><a href="#对象扩展" class="headerlink" title="对象扩展"></a>对象扩展</h2><h3 id="属性名表达式"><a href="#属性名表达式" class="headerlink" title="属性名表达式"></a>属性名表达式</h3><p>ES6允许字面量定义对象时，把表达式放在方括号内：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> lastWord = <span class="string">'last word'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = {</span><br><span class="line">  <span class="string">'first word'</span>: <span class="string">'hello'</span>,</span><br><span class="line">  [lastWord]: <span class="string">'world'</span>,</span><br><span class="line">  [<span class="string">'end'</span>+<span class="string">'symbol'</span>]: <span class="string">'!'</span> </span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">a[<span class="string">'first word'</span>] <span class="comment">// 'hello'</span></span><br><span class="line">a[lastWord] <span class="comment">// 'world'</span></span><br><span class="line">a[<span class="string">'last word'</span>] <span class="comment">// 'world'</span></span><br><span class="line">a[<span class="string">'endsymbol'</span>] <span class="comment">// '!'</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="对象的扩展运算符"><a href="#对象的扩展运算符" class="headerlink" title="对象的扩展运算符"></a>对象的扩展运算符</h3><p>上面整理数组扩展内容的时候，提到了数组的扩展运算符。<code>ES2018</code>将这个运算符引入了对象</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> z = { <span class="attr">a</span>: <span class="number">3</span>, <span class="attr">b</span>: <span class="number">4</span> };</span><br><span class="line"><span class="keyword">let</span> n = { ...z }; <span class="comment">// 关键点</span></span><br><span class="line">n <span class="comment">// { a: 3, b: 4 }</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="对象中某些新增的方法"><a href="#对象中某些新增的方法" class="headerlink" title="对象中某些新增的方法"></a>对象中某些新增的方法</h4><ul>
+<li>Object.is(arg1, arg2): 比较两个值是否严格相等，与<code>===</code>行为基本一致</li>
+<li>Object.assign(target, source1, …): 用于对象的合并，将源对象(source)的所有可枚举属性，复制到目标对象(target)。属于浅拷贝</li>
+<li>Object.keys(obj): 返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键名</li>
+<li>Object.values(obj): 方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值。</li>
+<li>Object.entries(obj): 方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值对数组。</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">const obj = { foo: 'bar', baz: 42 };</span><br><span class="line">Object.entries(obj)</span><br><span class="line">// [ ["foo", "bar"], ["baz", 42] ]</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="四-Set和Map数据结构"><a href="#四-Set和Map数据结构" class="headerlink" title="四.Set和Map数据结构"></a>四.Set和Map数据结构</h1><h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p><code>Set</code>翻译出来就是集合，有元素唯一性的特点。</p>
+<p>在数组去重的场景上很有用处</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 去除数组的重复成员</span></span><br><span class="line">[...new <span class="built_in">Set</span>(array)]</span><br><span class="line"><span class="comment">// 如</span></span><br><span class="line"><span class="built_in">console</span>.log([...new <span class="built_in">Set</span>([<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>])]); <span class="comment">// [2, 3]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>需要留意的<strong>Set属性和方法</strong>有以下：</p>
+<ul>
+<li>size: 返回实例成员的总数</li>
+<li>add(value): 添加某个值，返回Set结构本身</li>
+<li>delete(value): 删除某个值，返回一个布尔值，表示删除是否成功。</li>
+<li>has(value): 返回一个布尔值，表示该值是否为Set的成员</li>
+<li>clear(): 清除所有成员，没有返回值。</li>
+<li>key():返回键名的遍历器。</li>
+<li>values(): 返回键值的遍历器。</li>
+<li>entries(): 返回键值对的遍历器。</li>
+<li>forEach(): 使用回调函数遍历每个成员</li>
+</ul>
+<h2 id="WeakSet"><a href="#WeakSet" class="headerlink" title="WeakSet"></a>WeakSet</h2><p><code>WeakSet</code>结构与<code>Set</code>类似，也是有不重复元素的集合。但是它和Set有两个区别：</p>
+<ol>
+<li><code>WeakSet</code>对象中只能存放对象引用, 不能存放值, 而<code>Set</code>对象都可以.</li>
+<li><code>WeakSet</code>中对象中存储的对象值都是被弱引用的, 如果没有其他的变量或属性引用这个对象值, 则这个对象值会被当成垃圾回收掉. 正因为这样, WeakSet 对象是无法被枚举的, 没有办法拿到它包含的所有元素。</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> <span class="built_in">WeakSet</span>();</span><br><span class="line"><span class="keyword">var</span> obj = {};</span><br><span class="line"><span class="keyword">var</span> foo = {};</span><br><span class="line"></span><br><span class="line">ws.add(<span class="built_in">window</span>);</span><br><span class="line">ws.add(obj);</span><br><span class="line"></span><br><span class="line">ws.has(<span class="built_in">window</span>); <span class="comment">// true</span></span><br><span class="line">ws.has(foo);    <span class="comment">// false, 对象 foo 并没有被添加进 ws 中</span></span><br><span class="line"></span><br><span class="line">ws.delete(<span class="built_in">window</span>); <span class="comment">// 从集合中删除 window 对象</span></span><br><span class="line">ws.has(<span class="built_in">window</span>);    <span class="comment">// false, window 对象已经被删除了</span></span><br><span class="line"></span><br><span class="line">ws.clear(); <span class="comment">// 清空整个 WeakSet 对象</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>WeakSet 没有size属性，没有办法遍历它的成员</strong>。</p>
+<h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p><code>Map</code>对象保持键值对。任何值（对象或者原始值）都可以作为一个键或一个值。</p>
+<p><strong>Object和Map的比较：</strong></p>
+<ul>
+<li>一个<code>Object</code>的键只能是字符串或者<code>Symbols</code>，但一个<code>Map</code>的键可以是任意值，包括函数、对象、基本类型。</li>
+<li><code>Map</code>中的键值是有序的，而添加到对象中的键则不是。因此，当对它进行遍历时，<code>Map</code>对象是按插入的顺序返回键值。</li>
+<li><code>Map</code>在涉及频繁增删键值对的场景下会有些性能优势`。</li>
+<li>…</li>
+</ul>
+<p>如果你需要“键值对”的数据结构，<code>Map</code>比<code>Object</code>更合适。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>([ <span class="comment">// 数组转换为map</span></span><br><span class="line">  [<span class="string">'foo'</span>, <span class="number">1</span>],</span><br><span class="line">  [<span class="string">'bar'</span>, <span class="number">2</span>]</span><br><span class="line">]);</span><br><span class="line"><span class="keyword">const</span> m1 = <span class="keyword">new</span> <span class="built_in">Map</span>(set);</span><br><span class="line">m1.get(<span class="string">'foo'</span>) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> m2 = <span class="keyword">new</span> <span class="built_in">Map</span>([[<span class="string">'baz'</span>, <span class="number">3</span>]]);</span><br><span class="line"><span class="keyword">const</span> m3 = <span class="keyword">new</span> <span class="built_in">Map</span>(m2);</span><br><span class="line">m3.get(<span class="string">'baz'</span>) <span class="comment">// 3</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>Map拥有的属性和方法和Set相似，多出了些：</p>
+<ul>
+<li>set(key, value)：set方法设置键名key对应的键值为value，然后返回整个 Map 结构。如果key已经有值，则键值会被更新，否则就新生成该键。</li>
+<li>get(key)：get方法读取key对应的键值，如果找不到key，返回undefined</li>
+</ul>
+<h2 id="WeakMap"><a href="#WeakMap" class="headerlink" title="WeakMap"></a>WeakMap</h2><p><code>WeakMap</code>结构与<code>Map</code>结构类似，也是用于生成键值对的集合。但是有两点区别：</p>
+<ul>
+<li><code>WeakMap</code>只接受对象作为键名（null除外），不接受其他类型的值作为键名。</li>
+<li><code>WeakMap</code>的键名所指向的对象，不计入垃圾回收机制。和<code>WeakSet</code>相似啦。</li>
+</ul>
+<p>属性方法啥的跟<code>Map</code>差不多，就是没有了<code>size</code>和<code>forEach</code>，因为其是不可枚举的。</p>
+<h1 id="五-Promise对象"><a href="#五-Promise对象" class="headerlink" title="五.Promise对象"></a>五.Promise对象</h1><p><code>Promise</code>是异步编程的一种解决方案，比传统的解决方案“回调函数和事件”更合理和更强大。</p>
+<p><code>Promise</code>对象有以下两个特点：</p>
+<ol>
+<li>对象的状态不受外界影响。<code>Promise</code>对象代表一个异步操作，有三种状态：<code>pending</code>（进行中）、<code>fulfilled</code>（已成功）和<code>rejected</code>（已失败）。</li>
+<li>一旦状态改变，就不会再变，任何时候都可以得到这个结果。<code>Promise</code>对象的状态改变，只有两种情况：从<code>pending</code>变成<code>fulfilled（fulfilled也称resolved）</code>和从<code>pending</code>变成<code>rejected</code>。</li>
+</ol>
+<p><strong>用法</strong></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>{</span><br><span class="line">  <span class="comment">// ...some code</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(<span class="comment">/* 异步操作成功 */</span>) {</span><br><span class="line">    resolve(value);</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    reject(error);</span><br><span class="line">  }</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<p>参数<code>resolve</code>和<code>reject</code>是两个函数，由JavaScript引擎提供，不用自己部署。</p>
+<h2 id="then方法"><a href="#then方法" class="headerlink" title="then方法"></a>then方法</h2><p><code>Promise</code>实例生成之后，可以使用<code>then</code>方法分别指定<code>resolved</code>状态和<code>rejected</code>状态的回调函数。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>{</span><br><span class="line">  <span class="comment">// success</span></span><br><span class="line">}, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>{</span><br><span class="line">  <span class="comment">// failure</span></span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<p>我们来粘贴个简单例子：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timeout</span>(<span class="params">ms</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line">    <span class="built_in">setTimeout</span>(resolve, ms, <span class="string">'done'</span>);</span><br><span class="line">  });</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">timeout(<span class="number">100</span>).then(<span class="function">(<span class="params">value</span>) =&gt;</span> {</span><br><span class="line">  <span class="built_in">console</span>.log(value); <span class="comment">// 100ms后输出'done'</span></span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<p>嗯～我们顺道来复习下<code>setTimeout</code>的第四个参数。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> timeoutID = scope.setTimeout(<span class="function"><span class="keyword">function</span>[, <span class="title">delay</span>, <span class="title">param1</span>, <span class="title">param2</span>, ...])</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li><code>function</code> 是你想要在到期时间（<code>delay</code>毫秒）之后执行的函数。</li>
+<li><code>delay</code> 是可选语法，表示延迟的毫秒数。</li>
+<li><code>param1, ..., paramN</code> 是可选的附加参数，一旦定时器到期，它们会作为参数传递给<code>function</code></li>
+</ul>
+<p>那么，到这里你理解了上面的例子为什么在<code>100ms</code>后输出<code>done</code>了嘛</p>
+<p>简单的例子看完了，看下我们在工作中使用得比较多的请求接口的例子：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> getJSON = <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>{</span><br><span class="line">  <span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>{</span><br><span class="line">    <span class="keyword">const</span> handler = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">      <span class="keyword">if</span>(<span class="built_in">this</span>.readyState !== <span class="number">4</span>) {</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      }</span><br><span class="line">      <span class="keyword">if</span>(<span class="built_in">this</span>.status === <span class="number">200</span>) {</span><br><span class="line">        resolve(<span class="built_in">this</span>.response); <span class="comment">// this.response作为参数传给then中的json</span></span><br><span class="line">      } <span class="keyword">else</span> {</span><br><span class="line">        reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="built_in">this</span>.statusText));</span><br><span class="line">      }</span><br><span class="line">    };</span><br><span class="line">    <span class="keyword">const</span> client = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    client.open(<span class="string">'GET'</span>, url);</span><br><span class="line">    client.onreadystatechange = handler;</span><br><span class="line">    client.responseType = <span class="string">'json'</span>;</span><br><span class="line">    client.setRequestHeader(<span class="string">'Accept'</span>, <span class="string">'application.json'</span>);</span><br><span class="line">    client.send();</span><br><span class="line">  });</span><br><span class="line">  <span class="keyword">return</span> promise;</span><br><span class="line">};</span><br><span class="line">getJSON(<span class="string">'/post.json'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">json</span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Contents: '</span>+ json);</span><br><span class="line">}, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'error happen '</span>, error);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="catch方法"><a href="#catch方法" class="headerlink" title="catch方法"></a>catch方法</h2><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.prototype.catch方法是.then(<span class="literal">null</span>, rejection)或.then(<span class="literal">undefined</span>, rejection)的别名，用于指定发生错误时的回调函数。p.then(<span class="function">(<span class="params">val</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'fulfilled:'</span>, val))</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'rejected'</span>, err)); <span class="comment">// promise中任何一个抛出错误，都会被最后一个catch捕获</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">p.then(<span class="function">(<span class="params">val</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'fulfilled:'</span>, val))</span><br><span class="line">  .then(<span class="literal">null</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'rejected:'</span>, err));</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="finally方法"><a href="#finally方法" class="headerlink" title="finally方法"></a>finally方法</h2><figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.prototype.finally()方法（其不接受任何参数）用于指定不管<span class="built_in">Promise</span>对象最后状态如何，都会执行的操作。该方法是 ES2018 引入标准的。</span><br><span class="line">语法：promise</span><br><span class="line">  .then(<span class="function"><span class="params">result</span> =&gt;</span> {···})</span><br><span class="line">  .catch(<span class="function"><span class="params">error</span> =&gt;</span> {···})</span><br><span class="line">  .finally(<span class="function">() =&gt;</span> {···});</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all"></a>Promise.all</h2><p>构造函数方法<code>Promise.all</code>方法用于将多个<code>Promise</code>实例，包装成一个新的<code>Promise</code>实例。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="built_in">Promise</span>.all([p1, p2, p3]);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面代码中，<code>Promise.all</code>方法接受<strong>一个数组</strong>作为参数，<code>p1, p2, p3</code>都是<code>Promise</code>实例。如果不是会调用<code>Promise.resolve</code>方法。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 生成一个Promise对象的数组</span></span><br><span class="line"><span class="keyword">const</span> promises = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>].map(<span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> getJSON(<span class="string">'/post/'</span> + id + <span class="string">".json"</span>);</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.all(promises).then(<span class="function"><span class="keyword">function</span> (<span class="params">posts</span>) </span>{</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">}).catch(<span class="function"><span class="keyword">function</span>(<span class="params">reason</span>)</span>{</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面代码中，<code>promises</code>是包含 6 个 <code>Promise</code> 实例的数组，只有这<strong>6</strong>个实例的状态都变成<code>fulfilled</code>，或者其中有一个变为<code>rejected</code>，才会调用<code>Promise.all</code>方法后面的回调函数。</p>
+<p>⚠️注意，如果作为参数的<code>Promise</code>实例，自己定义了<code>catch</code>方法，那么它一旦被<code>rejected</code>，并不会触发<code>Promise.all()</code>的<code>catch</code>方法。所以使用<code>Promise.all()</code>别手痒在每个实例promise内添加错误捕获。</p>
+<h2 id="一道练手题"><a href="#一道练手题" class="headerlink" title="一道练手题"></a>一道练手题</h2><p>需求：使用promise改写下面的代码，使得输出的期望结果是每隔一秒输出<code>0, 1, 2, 3, 4, 5</code>，其中<code>i &lt; 5</code>条件不能变</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; <span class="number">5</span>; i++){</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    },<span class="number">1000</span>)</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>我们直接上使用promise改写的代码吧～</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> tasks = []; <span class="comment">// 存放promise对象</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++){</span><br><span class="line">  tasks.push(<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> {</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> {</span><br><span class="line">      <span class="built_in">console</span>.log(i);</span><br><span class="line">      resolve();</span><br><span class="line">    }, <span class="number">1000</span> * i);</span><br><span class="line">  }));</span><br><span class="line">}</span><br><span class="line"><span class="built_in">Promise</span>.all(tasks).then(<span class="function">() =&gt;</span> {</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> {</span><br><span class="line">    <span class="built_in">console</span>.log(tasks.length);</span><br><span class="line">  }, <span class="number">1000</span>);</span><br><span class="line">});</span><br><span class="line"><span class="comment">// 每隔一秒输出 0, 1, 2, 3, 4, 5</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="六-async函数"><a href="#六-async函数" class="headerlink" title="六.async函数"></a>六.async函数</h1><p>ES2017标准引入了<code>async</code>函数，使得异步操作更加方便。<code>async</code>函数是<code>Generator</code>函数的语法糖。。与<code>Generator</code>返回值（Iterator对象）不同，<code>async</code>返回的是一个<code>Promise</code>对象。</p>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p><code>async</code>函数<strong>返回一个Promise对象</strong>，可以使用<code>then</code>方法添加回调函数。当函数执行的时候，一旦遇到<code>await</code>就会先返回，<strong>等到异步操作完成，再接着执行函数体内后面的语句</strong>。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getStockPriceByName</span>(<span class="params">name</span>) </span>{</span><br><span class="line">  <span class="keyword">const</span> symbol = <span class="keyword">await</span> getStockSymbol(name);</span><br><span class="line">  <span class="keyword">const</span> stockPrice = <span class="keyword">await</span> getStockPrice(symbol);</span><br><span class="line">  <span class="keyword">return</span> stockPrice;</span><br><span class="line">}</span><br><span class="line">getStockPriceByName(<span class="string">'goog'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(result);</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
+
+<p>再来看几种情况加深下印象</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'fun1'</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'fun1 result'</span>;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">const</span> result1 = <span class="keyword">await</span> fun1();</span><br><span class="line">  <span class="built_in">console</span>.log(result1);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'end'</span>);</span><br><span class="line">}</span><br><span class="line">test();</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="comment">// 'fun1'</span></span><br><span class="line"><span class="comment">// 'fun1 result'</span></span><br><span class="line"><span class="comment">// 'end'</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>正常情况下，<code>await</code>命令后面是一个<code>Promise</code>对象，返回该对象的结果。如果不是<code>Promise</code>对象，就直接返回对应的值。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fun3</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'fun3'</span>);</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fun3 async'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'fun3 result'</span>;</span><br><span class="line">  }, <span class="number">1000</span>)</span><br><span class="line">}</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">const</span> result3 = <span class="keyword">await</span> fun3();</span><br><span class="line">  <span class="built_in">console</span>.log(result3);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'end'</span>);</span><br><span class="line">}</span><br><span class="line">test();</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="comment">// 'fun3'</span></span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// 'end'</span></span><br><span class="line"><span class="comment">// 'fun3 async'</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fun4</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'fun4'</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> {</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> {</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'fun4 async'</span>);</span><br><span class="line">      resolve(<span class="string">'fun4 result'</span>);</span><br><span class="line">    }, <span class="number">1000</span>);</span><br><span class="line">  })</span><br><span class="line">}</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(result4);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'fun4 sync'</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'end'</span>);</span><br><span class="line">}</span><br><span class="line">test();</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="comment">// 'fun4'</span></span><br><span class="line"><span class="comment">// 'fun4 async'</span></span><br><span class="line"><span class="comment">// 'fun4 result'</span></span><br><span class="line"><span class="comment">// 'fun4 sync'</span></span><br><span class="line"><span class="comment">// 'end'</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>前端</category>
+        <category>ES6</category>
+      </categories>
+      <tags>
+        <tag>ES6</tag>
       </tags>
   </entry>
   <entry>

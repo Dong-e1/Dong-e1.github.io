@@ -63,6 +63,25 @@
   </entry>
   
   <entry>
+    <title>Markdown基本语法</title>
+    <link href="http://www.dong-e.top/2021/05/21/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
+    <id>http://www.dong-e.top/2021/05/21/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</id>
+    <published>2021-05-21T05:30:20.000Z</published>
+    <updated>2021-05-26T13:39:43.520Z</updated>
+    
+    
+    <summary type="html">Markdown是一种纯文本格式的轻量级标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式</summary>
+    
+    
+    
+    <category term="markdown" scheme="http://www.dong-e.top/categories/markdown/"/>
+    
+    
+    <category term="markdown" scheme="http://www.dong-e.top/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Git基础用法</title>
     <link href="http://www.dong-e.top/2021/05/20/Git/"/>
     <id>http://www.dong-e.top/2021/05/20/Git/</id>
@@ -84,44 +103,23 @@
   </entry>
   
   <entry>
-    <title>NodeJs的安装配置</title>
-    <link href="http://www.dong-e.top/2021/05/21/NodeJs%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
-    <id>http://www.dong-e.top/2021/05/21/NodeJs%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</id>
-    <published>2021-05-21T02:30:20.000Z</published>
-    <updated>2021-05-26T13:49:24.583Z</updated>
+    <title>Vue电商后台管理</title>
+    <link href="http://www.dong-e.top/2021/06/04/Vue%E7%94%B5%E5%95%86%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/"/>
+    <id>http://www.dong-e.top/2021/06/04/Vue%E7%94%B5%E5%95%86%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/</id>
+    <published>2021-06-04T13:45:58.246Z</published>
+    <updated>2021-06-04T13:55:57.610Z</updated>
     
     
-    <summary type="html">关于node的安装配置</summary>
-    
-    
-    
-    <category term="前端" scheme="http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="nodeJs" scheme="http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/nodeJs/"/>
-    
-    
-    <category term="node" scheme="http://www.dong-e.top/tags/node/"/>
-    
-    <category term="软件安装" scheme="http://www.dong-e.top/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown基本语法</title>
-    <link href="http://www.dong-e.top/2021/05/21/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
-    <id>http://www.dong-e.top/2021/05/21/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</id>
-    <published>2021-05-21T05:30:20.000Z</published>
-    <updated>2021-05-26T13:39:43.520Z</updated>
-    
-    
-    <summary type="html">Markdown是一种纯文本格式的轻量级标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式</summary>
+    <summary type="html">使用Vue练习的项目</summary>
     
     
     
-    <category term="markdown" scheme="http://www.dong-e.top/categories/markdown/"/>
+    <category term="项目" scheme="http://www.dong-e.top/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    <category term="Vue后台管理" scheme="http://www.dong-e.top/categories/%E9%A1%B9%E7%9B%AE/Vue%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/"/>
     
     
-    <category term="markdown" scheme="http://www.dong-e.top/tags/markdown/"/>
+    <category term="项目" scheme="http://www.dong-e.top/tags/%E9%A1%B9%E7%9B%AE/"/>
     
   </entry>
   
@@ -151,44 +149,25 @@
   </entry>
   
   <entry>
-    <title>Vue电商后台管理</title>
-    <link href="http://www.dong-e.top/2021/06/04/Vue%E7%94%B5%E5%95%86%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/"/>
-    <id>http://www.dong-e.top/2021/06/04/Vue%E7%94%B5%E5%95%86%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/</id>
-    <published>2021-06-04T13:45:58.246Z</published>
-    <updated>2021-06-04T13:55:57.610Z</updated>
+    <title>NodeJs的安装配置</title>
+    <link href="http://www.dong-e.top/2021/05/21/NodeJs%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    <id>http://www.dong-e.top/2021/05/21/NodeJs%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</id>
+    <published>2021-05-21T02:30:20.000Z</published>
+    <updated>2021-05-26T13:49:24.583Z</updated>
     
     
-    <summary type="html">使用Vue练习的项目</summary>
-    
-    
-    
-    <category term="项目" scheme="http://www.dong-e.top/categories/%E9%A1%B9%E7%9B%AE/"/>
-    
-    <category term="Vue后台管理" scheme="http://www.dong-e.top/categories/%E9%A1%B9%E7%9B%AE/Vue%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86/"/>
-    
-    
-    <category term="项目" scheme="http://www.dong-e.top/tags/%E9%A1%B9%E7%9B%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Node&amp;Express搭建的博客</title>
-    <link href="http://www.dong-e.top/2021/06/03/node%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://www.dong-e.top/2021/06/03/node%E5%8D%9A%E5%AE%A2/</id>
-    <published>2021-06-03T12:24:40.837Z</published>
-    <updated>2021-06-04T02:12:49.480Z</updated>
-    
-    
-    <summary type="html">尝试一个完整的前后台流程</summary>
+    <summary type="html">关于node的安装配置</summary>
     
     
     
-    <category term="项目" scheme="http://www.dong-e.top/categories/%E9%A1%B9%E7%9B%AE/"/>
+    <category term="前端" scheme="http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="Node博客" scheme="http://www.dong-e.top/categories/%E9%A1%B9%E7%9B%AE/Node%E5%8D%9A%E5%AE%A2/"/>
+    <category term="nodeJs" scheme="http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/nodeJs/"/>
     
     
-    <category term="项目" scheme="http://www.dong-e.top/tags/%E9%A1%B9%E7%9B%AE/"/>
+    <category term="node" scheme="http://www.dong-e.top/tags/node/"/>
+    
+    <category term="软件安装" scheme="http://www.dong-e.top/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
@@ -216,6 +195,27 @@
   </entry>
   
   <entry>
+    <title>Node&amp;Express搭建的博客</title>
+    <link href="http://www.dong-e.top/2021/06/03/node%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://www.dong-e.top/2021/06/03/node%E5%8D%9A%E5%AE%A2/</id>
+    <published>2021-06-03T12:24:40.837Z</published>
+    <updated>2021-06-04T02:12:49.480Z</updated>
+    
+    
+    <summary type="html">尝试一个完整的前后台流程</summary>
+    
+    
+    
+    <category term="项目" scheme="http://www.dong-e.top/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    <category term="Node博客" scheme="http://www.dong-e.top/categories/%E9%A1%B9%E7%9B%AE/Node%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="项目" scheme="http://www.dong-e.top/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Gulp搭建的小米静态网页</title>
     <link href="http://www.dong-e.top/2021/06/02/%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/"/>
     <id>http://www.dong-e.top/2021/06/02/%E5%B0%8F%E7%B1%B3%E5%95%86%E5%9F%8E%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5/</id>
@@ -233,6 +233,27 @@
     
     
     <category term="项目" scheme="http://www.dong-e.top/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6语法</title>
+    <link href="http://www.dong-e.top/2021/06/19/ES6/"/>
+    <id>http://www.dong-e.top/2021/06/19/ES6/</id>
+    <published>2021-06-19T14:20:36.421Z</published>
+    <updated>2021-06-20T04:04:07.007Z</updated>
+    
+    
+    <summary type="html">学习了解ES6语法</summary>
+    
+    
+    
+    <category term="前端" scheme="http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="ES6" scheme="http://www.dong-e.top/categories/%E5%89%8D%E7%AB%AF/ES6/"/>
+    
+    
+    <category term="ES6" scheme="http://www.dong-e.top/tags/ES6/"/>
     
   </entry>
   
